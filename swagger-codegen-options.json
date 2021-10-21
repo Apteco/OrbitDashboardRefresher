@@ -1,0 +1,5 @@
+{
+  "targetFramework": "v3.1",
+  "packageName": "Apteco.OrbitDashboardRefresher.APIClient",
+  "netCoreProjectFile": "true"
+}

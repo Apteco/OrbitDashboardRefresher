@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>OrbitDashboardRefresher</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Apteco.OrbitDashboardRefresher.APIClient\Apteco.OrbitDashboardRefresher.APIClient.csproj" />
+  </ItemGroup>
+
+</Project>
