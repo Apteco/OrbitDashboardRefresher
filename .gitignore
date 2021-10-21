@@ -5,6 +5,8 @@
 *.csproj.user
 *.wixproj.user
 
+**/launchSettings.json
+
 # Ignore NuGet Packages
 *.nupkg
 
