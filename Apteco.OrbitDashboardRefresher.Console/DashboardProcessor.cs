@@ -57,10 +57,16 @@ namespace Apteco.OrbitDashboardRefresher.Console
         List<CalculateDashboardItemWithFilters> itemsToCalculate = new List<CalculateDashboardItemWithFilters>();
         foreach (var dashboarditem in dashboardDetails.DashboardItems)
         {
+          string resolveTable = GetResolveTableName(dashboarditem, tableMap, variableNameMap);
+          if (resolveTable == null)
+          {
+            continue;
+          }
+
           itemsToCalculate.Add(new CalculateDashboardItemWithFilters()
           {
             DashboardItemId = dashboarditem.Id,
-            ResolveTableName = GetResolveTableName(dashboarditem, tableMap, variableNameMap),
+            ResolveTableName = resolveTable,
             UserFilterDefinition = null,
             DrillDownLevel = 0,
             SortOrder = CalculateDashboardItemWithFilters.SortOrderEnum.Natural,
@@ -91,7 +97,11 @@ namespace Apteco.OrbitDashboardRefresher.Console
 
     private string GetResolveTableName(DashboardContentItem dashboarditem, Dictionary<string, Table> tableMap, Dictionary<string, string> variableNameMap)
     {
-      var dataSpecification = dashboarditem.DashboardItemDetails[0].DataSpecification;
+      var dataSpecification = dashboarditem?.DashboardItemDetails?.FirstOrDefault()?.DataSpecification;
+      if (dataSpecification == null)
+      {
+        return null;
+      }
 
       if (dataSpecification.CubeSpecification != null)
       {
@@ -109,9 +119,11 @@ namespace Apteco.OrbitDashboardRefresher.Console
       return null;
     }
 
-    private string GetVennResolveTableName(VennSpecification vennSpecification, Dictionary<string, Table> tableMap, Dictionary<string, string> variableNameMap)
+    private static string GetVennResolveTableName(VennSpecification vennSpecification, Dictionary<string, Table> tableMap, Dictionary<string, string> variableNameMap)
     {
       string resolveTableName = null;
+      if (vennSpecification.Measures == null)
+        return resolveTableName;
 
       foreach (Measure m in vennSpecification.Measures)
       {
@@ -129,28 +141,17 @@ namespace Apteco.OrbitDashboardRefresher.Console
           measureResolveTableName = m.Query.Selection?.TableName;
         }
 
-        if (measureResolveTableName != null)
-        {
-          if (resolveTableName != null)
-          {
-            if (TableUtilities.IsAncestor(tableMap, resolveTableName, measureResolveTableName))
-            {
-              resolveTableName = measureResolveTableName;
-            }
-          }
-          else
-          {
-            resolveTableName = measureResolveTableName;
-          }
-        }
+        resolveTableName = TableUtilities.GetLowestResolveTable(tableMap, resolveTableName, measureResolveTableName);
       };
 
       return resolveTableName;
     }
 
-    private string GetCubeResolveTableName(CubeSpecification cubeSpecification, Dictionary<string, Table> tableMap, Dictionary<string, string> variableNameMap)
+    private static string GetCubeResolveTableName(CubeSpecification cubeSpecification, Dictionary<string, Table> tableMap, Dictionary<string, string> variableNameMap)
     {
       string resolveTableName = null;
+      if (cubeSpecification.Dimensions == null)
+        return resolveTableName;
 
       foreach (Dimension d in cubeSpecification.Dimensions)
       {
@@ -164,21 +165,11 @@ namespace Apteco.OrbitDashboardRefresher.Console
           dimensionResolveTableName = d.Query.Selection?.TableName;
         }
 
-        if (dimensionResolveTableName != null)
-        {
-          if (resolveTableName != null)
-          {
-            if (TableUtilities.IsAncestor(tableMap, resolveTableName, dimensionResolveTableName))
-            {
-              resolveTableName = dimensionResolveTableName;
-            }
-          }
-          else
-          {
-            resolveTableName = dimensionResolveTableName;
-          }
-        }
+        resolveTableName = TableUtilities.GetLowestResolveTable(tableMap, resolveTableName, dimensionResolveTableName);
       };
+
+      if (cubeSpecification.Measures == null)
+        return resolveTableName;
 
       foreach (Measure m in cubeSpecification.Measures)
       {
@@ -196,20 +187,7 @@ namespace Apteco.OrbitDashboardRefresher.Console
           measureResolveTableName = m.Query.Selection?.TableName;
         }
 
-        if (measureResolveTableName != null)
-        {
-          if (resolveTableName != null)
-          {
-            if (TableUtilities.IsAncestor(tableMap, resolveTableName, measureResolveTableName))
-            {
-              resolveTableName = measureResolveTableName;
-            }
-          }
-          else
-          {
-            resolveTableName = measureResolveTableName;
-          }
-        }
+        resolveTableName = TableUtilities.GetLowestResolveTable(tableMap, resolveTableName, measureResolveTableName);
       };
 
       return resolveTableName;

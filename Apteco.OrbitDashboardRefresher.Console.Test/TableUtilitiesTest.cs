@@ -8,6 +8,7 @@ namespace Apteco.OrbitDashboardRefresher.Console.Test
   [TestFixture]
   public class TableUtilitiesTest
   {
+    #region IsAncestor Tests
     [Test]
     public void TestSameTableIsntSAncestor()
     {
@@ -70,6 +71,51 @@ namespace Apteco.OrbitDashboardRefresher.Console.Test
       var tablesMap = CreateHolidaysTables();
       Assert.That(TableUtilities.IsAncestor(tablesMap, "People", "Wibble"), Is.False);
     }
+    #endregion
+
+    #region GetLowestResolveTable Test
+    [Test]
+    public void TestGetLowestResolveTableNullAndNull()
+    {
+      var tablesMap = CreateHolidaysTables();
+      Assert.That(TableUtilities.GetLowestResolveTable(tablesMap, null, null), Is.Null);
+    }
+
+    [Test]
+    public void TestGetLowestResolveTablePeopleAndNull()
+    {
+      var tablesMap = CreateHolidaysTables();
+      Assert.That(TableUtilities.GetLowestResolveTable(tablesMap, "People", null), Is.EqualTo("People"));
+    }
+
+    [Test]
+    public void TestGetLowestResolveTableNullAndPeople()
+    {
+      var tablesMap = CreateHolidaysTables();
+      Assert.That(TableUtilities.GetLowestResolveTable(tablesMap, null, "People"), Is.EqualTo("People"));
+    }
+
+    [Test]
+    public void TestGetLowestResolveTablePeopleAndPeople()
+    {
+      var tablesMap = CreateHolidaysTables();
+      Assert.That(TableUtilities.GetLowestResolveTable(tablesMap, "People", "People"), Is.EqualTo("People"));
+    }
+
+    [Test]
+    public void TestGetLowestResolveTablePeopleAndBookings()
+    {
+      var tablesMap = CreateHolidaysTables();
+      Assert.That(TableUtilities.GetLowestResolveTable(tablesMap, "People", "Bookings"), Is.EqualTo("Bookings"));
+    }
+
+    [Test]
+    public void TestGetLowestResolveTableBookingsAndPeople()
+    {
+      var tablesMap = CreateHolidaysTables();
+      Assert.That(TableUtilities.GetLowestResolveTable(tablesMap, "Bookings", "People"), Is.EqualTo("Bookings"));
+    }
+    #endregion
 
     private Dictionary<string, Table> CreateHolidaysTables()
     {
