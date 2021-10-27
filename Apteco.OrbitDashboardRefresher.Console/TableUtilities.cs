@@ -32,7 +32,7 @@ namespace Apteco.OrbitDashboardRefresher.Console
     public static string GetLowestResolveTable(Dictionary<string, Table> tableMap, string resolveTableName1, string resolveTableName2)
     {
       if (resolveTableName1 != null && resolveTableName2 != null)
-        return TableUtilities.IsAncestor(tableMap, resolveTableName1, resolveTableName2) ? resolveTableName2 : resolveTableName1;
+        return IsAncestor(tableMap, resolveTableName1, resolveTableName2) ? resolveTableName2 : resolveTableName1;
       else
         return resolveTableName1 != null ? resolveTableName1 : resolveTableName2;
     }

@@ -102,7 +102,6 @@ namespace Apteco.OrbitDashboardRefresher.Console
       {
         return null;
       }
-
       if (dataSpecification.CubeSpecification != null)
       {
         return GetCubeResolveTableName(dataSpecification.CubeSpecification, tableMap, variableNameMap);
@@ -115,7 +114,6 @@ namespace Apteco.OrbitDashboardRefresher.Console
       {
         return GetVennResolveTableName(dataSpecification.VennSpecification, tableMap, variableNameMap);
       }
-
       return null;
     }
 
@@ -123,8 +121,9 @@ namespace Apteco.OrbitDashboardRefresher.Console
     {
       string resolveTableName = null;
       if (vennSpecification.Measures == null)
+      {
         return resolveTableName;
-
+      }
       foreach (Measure m in vennSpecification.Measures)
       {
         string measureResolveTableName = null;
@@ -140,10 +139,8 @@ namespace Apteco.OrbitDashboardRefresher.Console
         {
           measureResolveTableName = m.Query.Selection?.TableName;
         }
-
         resolveTableName = TableUtilities.GetLowestResolveTable(tableMap, resolveTableName, measureResolveTableName);
       };
-
       return resolveTableName;
     }
 
@@ -151,8 +148,9 @@ namespace Apteco.OrbitDashboardRefresher.Console
     {
       string resolveTableName = null;
       if (cubeSpecification.Dimensions == null)
+      {
         return resolveTableName;
-
+      }
       foreach (Dimension d in cubeSpecification.Dimensions)
       {
         string dimensionResolveTableName = null;
@@ -164,13 +162,13 @@ namespace Apteco.OrbitDashboardRefresher.Console
         {
           dimensionResolveTableName = d.Query.Selection?.TableName;
         }
-
         resolveTableName = TableUtilities.GetLowestResolveTable(tableMap, resolveTableName, dimensionResolveTableName);
       };
 
       if (cubeSpecification.Measures == null)
+      {
         return resolveTableName;
-
+      }
       foreach (Measure m in cubeSpecification.Measures)
       {
         string measureResolveTableName = null;
@@ -186,10 +184,8 @@ namespace Apteco.OrbitDashboardRefresher.Console
         {
           measureResolveTableName = m.Query.Selection?.TableName;
         }
-
         resolveTableName = TableUtilities.GetLowestResolveTable(tableMap, resolveTableName, measureResolveTableName);
       };
-
       return resolveTableName;
     }
 
@@ -213,7 +209,6 @@ namespace Apteco.OrbitDashboardRefresher.Console
       {
         defaultHeaders.Add("Authorization", "Bearer " + sessionDetails.AccessToken);
       }
-
       return new Configuration()
       {
         DefaultHeader = defaultHeaders,
