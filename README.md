@@ -28,14 +28,14 @@ Open the OrbitDashboardRefresher.sln file in Visual Studio and build the project
 
 To generate the standalone executable, right-click on the Apteco.OrbitDashboardRefresher.Console project and choose "Publish...".
 Then choose the "Folder Profile" and publish that.  The binaries will be compiled into
-`Apteco.OrbitDashboardRefresher.Console\bin\Release\netcoreapp2.1\win-x64`
+`Apteco.OrbitDashboardRefresher.Console\bin\Release\netcoreapp3.1`
 
 ##### dotnet CLI
 To build the project so that it will run under any archirecture that .Net Core supports (Windows, Mac OSX, Linux), go to the
 root directory and run `dotnet build`.  This will compile the code so that it can be run using the commands:
 
 ```
-cd Apteco.OrbitDashboardRefresher.Console\bin\Debug\netcoreapp2.1
+cd Apteco.OrbitDashboardRefresher.Console\bin\Debug\netcoreapp3.1
 dotnet OrbitDashboardRefresher-Console.dll
 ```
 
@@ -45,4 +45,4 @@ dotnet publish -c Release -r win-x64
 ```
 
 The binaries will be compiled into
-`Apteco.OrbitDashboardRefresher.Console\bin\Release\netcoreapp2.1\win-x64`
+`Apteco.OrbitDashboardRefresher.Console\bin\Release\netcoreapp3.1`
