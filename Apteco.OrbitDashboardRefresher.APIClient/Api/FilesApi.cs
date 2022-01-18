@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -451,7 +451,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (toFilePath == null)
                 throw new ApiException(400, "Missing required parameter 'toFilePath' when calling FilesApi->FilesCopyFile");
 
-            var localVarPath = "/{dataViewName}/Files/{systemName}/{toFilePath}";
+            var localVarPath = "./{dataViewName}/Files/{systemName}/{toFilePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -498,7 +498,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -542,7 +542,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (toFilePath == null)
                 throw new ApiException(400, "Missing required parameter 'toFilePath' when calling FilesApi->FilesCopyFile");
 
-            var localVarPath = "/{dataViewName}/Files/{systemName}/{toFilePath}";
+            var localVarPath = "./{dataViewName}/Files/{systemName}/{toFilePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -589,7 +589,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -628,7 +628,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (filePath == null)
                 throw new ApiException(400, "Missing required parameter 'filePath' when calling FilesApi->FilesDeleteFile");
 
-            var localVarPath = "/{dataViewName}/Files/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/Files/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -673,7 +673,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -713,7 +713,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (filePath == null)
                 throw new ApiException(400, "Missing required parameter 'filePath' when calling FilesApi->FilesDeleteFile");
 
-            var localVarPath = "/{dataViewName}/Files/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/Files/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -758,7 +758,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -798,7 +798,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (filePath == null)
                 throw new ApiException(400, "Missing required parameter 'filePath' when calling FilesApi->FilesGetFile");
 
-            var localVarPath = "/{dataViewName}/Files/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/Files/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -846,7 +846,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -887,7 +887,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (filePath == null)
                 throw new ApiException(400, "Missing required parameter 'filePath' when calling FilesApi->FilesGetFile");
 
-            var localVarPath = "/{dataViewName}/Files/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/Files/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -935,7 +935,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -977,7 +977,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (filePath == null)
                 throw new ApiException(400, "Missing required parameter 'filePath' when calling FilesApi->FilesGetFileEx");
 
-            var localVarPath = "/{dataViewName}/Files/Get/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/Files/Get/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1037,7 +1037,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -1080,7 +1080,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (filePath == null)
                 throw new ApiException(400, "Missing required parameter 'filePath' when calling FilesApi->FilesGetFileEx");
 
-            var localVarPath = "/{dataViewName}/Files/Get/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/Files/Get/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1140,7 +1140,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -1185,7 +1185,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (_file == null)
                 throw new ApiException(400, "Missing required parameter '_file' when calling FilesApi->FilesUpsertFile");
 
-            var localVarPath = "/{dataViewName}/Files/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/Files/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1234,7 +1234,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<FileEntry>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (FileEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileEntry)));
         }
 
@@ -1280,7 +1280,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (_file == null)
                 throw new ApiException(400, "Missing required parameter '_file' when calling FilesApi->FilesUpsertFile");
 
-            var localVarPath = "/{dataViewName}/Files/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/Files/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1329,7 +1329,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<FileEntry>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (FileEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileEntry)));
         }
 

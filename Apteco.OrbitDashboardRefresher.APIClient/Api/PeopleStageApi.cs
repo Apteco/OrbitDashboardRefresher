@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -2393,7 +2393,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageActionJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ActionJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ActionJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2440,7 +2440,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ActionJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ActionJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActionJobDetail)));
         }
 
@@ -2484,7 +2484,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageActionJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ActionJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ActionJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2531,7 +2531,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ActionJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ActionJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActionJobDetail)));
         }
 
@@ -2573,7 +2573,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelChannelMessagesJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2618,7 +2618,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2661,7 +2661,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelChannelMessagesJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2706,7 +2706,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2748,7 +2748,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelChannelTestLoginJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2793,7 +2793,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2836,7 +2836,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelChannelTestLoginJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2881,7 +2881,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2923,7 +2923,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelElementCheckInOutJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2968,7 +2968,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3011,7 +3011,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelElementCheckInOutJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3056,7 +3056,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3098,7 +3098,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelElementPublishJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3143,7 +3143,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3186,7 +3186,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelElementPublishJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3231,7 +3231,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3268,7 +3268,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelModifyChannelsJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/ChannelsJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/ChannelsJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3312,7 +3312,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3350,7 +3350,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageCancelModifyChannelsJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/ChannelsJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/ChannelsJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3394,7 +3394,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3437,7 +3437,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageChannelMessagesJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3484,7 +3484,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelGetMessagesJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelGetMessagesJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelGetMessagesJobDetail)));
         }
 
@@ -3528,7 +3528,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageChannelMessagesJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3575,7 +3575,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelGetMessagesJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelGetMessagesJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelGetMessagesJobDetail)));
         }
 
@@ -3618,7 +3618,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageChannelTestLoginJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3665,7 +3665,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelTestLoginJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelTestLoginJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelTestLoginJobDetail)));
         }
 
@@ -3709,7 +3709,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageChannelTestLoginJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3756,7 +3756,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelTestLoginJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelTestLoginJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelTestLoginJobDetail)));
         }
 
@@ -3794,7 +3794,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageCreateActionJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ActionJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ActionJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3840,7 +3840,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ActionJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ActionJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActionJobDetail)));
         }
 
@@ -3879,7 +3879,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageCreateActionJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ActionJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ActionJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3925,7 +3925,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ActionJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ActionJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActionJobDetail)));
         }
 
@@ -3963,7 +3963,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (channelId == null)
                 throw new ApiException(400, "Missing required parameter 'channelId' when calling PeopleStageApi->PeopleStageCreateChannelMessagesJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4009,7 +4009,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelGetMessagesJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelGetMessagesJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelGetMessagesJobDetail)));
         }
 
@@ -4048,7 +4048,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (channelId == null)
                 throw new ApiException(400, "Missing required parameter 'channelId' when calling PeopleStageApi->PeopleStageCreateChannelMessagesJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/MessagesJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4094,7 +4094,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelGetMessagesJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelGetMessagesJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelGetMessagesJobDetail)));
         }
 
@@ -4134,7 +4134,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (channelId == null)
                 throw new ApiException(400, "Missing required parameter 'channelId' when calling PeopleStageApi->PeopleStageCreateChannelTestLoginJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4192,7 +4192,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelTestLoginJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelTestLoginJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelTestLoginJobDetail)));
         }
 
@@ -4233,7 +4233,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (channelId == null)
                 throw new ApiException(400, "Missing required parameter 'channelId' when calling PeopleStageApi->PeopleStageCreateChannelTestLoginJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}/TestLoginJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4291,7 +4291,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelTestLoginJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelTestLoginJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelTestLoginJobDetail)));
         }
 
@@ -4331,7 +4331,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageCreateElementCheckInOutJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4389,7 +4389,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementCheckInOutJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementCheckInOutJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementCheckInOutJobDetail)));
         }
 
@@ -4430,7 +4430,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageCreateElementCheckInOutJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4488,7 +4488,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementCheckInOutJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementCheckInOutJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementCheckInOutJobDetail)));
         }
 
@@ -4526,7 +4526,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageCreateElementPublishJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4572,7 +4572,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementPublishJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementPublishJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementPublishJobDetail)));
         }
 
@@ -4611,7 +4611,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageCreateElementPublishJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4657,7 +4657,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementPublishJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementPublishJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementPublishJobDetail)));
         }
 
@@ -4692,7 +4692,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageCreateModifyChannelsJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/ChannelsJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/ChannelsJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4749,7 +4749,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ModifyChannelsJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ModifyChannelsJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ModifyChannelsJobDetail)));
         }
 
@@ -4785,7 +4785,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageCreateModifyChannelsJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/ChannelsJobs";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/ChannelsJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4842,7 +4842,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ModifyChannelsJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ModifyChannelsJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ModifyChannelsJobDetail)));
         }
 
@@ -4885,7 +4885,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageElementCheckInOutJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4932,7 +4932,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementCheckInOutJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementCheckInOutJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementCheckInOutJobDetail)));
         }
 
@@ -4976,7 +4976,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageElementCheckInOutJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CheckInOutJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5023,7 +5023,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementCheckInOutJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementCheckInOutJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementCheckInOutJobDetail)));
         }
 
@@ -5066,7 +5066,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageElementPublishJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5113,7 +5113,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementPublishJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementPublishJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementPublishJobDetail)));
         }
 
@@ -5157,7 +5157,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageElementPublishJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/PublishJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5204,7 +5204,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementPublishJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementPublishJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementPublishJobDetail)));
         }
 
@@ -5237,7 +5237,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageGetBroadcastParameters");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/ChannelInfo/Broadcasters";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/ChannelInfo/Broadcasters";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5282,7 +5282,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<ChannelInfo>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<ChannelInfo>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<ChannelInfo>)));
         }
 
@@ -5316,7 +5316,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageGetBroadcastParameters");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/ChannelInfo/Broadcasters";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/ChannelInfo/Broadcasters";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5361,7 +5361,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<ChannelInfo>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<ChannelInfo>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<ChannelInfo>)));
         }
 
@@ -5399,7 +5399,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (channelId == null)
                 throw new ApiException(400, "Missing required parameter 'channelId' when calling PeopleStageApi->PeopleStageGetPeopleStageChannel");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5445,7 +5445,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelDetail)));
         }
 
@@ -5484,7 +5484,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (channelId == null)
                 throw new ApiException(400, "Missing required parameter 'channelId' when calling PeopleStageApi->PeopleStageGetPeopleStageChannel");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels/{channelId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5530,7 +5530,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelDetail)));
         }
 
@@ -5571,7 +5571,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageGetPeopleStageChannels");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5620,7 +5620,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsChannelSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsChannelSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsChannelSummary)));
         }
 
@@ -5662,7 +5662,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageGetPeopleStageChannels");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5711,7 +5711,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsChannelSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsChannelSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsChannelSummary)));
         }
 
@@ -5749,7 +5749,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElement");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5795,7 +5795,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementDetail)));
         }
 
@@ -5834,7 +5834,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElement");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5880,7 +5880,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementDetail)));
         }
 
@@ -5918,7 +5918,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementChannelStatistics");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ChannelStats";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ChannelStats";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5964,7 +5964,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelStatistics)));
         }
 
@@ -6003,7 +6003,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementChannelStatistics");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ChannelStats";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ChannelStats";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6049,7 +6049,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ChannelStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ChannelStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ChannelStatistics)));
         }
 
@@ -6095,7 +6095,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementChildren");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Children";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Children";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6145,7 +6145,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsElementSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsElementSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsElementSummary)));
         }
 
@@ -6192,7 +6192,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementChildren");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Children";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Children";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6242,7 +6242,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsElementSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsElementSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsElementSummary)));
         }
 
@@ -6280,7 +6280,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementCommunicationStatistics");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CommunicationStats";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CommunicationStats";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6326,7 +6326,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CommunicationStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CommunicationStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CommunicationStatistics)));
         }
 
@@ -6365,7 +6365,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementCommunicationStatistics");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CommunicationStats";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CommunicationStats";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6411,7 +6411,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CommunicationStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CommunicationStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CommunicationStatistics)));
         }
 
@@ -6457,7 +6457,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementCompleted");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedActions";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedActions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6507,7 +6507,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsActionReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsActionReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsActionReport)));
         }
 
@@ -6554,7 +6554,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementCompleted");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedActions";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedActions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6604,7 +6604,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsActionReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsActionReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsActionReport)));
         }
 
@@ -6650,7 +6650,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementCompletedDeliveries");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedDeliveries";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedDeliveries";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6700,7 +6700,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDeliveryReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDeliveryReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDeliveryReport)));
         }
 
@@ -6747,7 +6747,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementCompletedDeliveries");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedDeliveries";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedDeliveries";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6797,7 +6797,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDeliveryReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDeliveryReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDeliveryReport)));
         }
 
@@ -6843,7 +6843,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementCompletedSteps");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedSteps";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedSteps";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6893,7 +6893,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsStepReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsStepReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsStepReport)));
         }
 
@@ -6940,7 +6940,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementCompletedSteps");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedSteps";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/CompletedSteps";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6990,7 +6990,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsStepReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsStepReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsStepReport)));
         }
 
@@ -7028,7 +7028,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementResponseStatistics");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ResponseStats";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ResponseStats";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7074,7 +7074,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResponseStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResponseStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResponseStatistics)));
         }
 
@@ -7113,7 +7113,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementResponseStatistics");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ResponseStats";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/ResponseStats";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7159,7 +7159,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResponseStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResponseStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResponseStatistics)));
         }
 
@@ -7205,7 +7205,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementRunning");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningActions";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningActions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7255,7 +7255,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsActionReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsActionReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsActionReport)));
         }
 
@@ -7302,7 +7302,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementRunning");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningActions";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningActions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7352,7 +7352,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsActionReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsActionReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsActionReport)));
         }
 
@@ -7398,7 +7398,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementRunningDeliveries");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningDeliveries";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningDeliveries";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7448,7 +7448,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDeliveryReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDeliveryReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDeliveryReport)));
         }
 
@@ -7495,7 +7495,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementRunningDeliveries");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningDeliveries";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningDeliveries";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7545,7 +7545,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDeliveryReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDeliveryReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDeliveryReport)));
         }
 
@@ -7591,7 +7591,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementRunningSteps");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningSteps";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningSteps";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7641,7 +7641,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsStepReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsStepReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsStepReport)));
         }
 
@@ -7688,7 +7688,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementRunningSteps");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningSteps";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RunningSteps";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7738,7 +7738,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsStepReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsStepReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsStepReport)));
         }
 
@@ -7776,7 +7776,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementStatus");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Status";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Status";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7822,7 +7822,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementStatus>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementStatus) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementStatus)));
         }
 
@@ -7861,7 +7861,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementStatus");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Status";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Status";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7907,7 +7907,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ElementStatus>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ElementStatus) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ElementStatus)));
         }
 
@@ -7953,7 +7953,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementStatusForDescendants");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Status/Descendants";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Status/Descendants";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8003,7 +8003,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsElementStatus>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsElementStatus) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsElementStatus)));
         }
 
@@ -8050,7 +8050,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageElementStatusForDescendants");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Status/Descendants";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/Status/Descendants";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8100,7 +8100,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsElementStatus>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsElementStatus) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsElementStatus)));
         }
 
@@ -8141,7 +8141,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageGetPeopleStageElements");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8190,7 +8190,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsElementSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsElementSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsElementSummary)));
         }
 
@@ -8232,7 +8232,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageGetPeopleStageElements");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8281,7 +8281,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsElementSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsElementSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsElementSummary)));
         }
 
@@ -8331,7 +8331,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageRangeStatisticsForDescendantsSync");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RangeStats/Descendants/Sync";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RangeStats/Descendants/Sync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8383,7 +8383,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<RangeStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (RangeStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RangeStatistics)));
         }
 
@@ -8434,7 +8434,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageRangeStatisticsForDescendantsSync");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RangeStats/Descendants/Sync";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RangeStats/Descendants/Sync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8486,7 +8486,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<RangeStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (RangeStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RangeStatistics)));
         }
 
@@ -8528,7 +8528,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageRangeStatisticsSync");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RangeStats/Sync";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RangeStats/Sync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8576,7 +8576,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<RangeStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (RangeStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RangeStatistics)));
         }
 
@@ -8619,7 +8619,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling PeopleStageApi->PeopleStageGetPeopleStageRangeStatisticsSync");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RangeStats/Sync";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Elements/{elementId}/RangeStats/Sync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8667,7 +8667,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<RangeStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (RangeStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RangeStatistics)));
         }
 
@@ -8700,7 +8700,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageGetPeopleStageSystem");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8745,7 +8745,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PeopleStageSystemDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PeopleStageSystemDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PeopleStageSystemDetail)));
         }
 
@@ -8779,7 +8779,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageGetPeopleStageSystem");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8824,7 +8824,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PeopleStageSystemDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PeopleStageSystemDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PeopleStageSystemDetail)));
         }
 
@@ -8860,7 +8860,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling PeopleStageApi->PeopleStageGetPeopleStageSystems");
 
-            var localVarPath = "/{dataViewName}/PeopleStage";
+            var localVarPath = "./{dataViewName}/PeopleStage";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8908,7 +8908,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsPeopleStageSystemSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsPeopleStageSystemSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsPeopleStageSystemSummary)));
         }
 
@@ -8945,7 +8945,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling PeopleStageApi->PeopleStageGetPeopleStageSystems");
 
-            var localVarPath = "/{dataViewName}/PeopleStage";
+            var localVarPath = "./{dataViewName}/PeopleStage";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -8993,7 +8993,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsPeopleStageSystemSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsPeopleStageSystemSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsPeopleStageSystemSummary)));
         }
 
@@ -9030,7 +9030,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageModifyChannels");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -9088,7 +9088,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyChannelDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyChannelDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyChannelDetailResults)));
         }
 
@@ -9126,7 +9126,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageModifyChannels");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/Channels";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/Channels";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -9184,7 +9184,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyChannelDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyChannelDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyChannelDetailResults)));
         }
 
@@ -9222,7 +9222,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageModifyChannelsJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/ChannelsJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/ChannelsJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -9268,7 +9268,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ModifyChannelsJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ModifyChannelsJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ModifyChannelsJobDetail)));
         }
 
@@ -9307,7 +9307,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling PeopleStageApi->PeopleStageModifyChannelsJob");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/ChannelsJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/ChannelsJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -9353,7 +9353,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ModifyChannelsJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ModifyChannelsJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ModifyChannelsJobDetail)));
         }
 
@@ -9385,7 +9385,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageRefreshPeopleStageDiagram");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/RefreshSync";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/RefreshSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -9428,7 +9428,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -9461,7 +9461,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PeopleStageApi->PeopleStageRefreshPeopleStageDiagram");
 
-            var localVarPath = "/{dataViewName}/PeopleStage/{systemName}/RefreshSync";
+            var localVarPath = "./{dataViewName}/PeopleStage/{systemName}/RefreshSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -9504,7 +9504,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 

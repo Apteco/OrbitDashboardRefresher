@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Summary information about a licence for a system
     /// </summary>
     [DataContract]
-    public partial class SystemLicenceSummary :  IEquatable<SystemLicenceSummary>, IValidatableObject
+    public partial class SystemLicenceSummary :  IEquatable<SystemLicenceSummary>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemLicenceSummary" /> class.
@@ -40,7 +38,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// </summary>
         /// <param name="id">The id of the licence as registered in this particular system (required).</param>
         /// <param name="name">The name of the licence (required).</param>
-        public SystemLicenceSummary(int? id = default(int?), string name = default(string))
+        /// <param name="bundles">The list of bundles associated with this licence (required).</param>
+        public SystemLicenceSummary(int? id = default(int?), string name = default(string), List<LicenceBundleSummary> bundles = default(List<LicenceBundleSummary>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -60,6 +59,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             {
                 this.Name = name;
             }
+            // to ensure "bundles" is required (not null)
+            if (bundles == null)
+            {
+                throw new InvalidDataException("bundles is a required property for SystemLicenceSummary and cannot be null");
+            }
+            else
+            {
+                this.Bundles = bundles;
+            }
         }
         
         /// <summary>
@@ -77,6 +85,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// The list of bundles associated with this licence
+        /// </summary>
+        /// <value>The list of bundles associated with this licence</value>
+        [DataMember(Name="bundles", EmitDefaultValue=false)]
+        public List<LicenceBundleSummary> Bundles { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +101,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("class SystemLicenceSummary {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Bundles: ").Append(Bundles).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,6 +145,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Bundles == input.Bundles ||
+                    this.Bundles != null &&
+                    this.Bundles.SequenceEqual(input.Bundles)
                 );
         }
 
@@ -145,18 +166,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Bundles != null)
+                    hashCode = hashCode * 59 + this.Bundles.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

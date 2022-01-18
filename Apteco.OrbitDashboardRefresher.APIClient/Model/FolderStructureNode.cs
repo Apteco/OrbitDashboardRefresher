@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// An item in the Folder structure tree
     /// </summary>
     [DataContract]
-    public partial class FolderStructureNode :  IEquatable<FolderStructureNode>, IValidatableObject
+    public partial class FolderStructureNode :  IEquatable<FolderStructureNode>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderStructureNode" /> class.
@@ -126,16 +124,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Variable.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

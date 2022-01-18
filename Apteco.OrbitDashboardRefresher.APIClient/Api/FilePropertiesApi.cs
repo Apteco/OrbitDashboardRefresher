@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -216,7 +216,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (filePath == null)
                 throw new ApiException(400, "Missing required parameter 'filePath' when calling FilePropertiesApi->FilePropertiesGetFileProperties");
 
-            var localVarPath = "/{dataViewName}/FileProperties/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/FileProperties/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -263,7 +263,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<FilePropertiesDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (FilePropertiesDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FilePropertiesDetails)));
         }
 
@@ -304,7 +304,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (filePath == null)
                 throw new ApiException(400, "Missing required parameter 'filePath' when calling FilePropertiesApi->FilePropertiesGetFileProperties");
 
-            var localVarPath = "/{dataViewName}/FileProperties/{systemName}/{filePath}";
+            var localVarPath = "./{dataViewName}/FileProperties/{systemName}/{filePath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -351,7 +351,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<FilePropertiesDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (FilePropertiesDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FilePropertiesDetails)));
         }
 

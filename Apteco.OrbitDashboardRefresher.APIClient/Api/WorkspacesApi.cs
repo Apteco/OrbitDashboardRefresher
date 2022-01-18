@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -758,7 +758,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling WorkspacesApi->WorkspacesCreateWorkspace");
 
-            var localVarPath = "/{dataViewName}/Workspaces";
+            var localVarPath = "./{dataViewName}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -814,7 +814,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceDetail)));
         }
 
@@ -845,7 +845,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling WorkspacesApi->WorkspacesCreateWorkspace");
 
-            var localVarPath = "/{dataViewName}/Workspaces";
+            var localVarPath = "./{dataViewName}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -901,7 +901,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceDetail)));
         }
 
@@ -936,7 +936,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesCreateWorkspaceUpdate");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -993,7 +993,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceUpdateDetail)));
         }
 
@@ -1029,7 +1029,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesCreateWorkspaceUpdate");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1086,7 +1086,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceUpdateDetail)));
         }
 
@@ -1118,7 +1118,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesDeleteWorkspace");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1161,7 +1161,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1194,7 +1194,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesDeleteWorkspace");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1237,7 +1237,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1270,7 +1270,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesGetWorkspace");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1315,7 +1315,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceDetail)));
         }
 
@@ -1349,7 +1349,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesGetWorkspace");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1394,7 +1394,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceDetail)));
         }
 
@@ -1435,7 +1435,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesGetWorkspaceResources");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Resources";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Resources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1484,7 +1484,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceResource>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceResource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceResource)));
         }
 
@@ -1526,7 +1526,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesGetWorkspaceResources");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Resources";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Resources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1575,7 +1575,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceResource>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceResource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceResource)));
         }
 
@@ -1613,7 +1613,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceUpdateId' when calling WorkspacesApi->WorkspacesGetWorkspaceUpdate");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1659,7 +1659,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceUpdateDetail)));
         }
 
@@ -1698,7 +1698,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceUpdateId' when calling WorkspacesApi->WorkspacesGetWorkspaceUpdate");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1744,7 +1744,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceUpdateDetail)));
         }
 
@@ -1790,7 +1790,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceUpdateId' when calling WorkspacesApi->WorkspacesGetWorkspaceUpdateAddedResources");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}/AddedResources";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}/AddedResources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1840,7 +1840,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceResource>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceResource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceResource)));
         }
 
@@ -1887,7 +1887,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceUpdateId' when calling WorkspacesApi->WorkspacesGetWorkspaceUpdateAddedResources");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}/AddedResources";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}/AddedResources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1937,7 +1937,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceResource>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceResource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceResource)));
         }
 
@@ -1983,7 +1983,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceUpdateId' when calling WorkspacesApi->WorkspacesGetWorkspaceUpdateRemovedResources");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}/RemovedResources";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}/RemovedResources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2033,7 +2033,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceResource>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceResource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceResource)));
         }
 
@@ -2080,7 +2080,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceUpdateId' when calling WorkspacesApi->WorkspacesGetWorkspaceUpdateRemovedResources");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}/RemovedResources";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates/{workspaceUpdateId}/RemovedResources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2130,7 +2130,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceResource>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceResource) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceResource)));
         }
 
@@ -2171,7 +2171,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesGetWorkspaceUpdates");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2220,7 +2220,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceUpdateSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceUpdateSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceUpdateSummary)));
         }
 
@@ -2262,7 +2262,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesGetWorkspaceUpdates");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/Updates";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2311,7 +2311,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceUpdateSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceUpdateSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceUpdateSummary)));
         }
 
@@ -2349,7 +2349,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling WorkspacesApi->WorkspacesGetWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Workspaces";
+            var localVarPath = "./{dataViewName}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2398,7 +2398,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceSummary)));
         }
 
@@ -2437,7 +2437,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling WorkspacesApi->WorkspacesGetWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Workspaces";
+            var localVarPath = "./{dataViewName}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2486,7 +2486,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsWorkspaceSummary)));
         }
 
@@ -2521,7 +2521,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesTransferWorkspaceOwnership");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/TransferOwnership";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/TransferOwnership";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2578,7 +2578,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceDetail)));
         }
 
@@ -2614,7 +2614,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling WorkspacesApi->WorkspacesTransferWorkspaceOwnership");
 
-            var localVarPath = "/{dataViewName}/Workspaces/{workspaceId}/TransferOwnership";
+            var localVarPath = "./{dataViewName}/Workspaces/{workspaceId}/TransferOwnership";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2671,7 +2671,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<WorkspaceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (WorkspaceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WorkspaceDetail)));
         }
 

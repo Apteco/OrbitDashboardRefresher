@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Details to create a user with
     /// </summary>
     [DataContract]
-    public partial class CreateUserDetails :  IEquatable<CreateUserDetails>, IValidatableObject
+    public partial class CreateUserDetails :  IEquatable<CreateUserDetails>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateUserDetails" /> class.
@@ -43,9 +41,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="firstname">When specified, the first name for the new user.</param>
         /// <param name="surname">When specified, the surname for the new user.</param>
         /// <param name="emailAddress">When specified, the email address for the new user.</param>
+        /// <param name="userDisabledDate">When specified, the new disabled date for the user.</param>
+        /// <param name="passwordManuallyExpired">When specified, the new manual expired value the user.</param>
+        /// <param name="passwordNeverExpires">When specified, the new never expires value for the user.</param>
         /// <param name="groupId">When specified, the group id for the new user.</param>
         /// <param name="groupIds">When specified, the group ids for the new user.</param>
-        public CreateUserDetails(string username = default(string), string password = default(string), string firstname = default(string), string surname = default(string), string emailAddress = default(string), int? groupId = default(int?), List<int?> groupIds = default(List<int?>))
+        public CreateUserDetails(string username = default(string), string password = default(string), string firstname = default(string), string surname = default(string), string emailAddress = default(string), DateTime? userDisabledDate = default(DateTime?), bool? passwordManuallyExpired = default(bool?), bool? passwordNeverExpires = default(bool?), int? groupId = default(int?), List<int?> groupIds = default(List<int?>))
         {
             // to ensure "username" is required (not null)
             if (username == null)
@@ -68,6 +69,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             this.Firstname = firstname;
             this.Surname = surname;
             this.EmailAddress = emailAddress;
+            this.UserDisabledDate = userDisabledDate;
+            this.PasswordManuallyExpired = passwordManuallyExpired;
+            this.PasswordNeverExpires = passwordNeverExpires;
             this.GroupId = groupId;
             this.GroupIds = groupIds;
         }
@@ -108,6 +112,27 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         public string EmailAddress { get; set; }
 
         /// <summary>
+        /// When specified, the new disabled date for the user
+        /// </summary>
+        /// <value>When specified, the new disabled date for the user</value>
+        [DataMember(Name="userDisabledDate", EmitDefaultValue=false)]
+        public DateTime? UserDisabledDate { get; set; }
+
+        /// <summary>
+        /// When specified, the new manual expired value the user
+        /// </summary>
+        /// <value>When specified, the new manual expired value the user</value>
+        [DataMember(Name="passwordManuallyExpired", EmitDefaultValue=false)]
+        public bool? PasswordManuallyExpired { get; set; }
+
+        /// <summary>
+        /// When specified, the new never expires value for the user
+        /// </summary>
+        /// <value>When specified, the new never expires value for the user</value>
+        [DataMember(Name="passwordNeverExpires", EmitDefaultValue=false)]
+        public bool? PasswordNeverExpires { get; set; }
+
+        /// <summary>
         /// When specified, the group id for the new user
         /// </summary>
         /// <value>When specified, the group id for the new user</value>
@@ -134,6 +159,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  Firstname: ").Append(Firstname).Append("\n");
             sb.Append("  Surname: ").Append(Surname).Append("\n");
             sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
+            sb.Append("  UserDisabledDate: ").Append(UserDisabledDate).Append("\n");
+            sb.Append("  PasswordManuallyExpired: ").Append(PasswordManuallyExpired).Append("\n");
+            sb.Append("  PasswordNeverExpires: ").Append(PasswordNeverExpires).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  GroupIds: ").Append(GroupIds).Append("\n");
             sb.Append("}\n");
@@ -196,6 +224,21 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.EmailAddress.Equals(input.EmailAddress))
                 ) && 
                 (
+                    this.UserDisabledDate == input.UserDisabledDate ||
+                    (this.UserDisabledDate != null &&
+                    this.UserDisabledDate.Equals(input.UserDisabledDate))
+                ) && 
+                (
+                    this.PasswordManuallyExpired == input.PasswordManuallyExpired ||
+                    (this.PasswordManuallyExpired != null &&
+                    this.PasswordManuallyExpired.Equals(input.PasswordManuallyExpired))
+                ) && 
+                (
+                    this.PasswordNeverExpires == input.PasswordNeverExpires ||
+                    (this.PasswordNeverExpires != null &&
+                    this.PasswordNeverExpires.Equals(input.PasswordNeverExpires))
+                ) && 
+                (
                     this.GroupId == input.GroupId ||
                     (this.GroupId != null &&
                     this.GroupId.Equals(input.GroupId))
@@ -226,22 +269,18 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Surname.GetHashCode();
                 if (this.EmailAddress != null)
                     hashCode = hashCode * 59 + this.EmailAddress.GetHashCode();
+                if (this.UserDisabledDate != null)
+                    hashCode = hashCode * 59 + this.UserDisabledDate.GetHashCode();
+                if (this.PasswordManuallyExpired != null)
+                    hashCode = hashCode * 59 + this.PasswordManuallyExpired.GetHashCode();
+                if (this.PasswordNeverExpires != null)
+                    hashCode = hashCode * 59 + this.PasswordNeverExpires.GetHashCode();
                 if (this.GroupId != null)
                     hashCode = hashCode * 59 + this.GroupId.GetHashCode();
                 if (this.GroupIds != null)
                     hashCode = hashCode * 59 + this.GroupIds.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

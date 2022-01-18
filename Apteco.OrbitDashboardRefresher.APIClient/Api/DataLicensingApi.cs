@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -575,7 +575,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DataLicensingApi->DataLicensingCancelDataPurchaseJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -619,7 +619,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -657,7 +657,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DataLicensingApi->DataLicensingCancelDataPurchaseJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -701,7 +701,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -738,7 +738,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DataLicensingApi->DataLicensingCancelLicensingSetsJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -782,7 +782,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -820,7 +820,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DataLicensingApi->DataLicensingCancelLicensingSetsJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -864,7 +864,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -897,7 +897,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DataLicensingApi->DataLicensingCreateGetLicensingSetsJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -942,7 +942,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensingSetsJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensingSetsJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensingSetsJobDetail)));
         }
 
@@ -976,7 +976,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DataLicensingApi->DataLicensingCreateGetLicensingSetsJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1021,7 +1021,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensingSetsJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensingSetsJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensingSetsJobDetail)));
         }
 
@@ -1056,7 +1056,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DataLicensingApi->DataLicensingCreatePurchaseDataLicensingJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1113,7 +1113,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DataPurchaseJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DataPurchaseJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataPurchaseJobDetail)));
         }
 
@@ -1149,7 +1149,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DataLicensingApi->DataLicensingCreatePurchaseDataLicensingJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1206,7 +1206,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DataPurchaseJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DataPurchaseJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataPurchaseJobDetail)));
         }
 
@@ -1244,7 +1244,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DataLicensingApi->DataLicensingGetDataPurchaseJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1290,7 +1290,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DataPurchaseJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DataPurchaseJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataPurchaseJobDetail)));
         }
 
@@ -1329,7 +1329,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DataLicensingApi->DataLicensingGetDataPurchaseJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/DataPurchaseJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1375,7 +1375,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DataPurchaseJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DataPurchaseJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataPurchaseJobDetail)));
         }
 
@@ -1413,7 +1413,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DataLicensingApi->DataLicensingGetLicensingSetsJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1459,7 +1459,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensingSetsJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensingSetsJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensingSetsJobDetail)));
         }
 
@@ -1498,7 +1498,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DataLicensingApi->DataLicensingGetLicensingSetsJob");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/LicensingSetsJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1544,7 +1544,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensingSetsJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensingSetsJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensingSetsJobDetail)));
         }
 
@@ -1587,7 +1587,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DataLicensingApi->DataLicensingGetLicensingSetsSync");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/LicensingSets";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/LicensingSets";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1637,7 +1637,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsLicensingSet>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsLicensingSet) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsLicensingSet)));
         }
 
@@ -1681,7 +1681,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DataLicensingApi->DataLicensingGetLicensingSetsSync");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/LicensingSets";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/LicensingSets";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1731,7 +1731,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsLicensingSet>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsLicensingSet) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsLicensingSet)));
         }
 
@@ -1768,7 +1768,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DataLicensingApi->DataLicensingPurchaseDataLicensingSync");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/PurchaseSync";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/PurchaseSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1826,7 +1826,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PurchaseInfo>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PurchaseInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PurchaseInfo)));
         }
 
@@ -1864,7 +1864,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DataLicensingApi->DataLicensingPurchaseDataLicensingSync");
 
-            var localVarPath = "/{dataViewName}/DataLicensing/{systemName}/PurchaseSync";
+            var localVarPath = "./{dataViewName}/DataLicensing/{systemName}/PurchaseSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1922,7 +1922,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PurchaseInfo>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PurchaseInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PurchaseInfo)));
         }
 

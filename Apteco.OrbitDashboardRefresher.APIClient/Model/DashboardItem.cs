@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// The definition of one item to show in a dashboard composition
     /// </summary>
     [DataContract]
-    public partial class DashboardItem :  IEquatable<DashboardItem>, IValidatableObject
+    public partial class DashboardItem :  IEquatable<DashboardItem>
     {
         /// <summary>
         /// The type of chart to use to display this dashboard item
@@ -69,190 +67,160 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             Line = 5,
             
             /// <summary>
-            /// Enum UKPostArea for value: UKPostArea
-            /// </summary>
-            [EnumMember(Value = "UKPostArea")]
-            UKPostArea = 6,
-            
-            /// <summary>
-            /// Enum NLProvinces for value: NLProvinces
-            /// </summary>
-            [EnumMember(Value = "NLProvinces")]
-            NLProvinces = 7,
-            
-            /// <summary>
-            /// Enum NLMunicipalities for value: NLMunicipalities
-            /// </summary>
-            [EnumMember(Value = "NLMunicipalities")]
-            NLMunicipalities = 8,
-            
-            /// <summary>
-            /// Enum DE2DigitPostCode for value: DE2DigitPostCode
-            /// </summary>
-            [EnumMember(Value = "DE2DigitPostCode")]
-            DE2DigitPostCode = 9,
-            
-            /// <summary>
-            /// Enum CH2DigitPostCode for value: CH2DigitPostCode
-            /// </summary>
-            [EnumMember(Value = "CH2DigitPostCode")]
-            CH2DigitPostCode = 10,
-            
-            /// <summary>
-            /// Enum AU2DigitPostCode for value: AU2DigitPostCode
-            /// </summary>
-            [EnumMember(Value = "AU2DigitPostCode")]
-            AU2DigitPostCode = 11,
-            
-            /// <summary>
-            /// Enum USStates for value: USStates
-            /// </summary>
-            [EnumMember(Value = "USStates")]
-            USStates = 12,
-            
-            /// <summary>
             /// Enum NumberCard for value: NumberCard
             /// </summary>
             [EnumMember(Value = "NumberCard")]
-            NumberCard = 13,
+            NumberCard = 6,
             
             /// <summary>
             /// Enum Text for value: Text
             /// </summary>
             [EnumMember(Value = "Text")]
-            Text = 14,
+            Text = 7,
             
             /// <summary>
             /// Enum BandedPareto for value: BandedPareto
             /// </summary>
             [EnumMember(Value = "BandedPareto")]
-            BandedPareto = 15,
+            BandedPareto = 8,
             
             /// <summary>
             /// Enum CategoricalPareto for value: CategoricalPareto
             /// </summary>
             [EnumMember(Value = "CategoricalPareto")]
-            CategoricalPareto = 16,
+            CategoricalPareto = 9,
             
             /// <summary>
             /// Enum Area for value: Area
             /// </summary>
             [EnumMember(Value = "Area")]
-            Area = 17,
+            Area = 10,
             
             /// <summary>
             /// Enum RadarLine for value: RadarLine
             /// </summary>
             [EnumMember(Value = "RadarLine")]
-            RadarLine = 18,
+            RadarLine = 11,
             
             /// <summary>
             /// Enum RadarColumn for value: RadarColumn
             /// </summary>
             [EnumMember(Value = "RadarColumn")]
-            RadarColumn = 19,
+            RadarColumn = 12,
             
             /// <summary>
             /// Enum RadarArea for value: RadarArea
             /// </summary>
             [EnumMember(Value = "RadarArea")]
-            RadarArea = 20,
+            RadarArea = 13,
             
             /// <summary>
             /// Enum Funnel for value: Funnel
             /// </summary>
             [EnumMember(Value = "Funnel")]
-            Funnel = 21,
+            Funnel = 14,
             
             /// <summary>
             /// Enum Combo for value: Combo
             /// </summary>
             [EnumMember(Value = "Combo")]
-            Combo = 22,
+            Combo = 15,
             
             /// <summary>
             /// Enum Column2DClustered for value: Column2DClustered
             /// </summary>
             [EnumMember(Value = "Column2DClustered")]
-            Column2DClustered = 23,
+            Column2DClustered = 16,
             
             /// <summary>
             /// Enum Column2DStacked for value: Column2DStacked
             /// </summary>
             [EnumMember(Value = "Column2DStacked")]
-            Column2DStacked = 24,
+            Column2DStacked = 17,
             
             /// <summary>
             /// Enum Column2DStacked100 for value: Column2DStacked100
             /// </summary>
             [EnumMember(Value = "Column2DStacked100")]
-            Column2DStacked100 = 25,
+            Column2DStacked100 = 18,
             
             /// <summary>
             /// Enum Bar2DClustered for value: Bar2DClustered
             /// </summary>
             [EnumMember(Value = "Bar2DClustered")]
-            Bar2DClustered = 26,
+            Bar2DClustered = 19,
             
             /// <summary>
             /// Enum Bar2DStacked for value: Bar2DStacked
             /// </summary>
             [EnumMember(Value = "Bar2DStacked")]
-            Bar2DStacked = 27,
+            Bar2DStacked = 20,
             
             /// <summary>
             /// Enum Bar2DStacked100 for value: Bar2DStacked100
             /// </summary>
             [EnumMember(Value = "Bar2DStacked100")]
-            Bar2DStacked100 = 28,
+            Bar2DStacked100 = 21,
             
             /// <summary>
             /// Enum Line2D for value: Line2D
             /// </summary>
             [EnumMember(Value = "Line2D")]
-            Line2D = 29,
+            Line2D = 22,
             
             /// <summary>
             /// Enum Area2DClustered for value: Area2DClustered
             /// </summary>
             [EnumMember(Value = "Area2DClustered")]
-            Area2DClustered = 30,
+            Area2DClustered = 23,
             
             /// <summary>
             /// Enum Area2DStacked for value: Area2DStacked
             /// </summary>
             [EnumMember(Value = "Area2DStacked")]
-            Area2DStacked = 31,
+            Area2DStacked = 24,
             
             /// <summary>
             /// Enum Area2DStacked100 for value: Area2DStacked100
             /// </summary>
             [EnumMember(Value = "Area2DStacked100")]
-            Area2DStacked100 = 32,
+            Area2DStacked100 = 25,
             
             /// <summary>
             /// Enum Combo2DClustered for value: Combo2DClustered
             /// </summary>
             [EnumMember(Value = "Combo2DClustered")]
-            Combo2DClustered = 33,
+            Combo2DClustered = 26,
             
             /// <summary>
             /// Enum Combo2DStacked for value: Combo2DStacked
             /// </summary>
             [EnumMember(Value = "Combo2DStacked")]
-            Combo2DStacked = 34,
+            Combo2DStacked = 27,
             
             /// <summary>
             /// Enum Combo2DStacked100 for value: Combo2DStacked100
             /// </summary>
             [EnumMember(Value = "Combo2DStacked100")]
-            Combo2DStacked100 = 35,
+            Combo2DStacked100 = 28,
             
             /// <summary>
             /// Enum Venn for value: Venn
             /// </summary>
             [EnumMember(Value = "Venn")]
-            Venn = 36
+            Venn = 29,
+            
+            /// <summary>
+            /// Enum SegmentationTwoPointMigrationGeneralVolumeMovement for value: SegmentationTwoPointMigrationGeneralVolumeMovement
+            /// </summary>
+            [EnumMember(Value = "SegmentationTwoPointMigrationGeneralVolumeMovement")]
+            SegmentationTwoPointMigrationGeneralVolumeMovement = 30,
+            
+            /// <summary>
+            /// Enum DashboardMap for value: DashboardMap
+            /// </summary>
+            [EnumMember(Value = "DashboardMap")]
+            DashboardMap = 31
         }
 
         /// <summary>
@@ -305,10 +273,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="variableName">The name of the FastStats variable to use to calculate this dashboard item (required).</param>
         /// <param name="size">The size of the dashboard item within this composition (required).</param>
         /// <param name="chartType">The type of chart to use to display this dashboard item (required).</param>
+        /// <param name="mapShapeType">The shape type to use for the dashboard item if it is a map.</param>
         /// <param name="omitZeros">Whether the chart should omit categories with zero counts (required).</param>
         /// <param name="sortOrder">Whether the chart should be sorted in it&#39;s natural order, by ascending or descending values (required).</param>
         /// <param name="description">The description to use for this item (required).</param>
-        public DashboardItem(string variableName = default(string), Size size = default(Size), ChartTypeEnum chartType = default(ChartTypeEnum), bool? omitZeros = default(bool?), SortOrderEnum sortOrder = default(SortOrderEnum), string description = default(string))
+        public DashboardItem(string variableName = default(string), Size size = default(Size), ChartTypeEnum chartType = default(ChartTypeEnum), string mapShapeType = default(string), bool? omitZeros = default(bool?), SortOrderEnum sortOrder = default(SortOrderEnum), string description = default(string))
         {
             // to ensure "variableName" is required (not null)
             if (variableName == null)
@@ -364,6 +333,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             {
                 this.Description = description;
             }
+            this.MapShapeType = mapShapeType;
         }
         
         /// <summary>
@@ -380,6 +350,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         [DataMember(Name="size", EmitDefaultValue=false)]
         public Size Size { get; set; }
 
+
+        /// <summary>
+        /// The shape type to use for the dashboard item if it is a map
+        /// </summary>
+        /// <value>The shape type to use for the dashboard item if it is a map</value>
+        [DataMember(Name="mapShapeType", EmitDefaultValue=false)]
+        public string MapShapeType { get; set; }
 
         /// <summary>
         /// Whether the chart should omit categories with zero counts
@@ -407,6 +384,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  VariableName: ").Append(VariableName).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  ChartType: ").Append(ChartType).Append("\n");
+            sb.Append("  MapShapeType: ").Append(MapShapeType).Append("\n");
             sb.Append("  OmitZeros: ").Append(OmitZeros).Append("\n");
             sb.Append("  SortOrder: ").Append(SortOrder).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -460,6 +438,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.ChartType.Equals(input.ChartType))
                 ) && 
                 (
+                    this.MapShapeType == input.MapShapeType ||
+                    (this.MapShapeType != null &&
+                    this.MapShapeType.Equals(input.MapShapeType))
+                ) && 
+                (
                     this.OmitZeros == input.OmitZeros ||
                     (this.OmitZeros != null &&
                     this.OmitZeros.Equals(input.OmitZeros))
@@ -491,6 +474,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Size.GetHashCode();
                 if (this.ChartType != null)
                     hashCode = hashCode * 59 + this.ChartType.GetHashCode();
+                if (this.MapShapeType != null)
+                    hashCode = hashCode * 59 + this.MapShapeType.GetHashCode();
                 if (this.OmitZeros != null)
                     hashCode = hashCode * 59 + this.OmitZeros.GetHashCode();
                 if (this.SortOrder != null)
@@ -499,16 +484,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

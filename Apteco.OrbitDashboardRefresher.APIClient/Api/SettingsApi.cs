@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Api
@@ -425,7 +425,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (settingsPath == null)
                 throw new ApiException(400, "Missing required parameter 'settingsPath' when calling SettingsApi->SettingsDeleteDataViewSettings");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView/{settingsPath}";
+            var localVarPath = "./{dataViewName}/Settings/DataView/{settingsPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -468,7 +468,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -501,7 +501,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (settingsPath == null)
                 throw new ApiException(400, "Missing required parameter 'settingsPath' when calling SettingsApi->SettingsDeleteDataViewSettings");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView/{settingsPath}";
+            var localVarPath = "./{dataViewName}/Settings/DataView/{settingsPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -544,7 +544,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -571,7 +571,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SettingsApi->SettingsDeleteDataViewSettingsRoot");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView";
+            var localVarPath = "./{dataViewName}/Settings/DataView";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -613,7 +613,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -641,7 +641,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SettingsApi->SettingsDeleteDataViewSettingsRoot");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView";
+            var localVarPath = "./{dataViewName}/Settings/DataView";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -683,7 +683,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -716,7 +716,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (settingsPath == null)
                 throw new ApiException(400, "Missing required parameter 'settingsPath' when calling SettingsApi->SettingsGetDataViewSettings");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView/{settingsPath}";
+            var localVarPath = "./{dataViewName}/Settings/DataView/{settingsPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -761,7 +761,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -795,7 +795,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (settingsPath == null)
                 throw new ApiException(400, "Missing required parameter 'settingsPath' when calling SettingsApi->SettingsGetDataViewSettings");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView/{settingsPath}";
+            var localVarPath = "./{dataViewName}/Settings/DataView/{settingsPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -840,7 +840,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -868,7 +868,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SettingsApi->SettingsGetDataViewSettingsRoot");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView";
+            var localVarPath = "./{dataViewName}/Settings/DataView";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -912,7 +912,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -941,7 +941,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SettingsApi->SettingsGetDataViewSettingsRoot");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView";
+            var localVarPath = "./{dataViewName}/Settings/DataView";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -985,7 +985,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -1020,7 +1020,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (settingsPath == null)
                 throw new ApiException(400, "Missing required parameter 'settingsPath' when calling SettingsApi->SettingsUpdateDataViewSettings");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView/{settingsPath}";
+            var localVarPath = "./{dataViewName}/Settings/DataView/{settingsPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1077,7 +1077,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -1113,7 +1113,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (settingsPath == null)
                 throw new ApiException(400, "Missing required parameter 'settingsPath' when calling SettingsApi->SettingsUpdateDataViewSettings");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView/{settingsPath}";
+            var localVarPath = "./{dataViewName}/Settings/DataView/{settingsPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1170,7 +1170,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -1200,7 +1200,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SettingsApi->SettingsUpdateDataViewSettingsRoot");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView";
+            var localVarPath = "./{dataViewName}/Settings/DataView";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1256,7 +1256,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -1287,7 +1287,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SettingsApi->SettingsUpdateDataViewSettingsRoot");
 
-            var localVarPath = "/{dataViewName}/Settings/DataView";
+            var localVarPath = "./{dataViewName}/Settings/DataView";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1343,7 +1343,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 

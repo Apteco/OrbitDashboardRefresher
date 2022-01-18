@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Information about a particular bundle associated with a licence
     /// </summary>
     [DataContract]
-    public partial class LicenceBundleDetail :  IEquatable<LicenceBundleDetail>, IValidatableObject
+    public partial class LicenceBundleDetail :  IEquatable<LicenceBundleDetail>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LicenceBundleDetail" /> class.
@@ -39,11 +37,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// Initializes a new instance of the <see cref="LicenceBundleDetail" /> class.
         /// </summary>
         /// <param name="numberOfUsers">The number of users that can be licensed to use this bundle (required).</param>
+        /// <param name="slotsAvailable">The number of slots that are available.</param>
         /// <param name="features">The list of features available in this bundle (required).</param>
         /// <param name="id">The id of the bundle (required).</param>
         /// <param name="name">The general name of the bundle (i.e. \&quot;Orchestrator\&quot;) (required).</param>
         /// <param name="instanceName">The specific name of this instance of the bundle, including version information  (i.e. \&quot;Orchestrator V2\&quot;) (required).</param>
-        public LicenceBundleDetail(int? numberOfUsers = default(int?), List<BundleFeature> features = default(List<BundleFeature>), int? id = default(int?), string name = default(string), string instanceName = default(string))
+        public LicenceBundleDetail(int? numberOfUsers = default(int?), int? slotsAvailable = default(int?), List<BundleFeature> features = default(List<BundleFeature>), int? id = default(int?), string name = default(string), string instanceName = default(string))
         {
             // to ensure "numberOfUsers" is required (not null)
             if (numberOfUsers == null)
@@ -90,6 +89,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             {
                 this.InstanceName = instanceName;
             }
+            this.SlotsAvailable = slotsAvailable;
         }
         
         /// <summary>
@@ -98,6 +98,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <value>The number of users that can be licensed to use this bundle</value>
         [DataMember(Name="numberOfUsers", EmitDefaultValue=false)]
         public int? NumberOfUsers { get; set; }
+
+        /// <summary>
+        /// The number of slots that are available
+        /// </summary>
+        /// <value>The number of slots that are available</value>
+        [DataMember(Name="slotsAvailable", EmitDefaultValue=false)]
+        public int? SlotsAvailable { get; set; }
 
         /// <summary>
         /// The list of features available in this bundle
@@ -136,6 +143,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             var sb = new StringBuilder();
             sb.Append("class LicenceBundleDetail {\n");
             sb.Append("  NumberOfUsers: ").Append(NumberOfUsers).Append("\n");
+            sb.Append("  SlotsAvailable: ").Append(SlotsAvailable).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -180,6 +188,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.NumberOfUsers.Equals(input.NumberOfUsers))
                 ) && 
                 (
+                    this.SlotsAvailable == input.SlotsAvailable ||
+                    (this.SlotsAvailable != null &&
+                    this.SlotsAvailable.Equals(input.SlotsAvailable))
+                ) && 
+                (
                     this.Features == input.Features ||
                     this.Features != null &&
                     this.Features.SequenceEqual(input.Features)
@@ -212,6 +225,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                 int hashCode = 41;
                 if (this.NumberOfUsers != null)
                     hashCode = hashCode * 59 + this.NumberOfUsers.GetHashCode();
+                if (this.SlotsAvailable != null)
+                    hashCode = hashCode * 59 + this.SlotsAvailable.GetHashCode();
                 if (this.Features != null)
                     hashCode = hashCode * 59 + this.Features.GetHashCode();
                 if (this.Id != null)
@@ -222,16 +237,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.InstanceName.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

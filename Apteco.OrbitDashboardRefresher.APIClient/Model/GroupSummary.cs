@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Summary details for a group
     /// </summary>
     [DataContract]
-    public partial class GroupSummary :  IEquatable<GroupSummary>, IValidatableObject
+    public partial class GroupSummary :  IEquatable<GroupSummary>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupSummary" /> class.
@@ -40,10 +38,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// </summary>
         /// <param name="id">The group&#39;s id (required).</param>
         /// <param name="name">The group&#39;s name (required).</param>
+        /// <param name="systems">The systems that the group is connected to (required).</param>
         /// <param name="userMembership">The users that the group contains (required).</param>
         /// <param name="userMembershipCount">The user count that the group contains (required).</param>
         /// <param name="systemMembership">Whether the group includes the system (required).</param>
-        public GroupSummary(int? id = default(int?), string name = default(string), List<UserSummary> userMembership = default(List<UserSummary>), int? userMembershipCount = default(int?), bool? systemMembership = default(bool?))
+        public GroupSummary(int? id = default(int?), string name = default(string), List<string> systems = default(List<string>), List<UserSummary> userMembership = default(List<UserSummary>), int? userMembershipCount = default(int?), bool? systemMembership = default(bool?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -62,6 +61,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             else
             {
                 this.Name = name;
+            }
+            // to ensure "systems" is required (not null)
+            if (systems == null)
+            {
+                throw new InvalidDataException("systems is a required property for GroupSummary and cannot be null");
+            }
+            else
+            {
+                this.Systems = systems;
             }
             // to ensure "userMembership" is required (not null)
             if (userMembership == null)
@@ -107,6 +115,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// The systems that the group is connected to
+        /// </summary>
+        /// <value>The systems that the group is connected to</value>
+        [DataMember(Name="systems", EmitDefaultValue=false)]
+        public List<string> Systems { get; set; }
+
+        /// <summary>
         /// The users that the group contains
         /// </summary>
         /// <value>The users that the group contains</value>
@@ -137,6 +152,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("class GroupSummary {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Systems: ").Append(Systems).Append("\n");
             sb.Append("  UserMembership: ").Append(UserMembership).Append("\n");
             sb.Append("  UserMembershipCount: ").Append(UserMembershipCount).Append("\n");
             sb.Append("  SystemMembership: ").Append(SystemMembership).Append("\n");
@@ -185,6 +201,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.Systems == input.Systems ||
+                    this.Systems != null &&
+                    this.Systems.SequenceEqual(input.Systems)
+                ) && 
+                (
                     this.UserMembership == input.UserMembership ||
                     this.UserMembership != null &&
                     this.UserMembership.SequenceEqual(input.UserMembership)
@@ -214,6 +235,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Systems != null)
+                    hashCode = hashCode * 59 + this.Systems.GetHashCode();
                 if (this.UserMembership != null)
                     hashCode = hashCode * 59 + this.UserMembership.GetHashCode();
                 if (this.UserMembershipCount != null)
@@ -222,16 +245,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.SystemMembership.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

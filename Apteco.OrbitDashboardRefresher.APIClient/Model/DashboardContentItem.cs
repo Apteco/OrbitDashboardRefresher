@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Outline for a dashboard item
     /// </summary>
     [DataContract]
-    public partial class DashboardContentItem :  IEquatable<DashboardContentItem>, IValidatableObject
+    public partial class DashboardContentItem :  IEquatable<DashboardContentItem>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DashboardContentItem" /> class.
@@ -40,9 +38,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// </summary>
         /// <param name="id">The dashboard items id (required).</param>
         /// <param name="title">The dashboard items title (required).</param>
+        /// <param name="tileFilter">The dashboard items tile filter.</param>
         /// <param name="breakpoints">The breakpoint sizing data.</param>
         /// <param name="dashboardItemDetails">The dashboard items details for each breakpoint.</param>
-        public DashboardContentItem(string id = default(string), string title = default(string), List<Breakpoint> breakpoints = default(List<Breakpoint>), List<DashboardContentItemDetail> dashboardItemDetails = default(List<DashboardContentItemDetail>))
+        public DashboardContentItem(string id = default(string), string title = default(string), FilterDefinition tileFilter = default(FilterDefinition), List<Breakpoint> breakpoints = default(List<Breakpoint>), List<DashboardContentItemDetail> dashboardItemDetails = default(List<DashboardContentItemDetail>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -62,6 +61,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             {
                 this.Title = title;
             }
+            this.TileFilter = tileFilter;
             this.Breakpoints = breakpoints;
             this.DashboardItemDetails = dashboardItemDetails;
         }
@@ -79,6 +79,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <value>The dashboard items title</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// The dashboard items tile filter
+        /// </summary>
+        /// <value>The dashboard items tile filter</value>
+        [DataMember(Name="tileFilter", EmitDefaultValue=false)]
+        public FilterDefinition TileFilter { get; set; }
 
         /// <summary>
         /// The breakpoint sizing data
@@ -104,6 +111,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("class DashboardContentItem {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  TileFilter: ").Append(TileFilter).Append("\n");
             sb.Append("  Breakpoints: ").Append(Breakpoints).Append("\n");
             sb.Append("  DashboardItemDetails: ").Append(DashboardItemDetails).Append("\n");
             sb.Append("}\n");
@@ -151,6 +159,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.Title.Equals(input.Title))
                 ) && 
                 (
+                    this.TileFilter == input.TileFilter ||
+                    (this.TileFilter != null &&
+                    this.TileFilter.Equals(input.TileFilter))
+                ) && 
+                (
                     this.Breakpoints == input.Breakpoints ||
                     this.Breakpoints != null &&
                     this.Breakpoints.SequenceEqual(input.Breakpoints)
@@ -175,22 +188,14 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.TileFilter != null)
+                    hashCode = hashCode * 59 + this.TileFilter.GetHashCode();
                 if (this.Breakpoints != null)
                     hashCode = hashCode * 59 + this.Breakpoints.GetHashCode();
                 if (this.DashboardItemDetails != null)
                     hashCode = hashCode * 59 + this.DashboardItemDetails.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

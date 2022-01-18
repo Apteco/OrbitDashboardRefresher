@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -1943,7 +1943,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCalculateAudienceDataLicensingSync");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/DataLicensingSync";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/DataLicensingSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2001,7 +2001,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensingInfo>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensingInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensingInfo)));
         }
 
@@ -2039,7 +2039,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCalculateAudienceDataLicensingSync");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/DataLicensingSync";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/DataLicensingSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2097,7 +2097,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensingInfo>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensingInfo) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensingInfo)));
         }
 
@@ -2134,7 +2134,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCalculateAudienceLatestUpdateSync");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CalculateSync";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CalculateSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2192,7 +2192,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceResultDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceResultDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceResultDetail)));
         }
 
@@ -2230,7 +2230,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCalculateAudienceLatestUpdateSync");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CalculateSync";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CalculateSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2288,7 +2288,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceResultDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceResultDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceResultDetail)));
         }
 
@@ -2325,7 +2325,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelCalculateAudienceDataLicensingJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/DataLicensingJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/DataLicensingJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2369,7 +2369,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2407,7 +2407,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelCalculateAudienceDataLicensingJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/DataLicensingJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/DataLicensingJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2451,7 +2451,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2488,7 +2488,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelCalculateAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CalculateJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CalculateJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2532,7 +2532,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2570,7 +2570,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelCalculateAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CalculateJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CalculateJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2614,7 +2614,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2651,7 +2651,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelCheckAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CheckJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CheckJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2695,7 +2695,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2733,7 +2733,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelCheckAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CheckJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CheckJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2777,7 +2777,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2814,7 +2814,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelConvertToCampaignJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2858,7 +2858,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2896,7 +2896,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelConvertToCampaignJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2940,7 +2940,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2977,7 +2977,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelExportAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ExportJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ExportJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3021,7 +3021,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3059,7 +3059,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesCancelExportAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ExportJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ExportJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3103,7 +3103,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3140,7 +3140,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCheckAudienceLatestUpdateSync");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CheckSync";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CheckSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3198,7 +3198,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceCheckDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceCheckDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceCheckDetail)));
         }
 
@@ -3236,7 +3236,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCheckAudienceLatestUpdateSync");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CheckSync";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CheckSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3294,7 +3294,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceCheckDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceCheckDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceCheckDetail)));
         }
 
@@ -3332,7 +3332,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesConvertToCampaignJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3378,7 +3378,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ConvertAudienceToCampaignJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ConvertAudienceToCampaignJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertAudienceToCampaignJobDetail)));
         }
 
@@ -3417,7 +3417,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesConvertToCampaignJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3463,7 +3463,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ConvertAudienceToCampaignJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ConvertAudienceToCampaignJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertAudienceToCampaignJobDetail)));
         }
 
@@ -3502,7 +3502,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCopyAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Copy";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Copy";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3561,7 +3561,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDetail)));
         }
 
@@ -3601,7 +3601,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCopyAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Copy";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Copy";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3660,7 +3660,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDetail)));
         }
 
@@ -3690,7 +3690,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling AudiencesApi->AudiencesCreateAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences";
+            var localVarPath = "./{dataViewName}/Audiences";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3746,7 +3746,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDetail)));
         }
 
@@ -3777,7 +3777,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling AudiencesApi->AudiencesCreateAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences";
+            var localVarPath = "./{dataViewName}/Audiences";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3833,7 +3833,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDetail)));
         }
 
@@ -3868,7 +3868,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateAudienceHitForAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Hits";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3925,7 +3925,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceHitDetail)));
         }
 
@@ -3961,7 +3961,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateAudienceHitForAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Hits";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4018,7 +4018,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceHitDetail)));
         }
 
@@ -4053,7 +4053,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateAudienceUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Updates";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4110,7 +4110,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceUpdateDetail)));
         }
 
@@ -4146,7 +4146,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateAudienceUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Updates";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4203,7 +4203,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceUpdateDetail)));
         }
 
@@ -4238,7 +4238,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateCalculateAudienceDataLicensingJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/DataLicensingJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/DataLicensingJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4295,7 +4295,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDataLicensingInfoJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDataLicensingInfoJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDataLicensingInfoJobDetail)));
         }
 
@@ -4331,7 +4331,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateCalculateAudienceDataLicensingJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/DataLicensingJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/DataLicensingJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4388,7 +4388,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDataLicensingInfoJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDataLicensingInfoJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDataLicensingInfoJobDetail)));
         }
 
@@ -4423,7 +4423,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateCalculateAudienceJobForLatestUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CalculateJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CalculateJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4480,7 +4480,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceCalculateJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceCalculateJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceCalculateJobDetail)));
         }
 
@@ -4516,7 +4516,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateCalculateAudienceJobForLatestUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CalculateJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CalculateJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4573,7 +4573,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceCalculateJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceCalculateJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceCalculateJobDetail)));
         }
 
@@ -4608,7 +4608,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateCheckAudienceJobForLatestUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CheckJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CheckJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4665,7 +4665,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<AudienceCheckJobDetail>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<AudienceCheckJobDetail>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<AudienceCheckJobDetail>)));
         }
 
@@ -4701,7 +4701,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateCheckAudienceJobForLatestUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CheckJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CheckJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4758,7 +4758,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<AudienceCheckJobDetail>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<AudienceCheckJobDetail>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<AudienceCheckJobDetail>)));
         }
 
@@ -4793,7 +4793,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateConvertToCampaignJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4850,7 +4850,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ConvertAudienceToCampaignJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ConvertAudienceToCampaignJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertAudienceToCampaignJobDetail)));
         }
 
@@ -4886,7 +4886,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateConvertToCampaignJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ConvertToCampaignJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4943,7 +4943,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ConvertAudienceToCampaignJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ConvertAudienceToCampaignJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertAudienceToCampaignJobDetail)));
         }
 
@@ -4978,7 +4978,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateExportAudienceJobForLatestUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ExportJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ExportJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5035,7 +5035,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceExportJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceExportJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceExportJobDetail)));
         }
 
@@ -5071,7 +5071,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesCreateExportAudienceJobForLatestUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ExportJobs";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ExportJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5128,7 +5128,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceExportJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceExportJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceExportJobDetail)));
         }
 
@@ -5160,7 +5160,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesDeleteAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5203,7 +5203,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -5236,7 +5236,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesDeleteAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5279,7 +5279,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -5316,7 +5316,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesExportAudienceLatestUpdateSync");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ExportSync";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ExportSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5374,7 +5374,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceExportDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceExportDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceExportDetail)));
         }
 
@@ -5412,7 +5412,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesExportAudienceLatestUpdateSync");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ExportSync";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ExportSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5470,7 +5470,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceExportDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceExportDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceExportDetail)));
         }
 
@@ -5507,7 +5507,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5554,7 +5554,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDetail)));
         }
 
@@ -5592,7 +5592,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5639,7 +5639,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDetail)));
         }
 
@@ -5677,7 +5677,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceHitId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceHitId' when calling AudiencesApi->AudiencesGetAudienceHitForAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Hits/{audienceHitId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Hits/{audienceHitId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5723,7 +5723,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceHitDetail)));
         }
 
@@ -5762,7 +5762,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceHitId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceHitId' when calling AudiencesApi->AudiencesGetAudienceHitForAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Hits/{audienceHitId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Hits/{audienceHitId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5808,7 +5808,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceHitDetail)));
         }
 
@@ -5849,7 +5849,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudienceHitsForAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Hits";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5898,7 +5898,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAudienceHitSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAudienceHitSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAudienceHitSummary)));
         }
 
@@ -5940,7 +5940,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudienceHitsForAudience");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Hits";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5989,7 +5989,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAudienceHitSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAudienceHitSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAudienceHitSummary)));
         }
 
@@ -6022,7 +6022,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudienceLatestNativeForNettQuery");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Native/Nett";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Native/Nett";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6067,7 +6067,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
         }
 
@@ -6101,7 +6101,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudienceLatestNativeForNettQuery");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Native/Nett";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Native/Nett";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6146,7 +6146,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<string>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
         }
 
@@ -6184,7 +6184,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceResultId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceResultId' when calling AudiencesApi->AudiencesGetAudienceResult");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Results/{audienceResultId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Results/{audienceResultId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6230,7 +6230,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceResultDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceResultDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceResultDetail)));
         }
 
@@ -6269,7 +6269,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceResultId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceResultId' when calling AudiencesApi->AudiencesGetAudienceResult");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Results/{audienceResultId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Results/{audienceResultId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6315,7 +6315,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceResultDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceResultDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceResultDetail)));
         }
 
@@ -6356,7 +6356,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudienceResults");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Results";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Results";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6405,7 +6405,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAudienceResultSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAudienceResultSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAudienceResultSummary)));
         }
 
@@ -6447,7 +6447,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudienceResults");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Results";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Results";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6496,7 +6496,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAudienceResultSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAudienceResultSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAudienceResultSummary)));
         }
 
@@ -6538,7 +6538,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceUpdateId' when calling AudiencesApi->AudiencesGetAudienceUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Updates/{audienceUpdateId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Updates/{audienceUpdateId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6586,7 +6586,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceUpdateDetail)));
         }
 
@@ -6629,7 +6629,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceUpdateId' when calling AudiencesApi->AudiencesGetAudienceUpdate");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Updates/{audienceUpdateId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Updates/{audienceUpdateId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6677,7 +6677,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceUpdateDetail)));
         }
 
@@ -6718,7 +6718,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudienceUpdates");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Updates";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6767,7 +6767,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAudienceUpdateSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAudienceUpdateSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAudienceUpdateSummary)));
         }
 
@@ -6809,7 +6809,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesGetAudienceUpdates");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/Updates";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6858,7 +6858,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAudienceUpdateSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAudienceUpdateSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAudienceUpdateSummary)));
         }
 
@@ -6896,7 +6896,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling AudiencesApi->AudiencesGetAudiences");
 
-            var localVarPath = "/{dataViewName}/Audiences";
+            var localVarPath = "./{dataViewName}/Audiences";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6945,7 +6945,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAudienceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAudienceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAudienceSummary)));
         }
 
@@ -6984,7 +6984,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling AudiencesApi->AudiencesGetAudiences");
 
-            var localVarPath = "/{dataViewName}/Audiences";
+            var localVarPath = "./{dataViewName}/Audiences";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7033,7 +7033,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAudienceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAudienceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAudienceSummary)));
         }
 
@@ -7073,7 +7073,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesGetCalculateAudienceDataLicensingJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/DataLicensingJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/DataLicensingJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7131,7 +7131,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDataLicensingInfoJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDataLicensingInfoJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDataLicensingInfoJobDetail)));
         }
 
@@ -7172,7 +7172,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesGetCalculateAudienceDataLicensingJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/DataLicensingJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/DataLicensingJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7230,7 +7230,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDataLicensingInfoJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDataLicensingInfoJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDataLicensingInfoJobDetail)));
         }
 
@@ -7268,7 +7268,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesGetCalculateAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CalculateJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CalculateJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7314,7 +7314,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceCalculateJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceCalculateJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceCalculateJobDetail)));
         }
 
@@ -7353,7 +7353,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesGetCalculateAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CalculateJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CalculateJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7399,7 +7399,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceCalculateJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceCalculateJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceCalculateJobDetail)));
         }
 
@@ -7437,7 +7437,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesGetCheckAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CheckJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CheckJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7483,7 +7483,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceCheckJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceCheckJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceCheckJobDetail)));
         }
 
@@ -7522,7 +7522,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesGetCheckAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/CheckJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/CheckJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7568,7 +7568,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceCheckJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceCheckJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceCheckJobDetail)));
         }
 
@@ -7606,7 +7606,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesGetExportAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ExportJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ExportJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7652,7 +7652,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceExportJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceExportJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceExportJobDetail)));
         }
 
@@ -7691,7 +7691,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling AudiencesApi->AudiencesGetExportAudienceJob");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/ExportJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/ExportJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7737,7 +7737,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceExportJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceExportJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceExportJobDetail)));
         }
 
@@ -7776,7 +7776,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesTransferAudienceOwnership");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/TransferOwnership";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/TransferOwnership";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7835,7 +7835,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDetail)));
         }
 
@@ -7875,7 +7875,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling AudiencesApi->AudiencesTransferAudienceOwnership");
 
-            var localVarPath = "/{dataViewName}/Audiences/{audienceId}/TransferOwnership";
+            var localVarPath = "./{dataViewName}/Audiences/{audienceId}/TransferOwnership";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -7934,7 +7934,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AudienceDetail)));
         }
 

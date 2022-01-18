@@ -12,29 +12,27 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
 {
     /// <summary>
-    /// Details to update a group with
+    /// Details to update a users group with
     /// </summary>
     [DataContract]
-    public partial class ModifyUserGroups :  IEquatable<ModifyUserGroups>, IValidatableObject
+    public partial class ModifyUserGroups :  IEquatable<ModifyUserGroups>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ModifyUserGroups" /> class.
         /// </summary>
-        /// <param name="groupIdsToAdd">When specified, the new ids of the group ids to add to the user.</param>
-        /// <param name="groupIdsToRemove">When specified, the new ids of the group ids to remove from the user.</param>
+        /// <param name="groupIdsToAdd">When specified, the ids of the groups to add to the user.</param>
+        /// <param name="groupIdsToRemove">When specified, the ids of the groups to remove from the user.</param>
         public ModifyUserGroups(List<int?> groupIdsToAdd = default(List<int?>), List<int?> groupIdsToRemove = default(List<int?>))
         {
             this.GroupIdsToAdd = groupIdsToAdd;
@@ -42,16 +40,16 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         }
         
         /// <summary>
-        /// When specified, the new ids of the group ids to add to the user
+        /// When specified, the ids of the groups to add to the user
         /// </summary>
-        /// <value>When specified, the new ids of the group ids to add to the user</value>
+        /// <value>When specified, the ids of the groups to add to the user</value>
         [DataMember(Name="groupIdsToAdd", EmitDefaultValue=false)]
         public List<int?> GroupIdsToAdd { get; set; }
 
         /// <summary>
-        /// When specified, the new ids of the group ids to remove from the user
+        /// When specified, the ids of the groups to remove from the user
         /// </summary>
-        /// <value>When specified, the new ids of the group ids to remove from the user</value>
+        /// <value>When specified, the ids of the groups to remove from the user</value>
         [DataMember(Name="groupIdsToRemove", EmitDefaultValue=false)]
         public List<int?> GroupIdsToRemove { get; set; }
 
@@ -126,16 +124,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.GroupIdsToRemove.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

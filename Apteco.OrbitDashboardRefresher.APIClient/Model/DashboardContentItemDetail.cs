@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// The details of a dashboard item
     /// </summary>
     [DataContract]
-    public partial class DashboardContentItemDetail :  IEquatable<DashboardContentItemDetail>, IValidatableObject
+    public partial class DashboardContentItemDetail :  IEquatable<DashboardContentItemDetail>
     {
         /// <summary>
         /// The chart type that will be shown in the dashboard item
@@ -69,190 +67,160 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             Line = 5,
             
             /// <summary>
-            /// Enum UKPostArea for value: UKPostArea
-            /// </summary>
-            [EnumMember(Value = "UKPostArea")]
-            UKPostArea = 6,
-            
-            /// <summary>
-            /// Enum NLProvinces for value: NLProvinces
-            /// </summary>
-            [EnumMember(Value = "NLProvinces")]
-            NLProvinces = 7,
-            
-            /// <summary>
-            /// Enum NLMunicipalities for value: NLMunicipalities
-            /// </summary>
-            [EnumMember(Value = "NLMunicipalities")]
-            NLMunicipalities = 8,
-            
-            /// <summary>
-            /// Enum DE2DigitPostCode for value: DE2DigitPostCode
-            /// </summary>
-            [EnumMember(Value = "DE2DigitPostCode")]
-            DE2DigitPostCode = 9,
-            
-            /// <summary>
-            /// Enum CH2DigitPostCode for value: CH2DigitPostCode
-            /// </summary>
-            [EnumMember(Value = "CH2DigitPostCode")]
-            CH2DigitPostCode = 10,
-            
-            /// <summary>
-            /// Enum AU2DigitPostCode for value: AU2DigitPostCode
-            /// </summary>
-            [EnumMember(Value = "AU2DigitPostCode")]
-            AU2DigitPostCode = 11,
-            
-            /// <summary>
-            /// Enum USStates for value: USStates
-            /// </summary>
-            [EnumMember(Value = "USStates")]
-            USStates = 12,
-            
-            /// <summary>
             /// Enum NumberCard for value: NumberCard
             /// </summary>
             [EnumMember(Value = "NumberCard")]
-            NumberCard = 13,
+            NumberCard = 6,
             
             /// <summary>
             /// Enum Text for value: Text
             /// </summary>
             [EnumMember(Value = "Text")]
-            Text = 14,
+            Text = 7,
             
             /// <summary>
             /// Enum BandedPareto for value: BandedPareto
             /// </summary>
             [EnumMember(Value = "BandedPareto")]
-            BandedPareto = 15,
+            BandedPareto = 8,
             
             /// <summary>
             /// Enum CategoricalPareto for value: CategoricalPareto
             /// </summary>
             [EnumMember(Value = "CategoricalPareto")]
-            CategoricalPareto = 16,
+            CategoricalPareto = 9,
             
             /// <summary>
             /// Enum Area for value: Area
             /// </summary>
             [EnumMember(Value = "Area")]
-            Area = 17,
+            Area = 10,
             
             /// <summary>
             /// Enum RadarLine for value: RadarLine
             /// </summary>
             [EnumMember(Value = "RadarLine")]
-            RadarLine = 18,
+            RadarLine = 11,
             
             /// <summary>
             /// Enum RadarColumn for value: RadarColumn
             /// </summary>
             [EnumMember(Value = "RadarColumn")]
-            RadarColumn = 19,
+            RadarColumn = 12,
             
             /// <summary>
             /// Enum RadarArea for value: RadarArea
             /// </summary>
             [EnumMember(Value = "RadarArea")]
-            RadarArea = 20,
+            RadarArea = 13,
             
             /// <summary>
             /// Enum Funnel for value: Funnel
             /// </summary>
             [EnumMember(Value = "Funnel")]
-            Funnel = 21,
+            Funnel = 14,
             
             /// <summary>
             /// Enum Combo for value: Combo
             /// </summary>
             [EnumMember(Value = "Combo")]
-            Combo = 22,
+            Combo = 15,
             
             /// <summary>
             /// Enum Column2DClustered for value: Column2DClustered
             /// </summary>
             [EnumMember(Value = "Column2DClustered")]
-            Column2DClustered = 23,
+            Column2DClustered = 16,
             
             /// <summary>
             /// Enum Column2DStacked for value: Column2DStacked
             /// </summary>
             [EnumMember(Value = "Column2DStacked")]
-            Column2DStacked = 24,
+            Column2DStacked = 17,
             
             /// <summary>
             /// Enum Column2DStacked100 for value: Column2DStacked100
             /// </summary>
             [EnumMember(Value = "Column2DStacked100")]
-            Column2DStacked100 = 25,
+            Column2DStacked100 = 18,
             
             /// <summary>
             /// Enum Bar2DClustered for value: Bar2DClustered
             /// </summary>
             [EnumMember(Value = "Bar2DClustered")]
-            Bar2DClustered = 26,
+            Bar2DClustered = 19,
             
             /// <summary>
             /// Enum Bar2DStacked for value: Bar2DStacked
             /// </summary>
             [EnumMember(Value = "Bar2DStacked")]
-            Bar2DStacked = 27,
+            Bar2DStacked = 20,
             
             /// <summary>
             /// Enum Bar2DStacked100 for value: Bar2DStacked100
             /// </summary>
             [EnumMember(Value = "Bar2DStacked100")]
-            Bar2DStacked100 = 28,
+            Bar2DStacked100 = 21,
             
             /// <summary>
             /// Enum Line2D for value: Line2D
             /// </summary>
             [EnumMember(Value = "Line2D")]
-            Line2D = 29,
+            Line2D = 22,
             
             /// <summary>
             /// Enum Area2DClustered for value: Area2DClustered
             /// </summary>
             [EnumMember(Value = "Area2DClustered")]
-            Area2DClustered = 30,
+            Area2DClustered = 23,
             
             /// <summary>
             /// Enum Area2DStacked for value: Area2DStacked
             /// </summary>
             [EnumMember(Value = "Area2DStacked")]
-            Area2DStacked = 31,
+            Area2DStacked = 24,
             
             /// <summary>
             /// Enum Area2DStacked100 for value: Area2DStacked100
             /// </summary>
             [EnumMember(Value = "Area2DStacked100")]
-            Area2DStacked100 = 32,
+            Area2DStacked100 = 25,
             
             /// <summary>
             /// Enum Combo2DClustered for value: Combo2DClustered
             /// </summary>
             [EnumMember(Value = "Combo2DClustered")]
-            Combo2DClustered = 33,
+            Combo2DClustered = 26,
             
             /// <summary>
             /// Enum Combo2DStacked for value: Combo2DStacked
             /// </summary>
             [EnumMember(Value = "Combo2DStacked")]
-            Combo2DStacked = 34,
+            Combo2DStacked = 27,
             
             /// <summary>
             /// Enum Combo2DStacked100 for value: Combo2DStacked100
             /// </summary>
             [EnumMember(Value = "Combo2DStacked100")]
-            Combo2DStacked100 = 35,
+            Combo2DStacked100 = 28,
             
             /// <summary>
             /// Enum Venn for value: Venn
             /// </summary>
             [EnumMember(Value = "Venn")]
-            Venn = 36
+            Venn = 29,
+            
+            /// <summary>
+            /// Enum SegmentationTwoPointMigrationGeneralVolumeMovement for value: SegmentationTwoPointMigrationGeneralVolumeMovement
+            /// </summary>
+            [EnumMember(Value = "SegmentationTwoPointMigrationGeneralVolumeMovement")]
+            SegmentationTwoPointMigrationGeneralVolumeMovement = 30,
+            
+            /// <summary>
+            /// Enum DashboardMap for value: DashboardMap
+            /// </summary>
+            [EnumMember(Value = "DashboardMap")]
+            DashboardMap = 31
         }
 
         /// <summary>
@@ -344,6 +312,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="drilldownLevel">The drill down level of the dashboard item (required).</param>
         /// <param name="description">The description of the dashboard item.</param>
         /// <param name="chartType">The chart type that will be shown in the dashboard item (required).</param>
+        /// <param name="mapShapeType">The map shape type that will be shown in the dashboard item for DashboardMaps.</param>
         /// <param name="dataSpecification">Details of the data specification used for the dashboard item.</param>
         /// <param name="resolveTableName">The specific resolve table for the dashboard item.</param>
         /// <param name="allowCategoryDisplay">Whether to allow category display on the dashboard item.</param>
@@ -360,7 +329,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="abbreviateCount">Whether to abbreviate the count of the dashboard item.</param>
         /// <param name="decimalPlaces">The number of decimal places to round the count to.</param>
         /// <param name="dataLabels">Details of data labels on the dashboard item.</param>
-        public DashboardContentItemDetail(int? drilldownLevel = default(int?), string description = default(string), ChartTypeEnum chartType = default(ChartTypeEnum), DashboardItemDataSpecification dataSpecification = default(DashboardItemDataSpecification), string resolveTableName = default(string), bool? allowCategoryDisplay = default(bool?), DashboardItemCategoryDisplay categoryDisplay = default(DashboardItemCategoryDisplay), DashboardItemCategoryDisplay secondaryCategoryDisplay = default(DashboardItemCategoryDisplay), bool? omitZeros = default(bool?), bool? omitUnclassifiedRows = default(bool?), bool? omitUnclassifiedColumns = default(bool?), SortOrderEnum sortOrder = default(SortOrderEnum), bool? showUnderlyingData = default(bool?), string notes = default(string), bool? showLegend = default(bool?), LegendPositionEnum? legendPosition = default(LegendPositionEnum?), bool? abbreviateCount = default(bool?), int? decimalPlaces = default(int?), DashboardItemDataLabels dataLabels = default(DashboardItemDataLabels))
+        /// <param name="categoryAxisTitle">The title of the category axis for the dashboard item.</param>
+        /// <param name="legendTitle">The title of the legend for the dashboard item.</param>
+        /// <param name="measureAxisTitle">The title of the measure axis for the dashboard item.</param>
+        /// <param name="secondaryMeasureAxisTitle">The title of the secondary measure axis for the dashboard item.</param>
+        /// <param name="fontDisplay">The font display setting for the number card.</param>
+        /// <param name="fontSize">The font size for the dashboard item result.</param>
+        public DashboardContentItemDetail(int? drilldownLevel = default(int?), string description = default(string), ChartTypeEnum chartType = default(ChartTypeEnum), string mapShapeType = default(string), DashboardItemDataSpecification dataSpecification = default(DashboardItemDataSpecification), string resolveTableName = default(string), bool? allowCategoryDisplay = default(bool?), DashboardItemCategoryDisplay categoryDisplay = default(DashboardItemCategoryDisplay), DashboardItemCategoryDisplay secondaryCategoryDisplay = default(DashboardItemCategoryDisplay), bool? omitZeros = default(bool?), bool? omitUnclassifiedRows = default(bool?), bool? omitUnclassifiedColumns = default(bool?), SortOrderEnum sortOrder = default(SortOrderEnum), bool? showUnderlyingData = default(bool?), string notes = default(string), bool? showLegend = default(bool?), LegendPositionEnum? legendPosition = default(LegendPositionEnum?), bool? abbreviateCount = default(bool?), int? decimalPlaces = default(int?), DashboardItemDataLabels dataLabels = default(DashboardItemDataLabels), string categoryAxisTitle = default(string), string legendTitle = default(string), string measureAxisTitle = default(string), string secondaryMeasureAxisTitle = default(string), string fontDisplay = default(string), int? fontSize = default(int?))
         {
             // to ensure "drilldownLevel" is required (not null)
             if (drilldownLevel == null)
@@ -390,6 +365,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                 this.SortOrder = sortOrder;
             }
             this.Description = description;
+            this.MapShapeType = mapShapeType;
             this.DataSpecification = dataSpecification;
             this.ResolveTableName = resolveTableName;
             this.AllowCategoryDisplay = allowCategoryDisplay;
@@ -405,6 +381,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             this.AbbreviateCount = abbreviateCount;
             this.DecimalPlaces = decimalPlaces;
             this.DataLabels = dataLabels;
+            this.CategoryAxisTitle = categoryAxisTitle;
+            this.LegendTitle = legendTitle;
+            this.MeasureAxisTitle = measureAxisTitle;
+            this.SecondaryMeasureAxisTitle = secondaryMeasureAxisTitle;
+            this.FontDisplay = fontDisplay;
+            this.FontSize = fontSize;
         }
         
         /// <summary>
@@ -421,6 +403,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
+
+        /// <summary>
+        /// The map shape type that will be shown in the dashboard item for DashboardMaps
+        /// </summary>
+        /// <value>The map shape type that will be shown in the dashboard item for DashboardMaps</value>
+        [DataMember(Name="mapShapeType", EmitDefaultValue=false)]
+        public string MapShapeType { get; set; }
 
         /// <summary>
         /// Details of the data specification used for the dashboard item
@@ -523,6 +512,48 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         public DashboardItemDataLabels DataLabels { get; set; }
 
         /// <summary>
+        /// The title of the category axis for the dashboard item
+        /// </summary>
+        /// <value>The title of the category axis for the dashboard item</value>
+        [DataMember(Name="categoryAxisTitle", EmitDefaultValue=false)]
+        public string CategoryAxisTitle { get; set; }
+
+        /// <summary>
+        /// The title of the legend for the dashboard item
+        /// </summary>
+        /// <value>The title of the legend for the dashboard item</value>
+        [DataMember(Name="legendTitle", EmitDefaultValue=false)]
+        public string LegendTitle { get; set; }
+
+        /// <summary>
+        /// The title of the measure axis for the dashboard item
+        /// </summary>
+        /// <value>The title of the measure axis for the dashboard item</value>
+        [DataMember(Name="measureAxisTitle", EmitDefaultValue=false)]
+        public string MeasureAxisTitle { get; set; }
+
+        /// <summary>
+        /// The title of the secondary measure axis for the dashboard item
+        /// </summary>
+        /// <value>The title of the secondary measure axis for the dashboard item</value>
+        [DataMember(Name="secondaryMeasureAxisTitle", EmitDefaultValue=false)]
+        public string SecondaryMeasureAxisTitle { get; set; }
+
+        /// <summary>
+        /// The font display setting for the number card
+        /// </summary>
+        /// <value>The font display setting for the number card</value>
+        [DataMember(Name="fontDisplay", EmitDefaultValue=false)]
+        public string FontDisplay { get; set; }
+
+        /// <summary>
+        /// The font size for the dashboard item result
+        /// </summary>
+        /// <value>The font size for the dashboard item result</value>
+        [DataMember(Name="fontSize", EmitDefaultValue=false)]
+        public int? FontSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -533,6 +564,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  DrilldownLevel: ").Append(DrilldownLevel).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ChartType: ").Append(ChartType).Append("\n");
+            sb.Append("  MapShapeType: ").Append(MapShapeType).Append("\n");
             sb.Append("  DataSpecification: ").Append(DataSpecification).Append("\n");
             sb.Append("  ResolveTableName: ").Append(ResolveTableName).Append("\n");
             sb.Append("  AllowCategoryDisplay: ").Append(AllowCategoryDisplay).Append("\n");
@@ -549,6 +581,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  AbbreviateCount: ").Append(AbbreviateCount).Append("\n");
             sb.Append("  DecimalPlaces: ").Append(DecimalPlaces).Append("\n");
             sb.Append("  DataLabels: ").Append(DataLabels).Append("\n");
+            sb.Append("  CategoryAxisTitle: ").Append(CategoryAxisTitle).Append("\n");
+            sb.Append("  LegendTitle: ").Append(LegendTitle).Append("\n");
+            sb.Append("  MeasureAxisTitle: ").Append(MeasureAxisTitle).Append("\n");
+            sb.Append("  SecondaryMeasureAxisTitle: ").Append(SecondaryMeasureAxisTitle).Append("\n");
+            sb.Append("  FontDisplay: ").Append(FontDisplay).Append("\n");
+            sb.Append("  FontSize: ").Append(FontSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -597,6 +635,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.ChartType == input.ChartType ||
                     (this.ChartType != null &&
                     this.ChartType.Equals(input.ChartType))
+                ) && 
+                (
+                    this.MapShapeType == input.MapShapeType ||
+                    (this.MapShapeType != null &&
+                    this.MapShapeType.Equals(input.MapShapeType))
                 ) && 
                 (
                     this.DataSpecification == input.DataSpecification ||
@@ -677,6 +720,36 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.DataLabels == input.DataLabels ||
                     (this.DataLabels != null &&
                     this.DataLabels.Equals(input.DataLabels))
+                ) && 
+                (
+                    this.CategoryAxisTitle == input.CategoryAxisTitle ||
+                    (this.CategoryAxisTitle != null &&
+                    this.CategoryAxisTitle.Equals(input.CategoryAxisTitle))
+                ) && 
+                (
+                    this.LegendTitle == input.LegendTitle ||
+                    (this.LegendTitle != null &&
+                    this.LegendTitle.Equals(input.LegendTitle))
+                ) && 
+                (
+                    this.MeasureAxisTitle == input.MeasureAxisTitle ||
+                    (this.MeasureAxisTitle != null &&
+                    this.MeasureAxisTitle.Equals(input.MeasureAxisTitle))
+                ) && 
+                (
+                    this.SecondaryMeasureAxisTitle == input.SecondaryMeasureAxisTitle ||
+                    (this.SecondaryMeasureAxisTitle != null &&
+                    this.SecondaryMeasureAxisTitle.Equals(input.SecondaryMeasureAxisTitle))
+                ) && 
+                (
+                    this.FontDisplay == input.FontDisplay ||
+                    (this.FontDisplay != null &&
+                    this.FontDisplay.Equals(input.FontDisplay))
+                ) && 
+                (
+                    this.FontSize == input.FontSize ||
+                    (this.FontSize != null &&
+                    this.FontSize.Equals(input.FontSize))
                 );
         }
 
@@ -695,6 +768,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ChartType != null)
                     hashCode = hashCode * 59 + this.ChartType.GetHashCode();
+                if (this.MapShapeType != null)
+                    hashCode = hashCode * 59 + this.MapShapeType.GetHashCode();
                 if (this.DataSpecification != null)
                     hashCode = hashCode * 59 + this.DataSpecification.GetHashCode();
                 if (this.ResolveTableName != null)
@@ -727,18 +802,20 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.DecimalPlaces.GetHashCode();
                 if (this.DataLabels != null)
                     hashCode = hashCode * 59 + this.DataLabels.GetHashCode();
+                if (this.CategoryAxisTitle != null)
+                    hashCode = hashCode * 59 + this.CategoryAxisTitle.GetHashCode();
+                if (this.LegendTitle != null)
+                    hashCode = hashCode * 59 + this.LegendTitle.GetHashCode();
+                if (this.MeasureAxisTitle != null)
+                    hashCode = hashCode * 59 + this.MeasureAxisTitle.GetHashCode();
+                if (this.SecondaryMeasureAxisTitle != null)
+                    hashCode = hashCode * 59 + this.SecondaryMeasureAxisTitle.GetHashCode();
+                if (this.FontDisplay != null)
+                    hashCode = hashCode * 59 + this.FontDisplay.GetHashCode();
+                if (this.FontSize != null)
+                    hashCode = hashCode * 59 + this.FontSize.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

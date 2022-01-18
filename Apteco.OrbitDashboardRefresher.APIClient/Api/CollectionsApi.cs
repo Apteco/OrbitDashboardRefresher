@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -726,7 +726,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling CollectionsApi->CollectionsCreateCollection");
 
-            var localVarPath = "/{dataViewName}/Collections";
+            var localVarPath = "./{dataViewName}/Collections";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -782,7 +782,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UpsertCollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UpsertCollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertCollectionDetail)));
         }
 
@@ -813,7 +813,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling CollectionsApi->CollectionsCreateCollection");
 
-            var localVarPath = "/{dataViewName}/Collections";
+            var localVarPath = "./{dataViewName}/Collections";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -869,7 +869,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UpsertCollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UpsertCollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpsertCollectionDetail)));
         }
 
@@ -904,7 +904,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsCreateCollectionHitForCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Hits";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -961,7 +961,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionHitDetail)));
         }
 
@@ -997,7 +997,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsCreateCollectionHitForCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Hits";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1054,7 +1054,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionHitDetail)));
         }
 
@@ -1086,7 +1086,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsDeleteCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1129,7 +1129,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1162,7 +1162,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsDeleteCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1205,7 +1205,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1238,7 +1238,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsGetCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1283,7 +1283,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionDetail)));
         }
 
@@ -1317,7 +1317,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsGetCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1362,7 +1362,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionDetail)));
         }
 
@@ -1400,7 +1400,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionHitId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionHitId' when calling CollectionsApi->CollectionsGetCollectionHitForCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Hits/{collectionHitId}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Hits/{collectionHitId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1446,7 +1446,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionHitDetail)));
         }
 
@@ -1485,7 +1485,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionHitId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionHitId' when calling CollectionsApi->CollectionsGetCollectionHitForCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Hits/{collectionHitId}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Hits/{collectionHitId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1531,7 +1531,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionHitDetail)));
         }
 
@@ -1572,7 +1572,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsGetCollectionHitsForCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Hits";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1621,7 +1621,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCollectionHitSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCollectionHitSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCollectionHitSummary)));
         }
 
@@ -1663,7 +1663,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsGetCollectionHitsForCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Hits";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1712,7 +1712,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCollectionHitSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCollectionHitSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCollectionHitSummary)));
         }
 
@@ -1750,7 +1750,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (partIndex == null)
                 throw new ApiException(400, "Missing required parameter 'partIndex' when calling CollectionsApi->CollectionsGetCollectionPart");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Parts/{partIndex}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Parts/{partIndex}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1796,7 +1796,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionPartDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionPartDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionPartDetail)));
         }
 
@@ -1835,7 +1835,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (partIndex == null)
                 throw new ApiException(400, "Missing required parameter 'partIndex' when calling CollectionsApi->CollectionsGetCollectionPart");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Parts/{partIndex}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Parts/{partIndex}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1881,7 +1881,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionPartDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionPartDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionPartDetail)));
         }
 
@@ -1922,7 +1922,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsGetCollectionParts");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Parts";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Parts";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1971,7 +1971,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCollectionPartSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCollectionPartSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCollectionPartSummary)));
         }
 
@@ -2013,7 +2013,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsGetCollectionParts");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/Parts";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/Parts";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2062,7 +2062,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCollectionPartSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCollectionPartSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCollectionPartSummary)));
         }
 
@@ -2100,7 +2100,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling CollectionsApi->CollectionsGetCollections");
 
-            var localVarPath = "/{dataViewName}/Collections";
+            var localVarPath = "./{dataViewName}/Collections";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2149,7 +2149,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCollectionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCollectionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCollectionSummary)));
         }
 
@@ -2188,7 +2188,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling CollectionsApi->CollectionsGetCollections");
 
-            var localVarPath = "/{dataViewName}/Collections";
+            var localVarPath = "./{dataViewName}/Collections";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2237,7 +2237,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCollectionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCollectionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCollectionSummary)));
         }
 
@@ -2272,7 +2272,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsTransferCollectionOwnership");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/TransferOwnership";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/TransferOwnership";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2329,7 +2329,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionDetail)));
         }
 
@@ -2365,7 +2365,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsTransferCollectionOwnership");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}/TransferOwnership";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}/TransferOwnership";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2422,7 +2422,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionDetail)));
         }
 
@@ -2457,7 +2457,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsUpsertCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2514,7 +2514,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionDetail)));
         }
 
@@ -2550,7 +2550,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->CollectionsUpsertCollection");
 
-            var localVarPath = "/{dataViewName}/Collections/{collectionId}";
+            var localVarPath = "./{dataViewName}/Collections/{collectionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2607,7 +2607,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionDetail)));
         }
 

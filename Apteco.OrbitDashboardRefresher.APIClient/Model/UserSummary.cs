@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Summary details for a user
     /// </summary>
     [DataContract]
-    public partial class UserSummary :  IEquatable<UserSummary>, IValidatableObject
+    public partial class UserSummary :  IEquatable<UserSummary>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserSummary" /> class.
@@ -40,6 +38,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// </summary>
         /// <param name="id">The user&#39;s id (required).</param>
         /// <param name="username">The user&#39;s username (required).</param>
+        /// <param name="systems">The systems that the user is connected to (required).</param>
+        /// <param name="bundles">The bundles that the user is a licensed to use (required).</param>
         /// <param name="groupId">The id of the group the user is in (or null if they aren&#39;t allocated to a group) (required).</param>
         /// <param name="groups">The groups that the user is a member of (required).</param>
         /// <param name="firstname">The user&#39;s first name (required).</param>
@@ -52,7 +52,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="timePasswordSet">The time the users password was set.</param>
         /// <param name="passwordManuallyExpired">Whether the users password has manually expired.</param>
         /// <param name="passwordNeverExpires">Whether the users password never expires.</param>
-        public UserSummary(int? id = default(int?), string username = default(string), int? groupId = default(int?), List<GroupSummary> groups = default(List<GroupSummary>), string firstname = default(string), string surname = default(string), string emailAddress = default(string), DateTime? userDisabledDate = default(DateTime?), DateTime? lastAccessDate = default(DateTime?), DateTime? userLockedOutDate = default(DateTime?), int? loginFailures = default(int?), DateTime? timePasswordSet = default(DateTime?), bool? passwordManuallyExpired = default(bool?), bool? passwordNeverExpires = default(bool?))
+        public UserSummary(int? id = default(int?), string username = default(string), List<string> systems = default(List<string>), List<LicensedUserBundle> bundles = default(List<LicensedUserBundle>), int? groupId = default(int?), List<GroupSummary> groups = default(List<GroupSummary>), string firstname = default(string), string surname = default(string), string emailAddress = default(string), DateTime? userDisabledDate = default(DateTime?), DateTime? lastAccessDate = default(DateTime?), DateTime? userLockedOutDate = default(DateTime?), int? loginFailures = default(int?), DateTime? timePasswordSet = default(DateTime?), bool? passwordManuallyExpired = default(bool?), bool? passwordNeverExpires = default(bool?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -71,6 +71,24 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             else
             {
                 this.Username = username;
+            }
+            // to ensure "systems" is required (not null)
+            if (systems == null)
+            {
+                throw new InvalidDataException("systems is a required property for UserSummary and cannot be null");
+            }
+            else
+            {
+                this.Systems = systems;
+            }
+            // to ensure "bundles" is required (not null)
+            if (bundles == null)
+            {
+                throw new InvalidDataException("bundles is a required property for UserSummary and cannot be null");
+            }
+            else
+            {
+                this.Bundles = bundles;
             }
             // to ensure "groupId" is required (not null)
             if (groupId == null)
@@ -139,6 +157,20 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <value>The user&#39;s username</value>
         [DataMember(Name="username", EmitDefaultValue=false)]
         public string Username { get; set; }
+
+        /// <summary>
+        /// The systems that the user is connected to
+        /// </summary>
+        /// <value>The systems that the user is connected to</value>
+        [DataMember(Name="systems", EmitDefaultValue=false)]
+        public List<string> Systems { get; set; }
+
+        /// <summary>
+        /// The bundles that the user is a licensed to use
+        /// </summary>
+        /// <value>The bundles that the user is a licensed to use</value>
+        [DataMember(Name="bundles", EmitDefaultValue=false)]
+        public List<LicensedUserBundle> Bundles { get; set; }
 
         /// <summary>
         /// The id of the group the user is in (or null if they aren&#39;t allocated to a group)
@@ -234,6 +266,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("class UserSummary {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Username: ").Append(Username).Append("\n");
+            sb.Append("  Systems: ").Append(Systems).Append("\n");
+            sb.Append("  Bundles: ").Append(Bundles).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  Firstname: ").Append(Firstname).Append("\n");
@@ -289,6 +323,16 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.Username == input.Username ||
                     (this.Username != null &&
                     this.Username.Equals(input.Username))
+                ) && 
+                (
+                    this.Systems == input.Systems ||
+                    this.Systems != null &&
+                    this.Systems.SequenceEqual(input.Systems)
+                ) && 
+                (
+                    this.Bundles == input.Bundles ||
+                    this.Bundles != null &&
+                    this.Bundles.SequenceEqual(input.Bundles)
                 ) && 
                 (
                     this.GroupId == input.GroupId ||
@@ -365,6 +409,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Username != null)
                     hashCode = hashCode * 59 + this.Username.GetHashCode();
+                if (this.Systems != null)
+                    hashCode = hashCode * 59 + this.Systems.GetHashCode();
+                if (this.Bundles != null)
+                    hashCode = hashCode * 59 + this.Bundles.GetHashCode();
                 if (this.GroupId != null)
                     hashCode = hashCode * 59 + this.GroupId.GetHashCode();
                 if (this.Groups != null)
@@ -391,16 +439,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.PasswordNeverExpires.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

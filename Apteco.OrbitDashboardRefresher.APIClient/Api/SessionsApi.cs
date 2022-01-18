@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -555,7 +555,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling SessionsApi->SessionsConvertSessionToAccessToken");
 
-            var localVarPath = "/{dataViewName}/Sessions/ConvertSession";
+            var localVarPath = "./{dataViewName}/Sessions/ConvertSession";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -596,7 +596,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionDetails)));
         }
 
@@ -630,7 +630,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling SessionsApi->SessionsConvertSessionToAccessToken");
 
-            var localVarPath = "/{dataViewName}/Sessions/ConvertSession";
+            var localVarPath = "./{dataViewName}/Sessions/ConvertSession";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -671,7 +671,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionDetails)));
         }
 
@@ -701,7 +701,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SessionsApi->SessionsCreateLoginParameters");
 
-            var localVarPath = "/{dataViewName}/Sessions/LoginParameters";
+            var localVarPath = "./{dataViewName}/Sessions/LoginParameters";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -742,7 +742,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CreateSessionParameters>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CreateSessionParameters) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSessionParameters)));
         }
 
@@ -773,7 +773,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SessionsApi->SessionsCreateLoginParameters");
 
-            var localVarPath = "/{dataViewName}/Sessions/LoginParameters";
+            var localVarPath = "./{dataViewName}/Sessions/LoginParameters";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -814,7 +814,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CreateSessionParameters>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CreateSessionParameters) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSessionParameters)));
         }
 
@@ -844,7 +844,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SessionsApi->SessionsCreateSessionFromLoginToken");
 
-            var localVarPath = "/{dataViewName}/Sessions/TokenLogin";
+            var localVarPath = "./{dataViewName}/Sessions/TokenLogin";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -895,7 +895,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionDetails)));
         }
 
@@ -926,7 +926,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SessionsApi->SessionsCreateSessionFromLoginToken");
 
-            var localVarPath = "/{dataViewName}/Sessions/TokenLogin";
+            var localVarPath = "./{dataViewName}/Sessions/TokenLogin";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -977,7 +977,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionDetails)));
         }
 
@@ -1022,7 +1022,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (passwordHash == null)
                 throw new ApiException(400, "Missing required parameter 'passwordHash' when calling SessionsApi->SessionsCreateSessionSalted");
 
-            var localVarPath = "/{dataViewName}/Sessions/SaltedLogin";
+            var localVarPath = "./{dataViewName}/Sessions/SaltedLogin";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1066,7 +1066,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionDetails)));
         }
 
@@ -1112,7 +1112,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (passwordHash == null)
                 throw new ApiException(400, "Missing required parameter 'passwordHash' when calling SessionsApi->SessionsCreateSessionSalted");
 
-            var localVarPath = "/{dataViewName}/Sessions/SaltedLogin";
+            var localVarPath = "./{dataViewName}/Sessions/SaltedLogin";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1156,7 +1156,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionDetails)));
         }
 
@@ -1196,7 +1196,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (password == null)
                 throw new ApiException(400, "Missing required parameter 'password' when calling SessionsApi->SessionsCreateSessionSimple");
 
-            var localVarPath = "/{dataViewName}/Sessions/SimpleLogin";
+            var localVarPath = "./{dataViewName}/Sessions/SimpleLogin";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1239,7 +1239,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionDetails)));
         }
 
@@ -1280,7 +1280,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (password == null)
                 throw new ApiException(400, "Missing required parameter 'password' when calling SessionsApi->SessionsCreateSessionSimple");
 
-            var localVarPath = "/{dataViewName}/Sessions/SimpleLogin";
+            var localVarPath = "./{dataViewName}/Sessions/SimpleLogin";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1323,7 +1323,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionDetails)));
         }
 
@@ -1356,7 +1356,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling SessionsApi->SessionsGetSessionDetails");
 
-            var localVarPath = "/{dataViewName}/Sessions/{sessionId}";
+            var localVarPath = "./{dataViewName}/Sessions/{sessionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1401,7 +1401,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionAndUserDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionAndUserDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionAndUserDetails)));
         }
 
@@ -1435,7 +1435,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling SessionsApi->SessionsGetSessionDetails");
 
-            var localVarPath = "/{dataViewName}/Sessions/{sessionId}";
+            var localVarPath = "./{dataViewName}/Sessions/{sessionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1480,7 +1480,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SessionAndUserDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SessionAndUserDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SessionAndUserDetails)));
         }
 
@@ -1516,7 +1516,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SessionsApi->SessionsGetSessionDetailsList");
 
-            var localVarPath = "/{dataViewName}/Sessions";
+            var localVarPath = "./{dataViewName}/Sessions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1564,7 +1564,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsSessionAndUserDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsSessionAndUserDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsSessionAndUserDetails)));
         }
 
@@ -1601,7 +1601,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SessionsApi->SessionsGetSessionDetailsList");
 
-            var localVarPath = "/{dataViewName}/Sessions";
+            var localVarPath = "./{dataViewName}/Sessions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1649,7 +1649,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsSessionAndUserDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsSessionAndUserDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsSessionAndUserDetails)));
         }
 
@@ -1681,7 +1681,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling SessionsApi->SessionsLogoutSession");
 
-            var localVarPath = "/{dataViewName}/Sessions/{sessionId}";
+            var localVarPath = "./{dataViewName}/Sessions/{sessionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1724,7 +1724,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1757,7 +1757,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling SessionsApi->SessionsLogoutSession");
 
-            var localVarPath = "/{dataViewName}/Sessions/{sessionId}";
+            var localVarPath = "./{dataViewName}/Sessions/{sessionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1800,7 +1800,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 

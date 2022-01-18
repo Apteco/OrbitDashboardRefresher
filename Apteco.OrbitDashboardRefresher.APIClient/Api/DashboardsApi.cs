@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -230,6 +230,31 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
         /// <returns>ApiResponse of ConvertDashboardToAudienceResult</returns>
         ApiResponse<ConvertDashboardToAudienceResult> DashboardsConvertToAudienceV2WithHttpInfo (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null);
+        /// <summary>
+        /// Converts a dashboard (including any global filters applied) to an Audience
+        /// </summary>
+        /// <remarks>
+        /// Requires licence flags [AudienceSelection]
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="dashboardId">The id of the dashboard to calculate the result for</param>
+        /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
+        /// <returns>ConvertDashboardToAudienceResult</returns>
+        ConvertDashboardToAudienceResult DashboardsConvertToAudienceWithFilters (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null);
+
+        /// <summary>
+        /// Converts a dashboard (including any global filters applied) to an Audience
+        /// </summary>
+        /// <remarks>
+        /// Requires licence flags [AudienceSelection]
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="dashboardId">The id of the dashboard to calculate the result for</param>
+        /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
+        /// <returns>ApiResponse of ConvertDashboardToAudienceResult</returns>
+        ApiResponse<ConvertDashboardToAudienceResult> DashboardsConvertToAudienceWithFiltersWithHttpInfo (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null);
         /// <summary>
         /// Copies an existing dashboard for the logged in user.
         /// </summary>
@@ -563,6 +588,29 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="jobId">The id of the dashboard item to calculate the results for</param>
         /// <returns>ApiResponse of DashboardItemDataJobDetail</returns>
         ApiResponse<DashboardItemDataJobDetail> DashboardsGetDashboardJobResultsWithHttpInfo (string dataViewName, int? dashboardId, int? jobId);
+        /// <summary>
+        /// Returns a list of dashboard maps for the system
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="systemName">The name of the FastStats system to act on</param>
+        /// <returns>List&lt;DashboardMapSettings&gt;</returns>
+        List<DashboardMapSettings> DashboardsGetDashboardMapSettings (string dataViewName, string systemName);
+
+        /// <summary>
+        /// Returns a list of dashboard maps for the system
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="systemName">The name of the FastStats system to act on</param>
+        /// <returns>ApiResponse of List&lt;DashboardMapSettings&gt;</returns>
+        ApiResponse<List<DashboardMapSettings>> DashboardsGetDashboardMapSettingsWithHttpInfo (string dataViewName, string systemName);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -771,6 +819,31 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
         /// <returns>Task of ApiResponse (ConvertDashboardToAudienceResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConvertDashboardToAudienceResult>> DashboardsConvertToAudienceV2AsyncWithHttpInfo (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null);
+        /// <summary>
+        /// Converts a dashboard (including any global filters applied) to an Audience
+        /// </summary>
+        /// <remarks>
+        /// Requires licence flags [AudienceSelection]
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="dashboardId">The id of the dashboard to calculate the result for</param>
+        /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
+        /// <returns>Task of ConvertDashboardToAudienceResult</returns>
+        System.Threading.Tasks.Task<ConvertDashboardToAudienceResult> DashboardsConvertToAudienceWithFiltersAsync (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null);
+
+        /// <summary>
+        /// Converts a dashboard (including any global filters applied) to an Audience
+        /// </summary>
+        /// <remarks>
+        /// Requires licence flags [AudienceSelection]
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="dashboardId">The id of the dashboard to calculate the result for</param>
+        /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
+        /// <returns>Task of ApiResponse (ConvertDashboardToAudienceResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ConvertDashboardToAudienceResult>> DashboardsConvertToAudienceWithFiltersAsyncWithHttpInfo (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null);
         /// <summary>
         /// Copies an existing dashboard for the logged in user.
         /// </summary>
@@ -1104,6 +1177,29 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="jobId">The id of the dashboard item to calculate the results for</param>
         /// <returns>Task of ApiResponse (DashboardItemDataJobDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<DashboardItemDataJobDetail>> DashboardsGetDashboardJobResultsAsyncWithHttpInfo (string dataViewName, int? dashboardId, int? jobId);
+        /// <summary>
+        /// Returns a list of dashboard maps for the system
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="systemName">The name of the FastStats system to act on</param>
+        /// <returns>Task of List&lt;DashboardMapSettings&gt;</returns>
+        System.Threading.Tasks.Task<List<DashboardMapSettings>> DashboardsGetDashboardMapSettingsAsync (string dataViewName, string systemName);
+
+        /// <summary>
+        /// Returns a list of dashboard maps for the system
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="systemName">The name of the FastStats system to act on</param>
+        /// <returns>Task of ApiResponse (List&lt;DashboardMapSettings&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<DashboardMapSettings>>> DashboardsGetDashboardMapSettingsAsyncWithHttpInfo (string dataViewName, string systemName);
         #endregion Asynchronous Operations
     }
 
@@ -1235,7 +1331,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsBatchGetDashboardJobResults");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/Results";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/Results";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1292,7 +1388,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<DashboardItemDataJobDetail>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<DashboardItemDataJobDetail>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<DashboardItemDataJobDetail>)));
         }
 
@@ -1328,7 +1424,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsBatchGetDashboardJobResults");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/Results";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/Results";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1385,7 +1481,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<DashboardItemDataJobDetail>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<DashboardItemDataJobDetail>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<DashboardItemDataJobDetail>)));
         }
 
@@ -1422,7 +1518,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCalculateDashboardData");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1480,7 +1576,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<CalculateDashboardItemJobCreatedResult>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<CalculateDashboardItemJobCreatedResult>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CalculateDashboardItemJobCreatedResult>)));
         }
 
@@ -1518,7 +1614,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCalculateDashboardData");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1576,7 +1672,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<CalculateDashboardItemJobCreatedResult>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<CalculateDashboardItemJobCreatedResult>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CalculateDashboardItemJobCreatedResult>)));
         }
 
@@ -1613,7 +1709,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCalculateDashboardDataV2");
 
-            var localVarPath = "/{dataViewName}/Dashboards/V2/{dashboardId}/Items/CalculateJobs";
+            var localVarPath = "./{dataViewName}/Dashboards/V2/{dashboardId}/Items/CalculateJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1671,7 +1767,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<CalculateDashboardItemJobCreatedResult>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<CalculateDashboardItemJobCreatedResult>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CalculateDashboardItemJobCreatedResult>)));
         }
 
@@ -1709,7 +1805,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCalculateDashboardDataV2");
 
-            var localVarPath = "/{dataViewName}/Dashboards/V2/{dashboardId}/Items/CalculateJobs";
+            var localVarPath = "./{dataViewName}/Dashboards/V2/{dashboardId}/Items/CalculateJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1767,7 +1863,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<CalculateDashboardItemJobCreatedResult>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<CalculateDashboardItemJobCreatedResult>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CalculateDashboardItemJobCreatedResult>)));
         }
 
@@ -1804,7 +1900,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCalculateDashboardDataWithFilters");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobsWithFilters";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobsWithFilters";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1862,7 +1958,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<CalculateDashboardItemJobCreatedResult>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<CalculateDashboardItemJobCreatedResult>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CalculateDashboardItemJobCreatedResult>)));
         }
 
@@ -1900,7 +1996,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCalculateDashboardDataWithFilters");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobsWithFilters";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobsWithFilters";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1958,7 +2054,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<CalculateDashboardItemJobCreatedResult>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<CalculateDashboardItemJobCreatedResult>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<CalculateDashboardItemJobCreatedResult>)));
         }
 
@@ -1995,7 +2091,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DashboardsApi->DashboardsCancelCalculateDashboardDataJob");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2039,7 +2135,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2077,7 +2173,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DashboardsApi->DashboardsCancelCalculateDashboardDataJob");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2121,7 +2217,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2158,7 +2254,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DashboardsApi->DashboardsCancelDashboardItemPreviewDataJob");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2202,7 +2298,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2240,7 +2336,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DashboardsApi->DashboardsCancelDashboardItemPreviewDataJob");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2284,7 +2380,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2319,7 +2415,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsConvertToAudience");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/ConvertToAudience";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/ConvertToAudience";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2376,7 +2472,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ConvertDashboardToAudienceResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ConvertDashboardToAudienceResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertDashboardToAudienceResult)));
         }
 
@@ -2412,7 +2508,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsConvertToAudience");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/ConvertToAudience";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/ConvertToAudience";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2469,7 +2565,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ConvertDashboardToAudienceResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ConvertDashboardToAudienceResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertDashboardToAudienceResult)));
         }
 
@@ -2504,7 +2600,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsConvertToAudienceV2");
 
-            var localVarPath = "/{dataViewName}/Dashboards/V2/{dashboardId}/ConvertToAudience";
+            var localVarPath = "./{dataViewName}/Dashboards/V2/{dashboardId}/ConvertToAudience";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2561,7 +2657,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ConvertDashboardToAudienceResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ConvertDashboardToAudienceResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertDashboardToAudienceResult)));
         }
 
@@ -2597,7 +2693,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsConvertToAudienceV2");
 
-            var localVarPath = "/{dataViewName}/Dashboards/V2/{dashboardId}/ConvertToAudience";
+            var localVarPath = "./{dataViewName}/Dashboards/V2/{dashboardId}/ConvertToAudience";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2654,7 +2750,192 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ConvertDashboardToAudienceResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ConvertDashboardToAudienceResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertDashboardToAudienceResult)));
+        }
+
+        /// <summary>
+        /// Converts a dashboard (including any global filters applied) to an Audience Requires licence flags [AudienceSelection]
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="dashboardId">The id of the dashboard to calculate the result for</param>
+        /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
+        /// <returns>ConvertDashboardToAudienceResult</returns>
+        public ConvertDashboardToAudienceResult DashboardsConvertToAudienceWithFilters (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null)
+        {
+             ApiResponse<ConvertDashboardToAudienceResult> localVarResponse = DashboardsConvertToAudienceWithFiltersWithHttpInfo(dataViewName, dashboardId, requestData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Converts a dashboard (including any global filters applied) to an Audience Requires licence flags [AudienceSelection]
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="dashboardId">The id of the dashboard to calculate the result for</param>
+        /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
+        /// <returns>ApiResponse of ConvertDashboardToAudienceResult</returns>
+        public ApiResponse< ConvertDashboardToAudienceResult > DashboardsConvertToAudienceWithFiltersWithHttpInfo (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null)
+        {
+            // verify the required parameter 'dataViewName' is set
+            if (dataViewName == null)
+                throw new ApiException(400, "Missing required parameter 'dataViewName' when calling DashboardsApi->DashboardsConvertToAudienceWithFilters");
+            // verify the required parameter 'dashboardId' is set
+            if (dashboardId == null)
+                throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsConvertToAudienceWithFilters");
+
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/ConvertToAudienceWithFilters";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
+            if (dashboardId != null) localVarPathParams.Add("dashboardId", this.Configuration.ApiClient.ParameterToString(dashboardId)); // path parameter
+            if (requestData != null && requestData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestData; // byte array
+            }
+
+            // authentication (faststats_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DashboardsConvertToAudienceWithFilters", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConvertDashboardToAudienceResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ConvertDashboardToAudienceResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertDashboardToAudienceResult)));
+        }
+
+        /// <summary>
+        /// Converts a dashboard (including any global filters applied) to an Audience Requires licence flags [AudienceSelection]
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="dashboardId">The id of the dashboard to calculate the result for</param>
+        /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
+        /// <returns>Task of ConvertDashboardToAudienceResult</returns>
+        public async System.Threading.Tasks.Task<ConvertDashboardToAudienceResult> DashboardsConvertToAudienceWithFiltersAsync (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null)
+        {
+             ApiResponse<ConvertDashboardToAudienceResult> localVarResponse = await DashboardsConvertToAudienceWithFiltersAsyncWithHttpInfo(dataViewName, dashboardId, requestData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Converts a dashboard (including any global filters applied) to an Audience Requires licence flags [AudienceSelection]
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="dashboardId">The id of the dashboard to calculate the result for</param>
+        /// <param name="requestData">Used to pass the Dashboard query and the name for the new audience (optional)</param>
+        /// <returns>Task of ApiResponse (ConvertDashboardToAudienceResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ConvertDashboardToAudienceResult>> DashboardsConvertToAudienceWithFiltersAsyncWithHttpInfo (string dataViewName, int? dashboardId, ConvertDashboardToAudience requestData = null)
+        {
+            // verify the required parameter 'dataViewName' is set
+            if (dataViewName == null)
+                throw new ApiException(400, "Missing required parameter 'dataViewName' when calling DashboardsApi->DashboardsConvertToAudienceWithFilters");
+            // verify the required parameter 'dashboardId' is set
+            if (dashboardId == null)
+                throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsConvertToAudienceWithFilters");
+
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/ConvertToAudienceWithFilters";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
+            if (dashboardId != null) localVarPathParams.Add("dashboardId", this.Configuration.ApiClient.ParameterToString(dashboardId)); // path parameter
+            if (requestData != null && requestData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(requestData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = requestData; // byte array
+            }
+
+            // authentication (faststats_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DashboardsConvertToAudienceWithFilters", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ConvertDashboardToAudienceResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ConvertDashboardToAudienceResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConvertDashboardToAudienceResult)));
         }
 
@@ -2689,7 +2970,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCopyDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Copy";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Copy";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2746,7 +3027,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardDetail)));
         }
 
@@ -2782,7 +3063,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCopyDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Copy";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Copy";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2839,7 +3120,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardDetail)));
         }
 
@@ -2869,7 +3150,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling DashboardsApi->DashboardsCreateDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards";
+            var localVarPath = "./{dataViewName}/Dashboards";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2925,7 +3206,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardDetail)));
         }
 
@@ -2956,7 +3237,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling DashboardsApi->DashboardsCreateDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards";
+            var localVarPath = "./{dataViewName}/Dashboards";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3012,7 +3293,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardDetail)));
         }
 
@@ -3047,7 +3328,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCreateDashboardHitForDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Hits";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3104,7 +3385,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardHitDetail)));
         }
 
@@ -3140,7 +3421,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCreateDashboardHitForDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Hits";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3197,7 +3478,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardHitDetail)));
         }
 
@@ -3231,7 +3512,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DashboardsApi->DashboardsCreateDashboardItemPreviewDataJobs");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs";
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3288,7 +3569,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3323,7 +3604,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DashboardsApi->DashboardsCreateDashboardItemPreviewDataJobs");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs";
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3380,7 +3661,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3415,7 +3696,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCreateDashboardUpdate");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Updates";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3472,7 +3753,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardDetail)));
         }
 
@@ -3508,7 +3789,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsCreateDashboardUpdate");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Updates";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3565,7 +3846,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardDetail)));
         }
 
@@ -3597,7 +3878,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsDeleteDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3640,7 +3921,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3673,7 +3954,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsDeleteDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3716,7 +3997,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3753,7 +4034,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsGetDashboardExportSync");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/ExportSync";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/ExportSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3811,7 +4092,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardExportDataResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardExportDataResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardExportDataResult)));
         }
 
@@ -3849,7 +4130,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsGetDashboardExportSync");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/ExportSync";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/ExportSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3907,7 +4188,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardExportDataResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardExportDataResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardExportDataResult)));
         }
 
@@ -3945,7 +4226,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardHitId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardHitId' when calling DashboardsApi->DashboardsGetDashboardHitForDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Hits/{dashboardHitId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Hits/{dashboardHitId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3991,7 +4272,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardHitDetail)));
         }
 
@@ -4030,7 +4311,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardHitId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardHitId' when calling DashboardsApi->DashboardsGetDashboardHitForDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Hits/{dashboardHitId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Hits/{dashboardHitId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4076,7 +4357,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardHitDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardHitDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardHitDetail)));
         }
 
@@ -4117,7 +4398,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsGetDashboardHitsForDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Hits";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4166,7 +4447,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDashboardHitSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDashboardHitSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDashboardHitSummary)));
         }
 
@@ -4208,7 +4489,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling DashboardsApi->DashboardsGetDashboardHitsForDashboard");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Hits";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Hits";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4257,7 +4538,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDashboardHitSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDashboardHitSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDashboardHitSummary)));
         }
 
@@ -4299,7 +4580,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardItemId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardItemId' when calling DashboardsApi->DashboardsGetDashboardItemDataSync");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/{dashboardItemId}/CalculateSync";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/{dashboardItemId}/CalculateSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4358,7 +4639,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardItemDataResultDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardItemDataResultDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardItemDataResultDetail)));
         }
 
@@ -4401,7 +4682,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardItemId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardItemId' when calling DashboardsApi->DashboardsGetDashboardItemDataSync");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/{dashboardItemId}/CalculateSync";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/{dashboardItemId}/CalculateSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4460,7 +4741,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardItemDataResultDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardItemDataResultDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardItemDataResultDetail)));
         }
 
@@ -4498,7 +4779,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DashboardsApi->DashboardsGetDashboardItemPreviewDataJob");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4544,7 +4825,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardItemDataJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardItemDataJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardItemDataJobDetail)));
         }
 
@@ -4583,7 +4864,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DashboardsApi->DashboardsGetDashboardItemPreviewDataJob");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/DashboardItemPreviewJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4629,7 +4910,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardItemDataJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardItemDataJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardItemDataJobDetail)));
         }
 
@@ -4664,7 +4945,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DashboardsApi->DashboardsGetDashboardItemPreviewDataJobs");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{systemName}/Items/DashboardItemPreviewJobs/Results";
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/Items/DashboardItemPreviewJobs/Results";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4721,7 +5002,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<DashboardItemDataJobDetail>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<DashboardItemDataJobDetail>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<DashboardItemDataJobDetail>)));
         }
 
@@ -4757,7 +5038,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DashboardsApi->DashboardsGetDashboardItemPreviewDataJobs");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{systemName}/Items/DashboardItemPreviewJobs/Results";
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/Items/DashboardItemPreviewJobs/Results";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4814,7 +5095,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<DashboardItemDataJobDetail>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<DashboardItemDataJobDetail>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<DashboardItemDataJobDetail>)));
         }
 
@@ -4852,7 +5133,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DashboardsApi->DashboardsGetDashboardJobResults");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4898,7 +5179,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardItemDataJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardItemDataJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardItemDataJobDetail)));
         }
 
@@ -4937,7 +5218,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling DashboardsApi->DashboardsGetDashboardJobResults");
 
-            var localVarPath = "/{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/{jobId}";
+            var localVarPath = "./{dataViewName}/Dashboards/{dashboardId}/Items/CalculateJobs/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4983,8 +5264,165 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DashboardItemDataJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DashboardItemDataJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DashboardItemDataJobDetail)));
+        }
+
+        /// <summary>
+        /// Returns a list of dashboard maps for the system 
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="systemName">The name of the FastStats system to act on</param>
+        /// <returns>List&lt;DashboardMapSettings&gt;</returns>
+        public List<DashboardMapSettings> DashboardsGetDashboardMapSettings (string dataViewName, string systemName)
+        {
+             ApiResponse<List<DashboardMapSettings>> localVarResponse = DashboardsGetDashboardMapSettingsWithHttpInfo(dataViewName, systemName);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns a list of dashboard maps for the system 
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="systemName">The name of the FastStats system to act on</param>
+        /// <returns>ApiResponse of List&lt;DashboardMapSettings&gt;</returns>
+        public ApiResponse< List<DashboardMapSettings> > DashboardsGetDashboardMapSettingsWithHttpInfo (string dataViewName, string systemName)
+        {
+            // verify the required parameter 'dataViewName' is set
+            if (dataViewName == null)
+                throw new ApiException(400, "Missing required parameter 'dataViewName' when calling DashboardsApi->DashboardsGetDashboardMapSettings");
+            // verify the required parameter 'systemName' is set
+            if (systemName == null)
+                throw new ApiException(400, "Missing required parameter 'systemName' when calling DashboardsApi->DashboardsGetDashboardMapSettings");
+
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/DashboardMapSettings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
+            if (systemName != null) localVarPathParams.Add("systemName", this.Configuration.ApiClient.ParameterToString(systemName)); // path parameter
+
+            // authentication (faststats_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DashboardsGetDashboardMapSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<DashboardMapSettings>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (List<DashboardMapSettings>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<DashboardMapSettings>)));
+        }
+
+        /// <summary>
+        /// Returns a list of dashboard maps for the system 
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="systemName">The name of the FastStats system to act on</param>
+        /// <returns>Task of List&lt;DashboardMapSettings&gt;</returns>
+        public async System.Threading.Tasks.Task<List<DashboardMapSettings>> DashboardsGetDashboardMapSettingsAsync (string dataViewName, string systemName)
+        {
+             ApiResponse<List<DashboardMapSettings>> localVarResponse = await DashboardsGetDashboardMapSettingsAsyncWithHttpInfo(dataViewName, systemName);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Returns a list of dashboard maps for the system 
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="systemName">The name of the FastStats system to act on</param>
+        /// <returns>Task of ApiResponse (List&lt;DashboardMapSettings&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<DashboardMapSettings>>> DashboardsGetDashboardMapSettingsAsyncWithHttpInfo (string dataViewName, string systemName)
+        {
+            // verify the required parameter 'dataViewName' is set
+            if (dataViewName == null)
+                throw new ApiException(400, "Missing required parameter 'dataViewName' when calling DashboardsApi->DashboardsGetDashboardMapSettings");
+            // verify the required parameter 'systemName' is set
+            if (systemName == null)
+                throw new ApiException(400, "Missing required parameter 'systemName' when calling DashboardsApi->DashboardsGetDashboardMapSettings");
+
+            var localVarPath = "./{dataViewName}/Dashboards/{systemName}/DashboardMapSettings";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
+            if (systemName != null) localVarPathParams.Add("systemName", this.Configuration.ApiClient.ParameterToString(systemName)); // path parameter
+
+            // authentication (faststats_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DashboardsGetDashboardMapSettings", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<DashboardMapSettings>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (List<DashboardMapSettings>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<DashboardMapSettings>)));
         }
 
     }

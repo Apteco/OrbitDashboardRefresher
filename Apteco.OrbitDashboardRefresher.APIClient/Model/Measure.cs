@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// A measure to define the figures shown for each cell created by the dimensions of the cube
     /// </summary>
     [DataContract]
-    public partial class Measure :  IEquatable<Measure>, IValidatableObject
+    public partial class Measure :  IEquatable<Measure>
     {
         /// <summary>
         /// The function to use to aggregate up the data per cell within this measure
@@ -249,8 +247,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="query">If the measure is based on a query - the definition of the query to use.</param>
         /// <param name="filterQuery">A query used to filter the records for each cell in this measure.</param>
         /// <param name="expression">If the measure is based on an expression then the expression to use.</param>
+        /// <param name="calculation">If the measure is based on a calculation then the specification of the calculation to use.</param>
         /// <param name="sort">How the cells are sorted in this measure.</param>
-        public Measure(string id = default(string), string resolveTableName = default(string), FunctionEnum function = default(FunctionEnum), string variableName = default(string), Query query = default(Query), Query filterQuery = default(Query), Expression expression = default(Expression), SortEnum? sort = default(SortEnum?))
+        public Measure(string id = default(string), string resolveTableName = default(string), FunctionEnum function = default(FunctionEnum), string variableName = default(string), Query query = default(Query), Query filterQuery = default(Query), Expression expression = default(Expression), CalculatedMeasureSpecification calculation = default(CalculatedMeasureSpecification), SortEnum? sort = default(SortEnum?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -283,6 +282,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             this.Query = query;
             this.FilterQuery = filterQuery;
             this.Expression = expression;
+            this.Calculation = calculation;
             this.Sort = sort;
         }
         
@@ -329,6 +329,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         [DataMember(Name="expression", EmitDefaultValue=false)]
         public Expression Expression { get; set; }
 
+        /// <summary>
+        /// If the measure is based on a calculation then the specification of the calculation to use
+        /// </summary>
+        /// <value>If the measure is based on a calculation then the specification of the calculation to use</value>
+        [DataMember(Name="calculation", EmitDefaultValue=false)]
+        public CalculatedMeasureSpecification Calculation { get; set; }
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -345,6 +352,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  Query: ").Append(Query).Append("\n");
             sb.Append("  FilterQuery: ").Append(FilterQuery).Append("\n");
             sb.Append("  Expression: ").Append(Expression).Append("\n");
+            sb.Append("  Calculation: ").Append(Calculation).Append("\n");
             sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -416,6 +424,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.Expression.Equals(input.Expression))
                 ) && 
                 (
+                    this.Calculation == input.Calculation ||
+                    (this.Calculation != null &&
+                    this.Calculation.Equals(input.Calculation))
+                ) && 
+                (
                     this.Sort == input.Sort ||
                     (this.Sort != null &&
                     this.Sort.Equals(input.Sort))
@@ -445,20 +458,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.FilterQuery.GetHashCode();
                 if (this.Expression != null)
                     hashCode = hashCode * 59 + this.Expression.GetHashCode();
+                if (this.Calculation != null)
+                    hashCode = hashCode * 59 + this.Calculation.GetHashCode();
                 if (this.Sort != null)
                     hashCode = hashCode * 59 + this.Sort.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

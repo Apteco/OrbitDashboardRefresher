@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -139,36 +139,38 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <returns>ApiResponse of SystemLicenceDetail</returns>
         ApiResponse<SystemLicenceDetail> LicencesGetSystemLicenceWithHttpInfo (string dataViewName, string systemName, int? licenceId);
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Returns all the licensed applied to the specified FastStats system
+        /// Requires OrbitAdmin: Returns all the licenses applied to the specified FastStats system
         /// </summary>
         /// <remarks>
-        /// UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// This endpoint is only available for users with the OrbitAdmin role
         /// </remarks>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The name of the FastStats system to return details for</param>
+        /// <param name="includeUsage">If specified, whether to include the usage for the bundles.  Defaults to false (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>PagedResultsSystemLicenceSummary</returns>
-        PagedResultsSystemLicenceSummary LicencesGetSystemLicences (string dataViewName, string systemName, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        PagedResultsSystemLicenceSummary LicencesGetSystemLicences (string dataViewName, string systemName, bool? includeUsage = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Returns all the licensed applied to the specified FastStats system
+        /// Requires OrbitAdmin: Returns all the licenses applied to the specified FastStats system
         /// </summary>
         /// <remarks>
-        /// UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// This endpoint is only available for users with the OrbitAdmin role
         /// </remarks>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The name of the FastStats system to return details for</param>
+        /// <param name="includeUsage">If specified, whether to include the usage for the bundles.  Defaults to false (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>ApiResponse of PagedResultsSystemLicenceSummary</returns>
-        ApiResponse<PagedResultsSystemLicenceSummary> LicencesGetSystemLicencesWithHttpInfo (string dataViewName, string systemName, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        ApiResponse<PagedResultsSystemLicenceSummary> LicencesGetSystemLicencesWithHttpInfo (string dataViewName, string systemName, bool? includeUsage = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
         /// <summary>
         /// UNDER DEVELOPMENT: Requires OrbitAdmin: Register a licence for the specified system
         /// </summary>
@@ -247,10 +249,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> LicencesRemoveSystemLicenceWithHttpInfo (string dataViewName, string systemName, int? licenceId);
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to
+        /// Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to
         /// </summary>
         /// <remarks>
-        /// UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// This endpoint is only available for users with the OrbitAdmin role
         /// </remarks>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
@@ -262,10 +264,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         LicensedUserDetail LicencesUpsertLicencedUser (string dataViewName, string systemName, int? licenceId, int? userId, ApplySystemLicenceToUserDetails applySystemLicenceToUserDetails = null);
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to
+        /// Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to
         /// </summary>
         /// <remarks>
-        /// UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// This endpoint is only available for users with the OrbitAdmin role
         /// </remarks>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
@@ -392,36 +394,38 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <returns>Task of ApiResponse (SystemLicenceDetail)</returns>
         System.Threading.Tasks.Task<ApiResponse<SystemLicenceDetail>> LicencesGetSystemLicenceAsyncWithHttpInfo (string dataViewName, string systemName, int? licenceId);
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Returns all the licensed applied to the specified FastStats system
+        /// Requires OrbitAdmin: Returns all the licenses applied to the specified FastStats system
         /// </summary>
         /// <remarks>
-        /// UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// This endpoint is only available for users with the OrbitAdmin role
         /// </remarks>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The name of the FastStats system to return details for</param>
+        /// <param name="includeUsage">If specified, whether to include the usage for the bundles.  Defaults to false (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of PagedResultsSystemLicenceSummary</returns>
-        System.Threading.Tasks.Task<PagedResultsSystemLicenceSummary> LicencesGetSystemLicencesAsync (string dataViewName, string systemName, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        System.Threading.Tasks.Task<PagedResultsSystemLicenceSummary> LicencesGetSystemLicencesAsync (string dataViewName, string systemName, bool? includeUsage = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Returns all the licensed applied to the specified FastStats system
+        /// Requires OrbitAdmin: Returns all the licenses applied to the specified FastStats system
         /// </summary>
         /// <remarks>
-        /// UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// This endpoint is only available for users with the OrbitAdmin role
         /// </remarks>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The name of the FastStats system to return details for</param>
+        /// <param name="includeUsage">If specified, whether to include the usage for the bundles.  Defaults to false (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of ApiResponse (PagedResultsSystemLicenceSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResultsSystemLicenceSummary>> LicencesGetSystemLicencesAsyncWithHttpInfo (string dataViewName, string systemName, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        System.Threading.Tasks.Task<ApiResponse<PagedResultsSystemLicenceSummary>> LicencesGetSystemLicencesAsyncWithHttpInfo (string dataViewName, string systemName, bool? includeUsage = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
         /// <summary>
         /// UNDER DEVELOPMENT: Requires OrbitAdmin: Register a licence for the specified system
         /// </summary>
@@ -500,10 +504,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> LicencesRemoveSystemLicenceAsyncWithHttpInfo (string dataViewName, string systemName, int? licenceId);
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to
+        /// Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to
         /// </summary>
         /// <remarks>
-        /// UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// This endpoint is only available for users with the OrbitAdmin role
         /// </remarks>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
@@ -515,10 +519,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         System.Threading.Tasks.Task<LicensedUserDetail> LicencesUpsertLicencedUserAsync (string dataViewName, string systemName, int? licenceId, int? userId, ApplySystemLicenceToUserDetails applySystemLicenceToUserDetails = null);
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to
+        /// Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to
         /// </summary>
         /// <remarks>
-        /// UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// This endpoint is only available for users with the OrbitAdmin role
         /// </remarks>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
@@ -660,7 +664,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling LicencesApi->LicencesGetLicenceSystems");
 
-            var localVarPath = "/{dataViewName}/Licences";
+            var localVarPath = "./{dataViewName}/Licences";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -708,7 +712,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsLicenceSystemSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsLicenceSystemSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsLicenceSystemSummary)));
         }
 
@@ -745,7 +749,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling LicencesApi->LicencesGetLicenceSystems");
 
-            var localVarPath = "/{dataViewName}/Licences";
+            var localVarPath = "./{dataViewName}/Licences";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -793,7 +797,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsLicenceSystemSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsLicenceSystemSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsLicenceSystemSummary)));
         }
 
@@ -836,7 +840,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LicencesApi->LicencesGetLicensedUser");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -883,7 +887,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensedUserDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensedUserDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensedUserDetail)));
         }
 
@@ -927,7 +931,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LicencesApi->LicencesGetLicensedUser");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -974,7 +978,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensedUserDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensedUserDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensedUserDetail)));
         }
 
@@ -1020,7 +1024,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (licenceId == null)
                 throw new ApiException(400, "Missing required parameter 'licenceId' when calling LicencesApi->LicencesGetLicensedUsers");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}/Users";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1070,7 +1074,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsLicensedUserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsLicensedUserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsLicensedUserSummary)));
         }
 
@@ -1117,7 +1121,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (licenceId == null)
                 throw new ApiException(400, "Missing required parameter 'licenceId' when calling LicencesApi->LicencesGetLicensedUsers");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}/Users";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1167,7 +1171,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsLicensedUserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsLicensedUserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsLicensedUserSummary)));
         }
 
@@ -1205,7 +1209,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (licenceId == null)
                 throw new ApiException(400, "Missing required parameter 'licenceId' when calling LicencesApi->LicencesGetSystemLicence");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1251,7 +1255,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SystemLicenceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SystemLicenceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SystemLicenceDetail)));
         }
 
@@ -1290,7 +1294,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (licenceId == null)
                 throw new ApiException(400, "Missing required parameter 'licenceId' when calling LicencesApi->LicencesGetSystemLicence");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1336,39 +1340,41 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<SystemLicenceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (SystemLicenceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SystemLicenceDetail)));
         }
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Returns all the licensed applied to the specified FastStats system UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// Requires OrbitAdmin: Returns all the licenses applied to the specified FastStats system This endpoint is only available for users with the OrbitAdmin role
         /// </summary>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The name of the FastStats system to return details for</param>
+        /// <param name="includeUsage">If specified, whether to include the usage for the bundles.  Defaults to false (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>PagedResultsSystemLicenceSummary</returns>
-        public PagedResultsSystemLicenceSummary LicencesGetSystemLicences (string dataViewName, string systemName, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public PagedResultsSystemLicenceSummary LicencesGetSystemLicences (string dataViewName, string systemName, bool? includeUsage = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
-             ApiResponse<PagedResultsSystemLicenceSummary> localVarResponse = LicencesGetSystemLicencesWithHttpInfo(dataViewName, systemName, filter, orderBy, offset, count);
+             ApiResponse<PagedResultsSystemLicenceSummary> localVarResponse = LicencesGetSystemLicencesWithHttpInfo(dataViewName, systemName, includeUsage, filter, orderBy, offset, count);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Returns all the licensed applied to the specified FastStats system UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// Requires OrbitAdmin: Returns all the licenses applied to the specified FastStats system This endpoint is only available for users with the OrbitAdmin role
         /// </summary>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The name of the FastStats system to return details for</param>
+        /// <param name="includeUsage">If specified, whether to include the usage for the bundles.  Defaults to false (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>ApiResponse of PagedResultsSystemLicenceSummary</returns>
-        public ApiResponse< PagedResultsSystemLicenceSummary > LicencesGetSystemLicencesWithHttpInfo (string dataViewName, string systemName, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public ApiResponse< PagedResultsSystemLicenceSummary > LicencesGetSystemLicencesWithHttpInfo (string dataViewName, string systemName, bool? includeUsage = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -1377,7 +1383,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling LicencesApi->LicencesGetSystemLicences");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1401,6 +1407,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (systemName != null) localVarPathParams.Add("systemName", this.Configuration.ApiClient.ParameterToString(systemName)); // path parameter
+            if (includeUsage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeUsage", includeUsage)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
@@ -1426,40 +1433,42 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsSystemLicenceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsSystemLicenceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsSystemLicenceSummary)));
         }
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Returns all the licensed applied to the specified FastStats system UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// Requires OrbitAdmin: Returns all the licenses applied to the specified FastStats system This endpoint is only available for users with the OrbitAdmin role
         /// </summary>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The name of the FastStats system to return details for</param>
+        /// <param name="includeUsage">If specified, whether to include the usage for the bundles.  Defaults to false (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of PagedResultsSystemLicenceSummary</returns>
-        public async System.Threading.Tasks.Task<PagedResultsSystemLicenceSummary> LicencesGetSystemLicencesAsync (string dataViewName, string systemName, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public async System.Threading.Tasks.Task<PagedResultsSystemLicenceSummary> LicencesGetSystemLicencesAsync (string dataViewName, string systemName, bool? includeUsage = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
-             ApiResponse<PagedResultsSystemLicenceSummary> localVarResponse = await LicencesGetSystemLicencesAsyncWithHttpInfo(dataViewName, systemName, filter, orderBy, offset, count);
+             ApiResponse<PagedResultsSystemLicenceSummary> localVarResponse = await LicencesGetSystemLicencesAsyncWithHttpInfo(dataViewName, systemName, includeUsage, filter, orderBy, offset, count);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Returns all the licensed applied to the specified FastStats system UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// Requires OrbitAdmin: Returns all the licenses applied to the specified FastStats system This endpoint is only available for users with the OrbitAdmin role
         /// </summary>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The name of the FastStats system to return details for</param>
+        /// <param name="includeUsage">If specified, whether to include the usage for the bundles.  Defaults to false (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of ApiResponse (PagedResultsSystemLicenceSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PagedResultsSystemLicenceSummary>> LicencesGetSystemLicencesAsyncWithHttpInfo (string dataViewName, string systemName, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PagedResultsSystemLicenceSummary>> LicencesGetSystemLicencesAsyncWithHttpInfo (string dataViewName, string systemName, bool? includeUsage = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -1468,7 +1477,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling LicencesApi->LicencesGetSystemLicences");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1492,6 +1501,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (systemName != null) localVarPathParams.Add("systemName", this.Configuration.ApiClient.ParameterToString(systemName)); // path parameter
+            if (includeUsage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeUsage", includeUsage)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
@@ -1517,7 +1527,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsSystemLicenceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsSystemLicenceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsSystemLicenceSummary)));
         }
 
@@ -1551,7 +1561,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling LicencesApi->LicencesRegisterSystemLicence");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1608,7 +1618,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1643,7 +1653,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling LicencesApi->LicencesRegisterSystemLicence");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1700,7 +1710,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1742,7 +1752,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LicencesApi->LicencesRemoveLicencedUser");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1787,7 +1797,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1830,7 +1840,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LicencesApi->LicencesRemoveLicencedUser");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1875,7 +1885,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1912,7 +1922,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (licenceId == null)
                 throw new ApiException(400, "Missing required parameter 'licenceId' when calling LicencesApi->LicencesRemoveSystemLicence");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1956,7 +1966,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1994,7 +2004,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (licenceId == null)
                 throw new ApiException(400, "Missing required parameter 'licenceId' when calling LicencesApi->LicencesRemoveSystemLicence");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2038,12 +2048,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to This endpoint is only available for users with the OrbitAdmin role
         /// </summary>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
@@ -2059,7 +2069,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         }
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to This endpoint is only available for users with the OrbitAdmin role
         /// </summary>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
@@ -2083,7 +2093,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LicencesApi->LicencesUpsertLicencedUser");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2142,12 +2152,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensedUserDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensedUserDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensedUserDetail)));
         }
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to This endpoint is only available for users with the OrbitAdmin role
         /// </summary>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
@@ -2164,7 +2174,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         }
 
         /// <summary>
-        /// UNDER DEVELOPMENT: Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to UNDER DEVELOPMENT  This endpoint is only available for users with the OrbitAdmin role
+        /// Requires OrbitAdmin: Updates the details for a particular user and licence on the given system, including  which licence bundles the user has access to This endpoint is only available for users with the OrbitAdmin role
         /// </summary>
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
@@ -2188,7 +2198,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling LicencesApi->LicencesUpsertLicencedUser");
 
-            var localVarPath = "/{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
+            var localVarPath = "./{dataViewName}/Licences/{systemName}/{licenceId}/Users/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2247,7 +2257,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LicensedUserDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LicensedUserDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LicensedUserDetail)));
         }
 

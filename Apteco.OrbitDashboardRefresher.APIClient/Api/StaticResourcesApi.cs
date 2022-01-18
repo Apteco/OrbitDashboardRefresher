@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -139,9 +139,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to find the resource for</param>
         /// <param name="resourceCategory">The category of the resource to return</param>
+        /// <param name="resourceId">The id of the resource to return</param>
         /// <param name="resourceName">The name of the resource to return</param>
         /// <returns>ResourceDetails</returns>
-        ResourceDetails StaticResourcesGetStaticResourceFileDetails (string dataViewName, string resourceCategory, string resourceName);
+        ResourceDetails StaticResourcesGetStaticResourceFileDetails (string dataViewName, string resourceCategory, string resourceId, string resourceName);
 
         /// <summary>
         /// Requires OrbitAdmin: Returns the details of a resource file (such as an image file) for the given category and system
@@ -152,9 +153,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to find the resource for</param>
         /// <param name="resourceCategory">The category of the resource to return</param>
+        /// <param name="resourceId">The id of the resource to return</param>
         /// <param name="resourceName">The name of the resource to return</param>
         /// <returns>ApiResponse of ResourceDetails</returns>
-        ApiResponse<ResourceDetails> StaticResourcesGetStaticResourceFileDetailsWithHttpInfo (string dataViewName, string resourceCategory, string resourceName);
+        ApiResponse<ResourceDetails> StaticResourcesGetStaticResourceFileDetailsWithHttpInfo (string dataViewName, string resourceCategory, string resourceId, string resourceName);
         /// <summary>
         /// Returns a list of details for the resource files (such as image files) in the given resource category and system
         /// </summary>
@@ -328,9 +330,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to find the resource for</param>
         /// <param name="resourceCategory">The category of the resource to return</param>
+        /// <param name="resourceId">The id of the resource to return</param>
         /// <param name="resourceName">The name of the resource to return</param>
         /// <returns>Task of ResourceDetails</returns>
-        System.Threading.Tasks.Task<ResourceDetails> StaticResourcesGetStaticResourceFileDetailsAsync (string dataViewName, string resourceCategory, string resourceName);
+        System.Threading.Tasks.Task<ResourceDetails> StaticResourcesGetStaticResourceFileDetailsAsync (string dataViewName, string resourceCategory, string resourceId, string resourceName);
 
         /// <summary>
         /// Requires OrbitAdmin: Returns the details of a resource file (such as an image file) for the given category and system
@@ -341,9 +344,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to find the resource for</param>
         /// <param name="resourceCategory">The category of the resource to return</param>
+        /// <param name="resourceId">The id of the resource to return</param>
         /// <param name="resourceName">The name of the resource to return</param>
         /// <returns>Task of ApiResponse (ResourceDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceDetails>> StaticResourcesGetStaticResourceFileDetailsAsyncWithHttpInfo (string dataViewName, string resourceCategory, string resourceName);
+        System.Threading.Tasks.Task<ApiResponse<ResourceDetails>> StaticResourcesGetStaticResourceFileDetailsAsyncWithHttpInfo (string dataViewName, string resourceCategory, string resourceId, string resourceName);
         /// <summary>
         /// Returns a list of details for the resource files (such as image files) in the given resource category and system
         /// </summary>
@@ -533,7 +537,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceId == null)
                 throw new ApiException(400, "Missing required parameter 'resourceId' when calling StaticResourcesApi->StaticResourcesDeleteStaticResourceFile");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -577,7 +581,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -615,7 +619,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceId == null)
                 throw new ApiException(400, "Missing required parameter 'resourceId' when calling StaticResourcesApi->StaticResourcesDeleteStaticResourceFile");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -659,7 +663,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -697,7 +701,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling StaticResourcesApi->StaticResourcesGetStaticResourceCategories");
 
-            var localVarPath = "/{dataViewName}/StaticResources";
+            var localVarPath = "./{dataViewName}/StaticResources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -746,7 +750,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResourceCategorySummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResourceCategorySummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResourceCategorySummary)));
         }
 
@@ -785,7 +789,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling StaticResourcesApi->StaticResourcesGetStaticResourceCategories");
 
-            var localVarPath = "/{dataViewName}/StaticResources";
+            var localVarPath = "./{dataViewName}/StaticResources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -834,7 +838,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResourceCategorySummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResourceCategorySummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResourceCategorySummary)));
         }
 
@@ -867,7 +871,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceCategory == null)
                 throw new ApiException(400, "Missing required parameter 'resourceCategory' when calling StaticResourcesApi->StaticResourcesGetStaticResourceCategory");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -912,7 +916,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResourceCategoryDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResourceCategoryDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceCategoryDetails)));
         }
 
@@ -946,7 +950,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceCategory == null)
                 throw new ApiException(400, "Missing required parameter 'resourceCategory' when calling StaticResourcesApi->StaticResourcesGetStaticResourceCategory");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -991,7 +995,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResourceCategoryDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResourceCategoryDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceCategoryDetails)));
         }
 
@@ -1033,7 +1037,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceName == null)
                 throw new ApiException(400, "Missing required parameter 'resourceName' when calling StaticResourcesApi->StaticResourcesGetStaticResourceFile");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}/{resourceName}";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}/{resourceName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1073,7 +1077,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1116,7 +1120,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceName == null)
                 throw new ApiException(400, "Missing required parameter 'resourceName' when calling StaticResourcesApi->StaticResourcesGetStaticResourceFile");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}/{resourceName}";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}/{resourceName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1156,7 +1160,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1166,11 +1170,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to find the resource for</param>
         /// <param name="resourceCategory">The category of the resource to return</param>
+        /// <param name="resourceId">The id of the resource to return</param>
         /// <param name="resourceName">The name of the resource to return</param>
         /// <returns>ResourceDetails</returns>
-        public ResourceDetails StaticResourcesGetStaticResourceFileDetails (string dataViewName, string resourceCategory, string resourceName)
+        public ResourceDetails StaticResourcesGetStaticResourceFileDetails (string dataViewName, string resourceCategory, string resourceId, string resourceName)
         {
-             ApiResponse<ResourceDetails> localVarResponse = StaticResourcesGetStaticResourceFileDetailsWithHttpInfo(dataViewName, resourceCategory, resourceName);
+             ApiResponse<ResourceDetails> localVarResponse = StaticResourcesGetStaticResourceFileDetailsWithHttpInfo(dataViewName, resourceCategory, resourceId, resourceName);
              return localVarResponse.Data;
         }
 
@@ -1180,9 +1185,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to find the resource for</param>
         /// <param name="resourceCategory">The category of the resource to return</param>
+        /// <param name="resourceId">The id of the resource to return</param>
         /// <param name="resourceName">The name of the resource to return</param>
         /// <returns>ApiResponse of ResourceDetails</returns>
-        public ApiResponse< ResourceDetails > StaticResourcesGetStaticResourceFileDetailsWithHttpInfo (string dataViewName, string resourceCategory, string resourceName)
+        public ApiResponse< ResourceDetails > StaticResourcesGetStaticResourceFileDetailsWithHttpInfo (string dataViewName, string resourceCategory, string resourceId, string resourceName)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -1190,11 +1196,14 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             // verify the required parameter 'resourceCategory' is set
             if (resourceCategory == null)
                 throw new ApiException(400, "Missing required parameter 'resourceCategory' when calling StaticResourcesApi->StaticResourcesGetStaticResourceFileDetails");
+            // verify the required parameter 'resourceId' is set
+            if (resourceId == null)
+                throw new ApiException(400, "Missing required parameter 'resourceId' when calling StaticResourcesApi->StaticResourcesGetStaticResourceFileDetails");
             // verify the required parameter 'resourceName' is set
             if (resourceName == null)
                 throw new ApiException(400, "Missing required parameter 'resourceName' when calling StaticResourcesApi->StaticResourcesGetStaticResourceFileDetails");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceName}/Details";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}/{resourceName}/Details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1218,6 +1227,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (resourceCategory != null) localVarPathParams.Add("resourceCategory", this.Configuration.ApiClient.ParameterToString(resourceCategory)); // path parameter
+            if (resourceId != null) localVarPathParams.Add("resourceId", this.Configuration.ApiClient.ParameterToString(resourceId)); // path parameter
             if (resourceName != null) localVarPathParams.Add("resourceName", this.Configuration.ApiClient.ParameterToString(resourceName)); // path parameter
 
             // authentication (faststats_auth) required
@@ -1240,7 +1250,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResourceDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResourceDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceDetails)));
         }
 
@@ -1250,11 +1260,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to find the resource for</param>
         /// <param name="resourceCategory">The category of the resource to return</param>
+        /// <param name="resourceId">The id of the resource to return</param>
         /// <param name="resourceName">The name of the resource to return</param>
         /// <returns>Task of ResourceDetails</returns>
-        public async System.Threading.Tasks.Task<ResourceDetails> StaticResourcesGetStaticResourceFileDetailsAsync (string dataViewName, string resourceCategory, string resourceName)
+        public async System.Threading.Tasks.Task<ResourceDetails> StaticResourcesGetStaticResourceFileDetailsAsync (string dataViewName, string resourceCategory, string resourceId, string resourceName)
         {
-             ApiResponse<ResourceDetails> localVarResponse = await StaticResourcesGetStaticResourceFileDetailsAsyncWithHttpInfo(dataViewName, resourceCategory, resourceName);
+             ApiResponse<ResourceDetails> localVarResponse = await StaticResourcesGetStaticResourceFileDetailsAsyncWithHttpInfo(dataViewName, resourceCategory, resourceId, resourceName);
              return localVarResponse.Data;
 
         }
@@ -1265,9 +1276,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to find the resource for</param>
         /// <param name="resourceCategory">The category of the resource to return</param>
+        /// <param name="resourceId">The id of the resource to return</param>
         /// <param name="resourceName">The name of the resource to return</param>
         /// <returns>Task of ApiResponse (ResourceDetails)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ResourceDetails>> StaticResourcesGetStaticResourceFileDetailsAsyncWithHttpInfo (string dataViewName, string resourceCategory, string resourceName)
+        public async System.Threading.Tasks.Task<ApiResponse<ResourceDetails>> StaticResourcesGetStaticResourceFileDetailsAsyncWithHttpInfo (string dataViewName, string resourceCategory, string resourceId, string resourceName)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -1275,11 +1287,14 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             // verify the required parameter 'resourceCategory' is set
             if (resourceCategory == null)
                 throw new ApiException(400, "Missing required parameter 'resourceCategory' when calling StaticResourcesApi->StaticResourcesGetStaticResourceFileDetails");
+            // verify the required parameter 'resourceId' is set
+            if (resourceId == null)
+                throw new ApiException(400, "Missing required parameter 'resourceId' when calling StaticResourcesApi->StaticResourcesGetStaticResourceFileDetails");
             // verify the required parameter 'resourceName' is set
             if (resourceName == null)
                 throw new ApiException(400, "Missing required parameter 'resourceName' when calling StaticResourcesApi->StaticResourcesGetStaticResourceFileDetails");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceName}/Details";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources/{resourceId}/{resourceName}/Details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1303,6 +1318,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (resourceCategory != null) localVarPathParams.Add("resourceCategory", this.Configuration.ApiClient.ParameterToString(resourceCategory)); // path parameter
+            if (resourceId != null) localVarPathParams.Add("resourceId", this.Configuration.ApiClient.ParameterToString(resourceId)); // path parameter
             if (resourceName != null) localVarPathParams.Add("resourceName", this.Configuration.ApiClient.ParameterToString(resourceName)); // path parameter
 
             // authentication (faststats_auth) required
@@ -1325,7 +1341,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResourceDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResourceDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResourceDetails)));
         }
 
@@ -1366,7 +1382,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceCategory == null)
                 throw new ApiException(400, "Missing required parameter 'resourceCategory' when calling StaticResourcesApi->StaticResourcesGetStaticResourcesForCategory");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1415,7 +1431,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResourceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResourceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResourceSummary)));
         }
 
@@ -1457,7 +1473,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceCategory == null)
                 throw new ApiException(400, "Missing required parameter 'resourceCategory' when calling StaticResourcesApi->StaticResourcesGetStaticResourcesForCategory");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1506,7 +1522,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResourceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResourceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResourceSummary)));
         }
 
@@ -1540,7 +1556,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceCategory == null)
                 throw new ApiException(400, "Missing required parameter 'resourceCategory' when calling StaticResourcesApi->StaticResourcesPostStaticResourceFile");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1585,7 +1601,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1620,7 +1636,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resourceCategory == null)
                 throw new ApiException(400, "Missing required parameter 'resourceCategory' when calling StaticResourcesApi->StaticResourcesPostStaticResourceFile");
 
-            var localVarPath = "/{dataViewName}/StaticResources/{resourceCategory}/Resources";
+            var localVarPath = "./{dataViewName}/StaticResources/{resourceCategory}/Resources";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1665,7 +1681,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 

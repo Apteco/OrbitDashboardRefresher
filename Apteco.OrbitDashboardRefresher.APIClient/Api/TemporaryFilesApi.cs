@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -359,7 +359,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling TemporaryFilesApi->TemporaryFilesGetTemporaryFile");
 
-            var localVarPath = "/{dataViewName}/TemporaryFiles/{id}";
+            var localVarPath = "./{dataViewName}/TemporaryFiles/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -405,7 +405,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -439,7 +439,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling TemporaryFilesApi->TemporaryFilesGetTemporaryFile");
 
-            var localVarPath = "/{dataViewName}/TemporaryFiles/{id}";
+            var localVarPath = "./{dataViewName}/TemporaryFiles/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -485,7 +485,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -523,7 +523,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (partNumber == null)
                 throw new ApiException(400, "Missing required parameter 'partNumber' when calling TemporaryFilesApi->TemporaryFilesGetTemporaryFilePart");
 
-            var localVarPath = "/{dataViewName}/TemporaryFiles/{id}/{partNumber}";
+            var localVarPath = "./{dataViewName}/TemporaryFiles/{id}/{partNumber}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -570,7 +570,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -609,7 +609,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (partNumber == null)
                 throw new ApiException(400, "Missing required parameter 'partNumber' when calling TemporaryFilesApi->TemporaryFilesGetTemporaryFilePart");
 
-            var localVarPath = "/{dataViewName}/TemporaryFiles/{id}/{partNumber}";
+            var localVarPath = "./{dataViewName}/TemporaryFiles/{id}/{partNumber}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -656,7 +656,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -694,7 +694,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (_file == null)
                 throw new ApiException(400, "Missing required parameter '_file' when calling TemporaryFilesApi->TemporaryFilesUpsertTemporaryFile");
 
-            var localVarPath = "/{dataViewName}/TemporaryFiles/{id}";
+            var localVarPath = "./{dataViewName}/TemporaryFiles/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -741,7 +741,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TemporaryFile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TemporaryFile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TemporaryFile)));
         }
 
@@ -780,7 +780,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (_file == null)
                 throw new ApiException(400, "Missing required parameter '_file' when calling TemporaryFilesApi->TemporaryFilesUpsertTemporaryFile");
 
-            var localVarPath = "/{dataViewName}/TemporaryFiles/{id}";
+            var localVarPath = "./{dataViewName}/TemporaryFiles/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -827,7 +827,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TemporaryFile>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TemporaryFile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TemporaryFile)));
         }
 
@@ -872,7 +872,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (_file == null)
                 throw new ApiException(400, "Missing required parameter '_file' when calling TemporaryFilesApi->TemporaryFilesUpsertTemporaryFilePart");
 
-            var localVarPath = "/{dataViewName}/TemporaryFiles/{id}/{partNumber}";
+            var localVarPath = "./{dataViewName}/TemporaryFiles/{id}/{partNumber}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -921,7 +921,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TemporaryFilePart>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TemporaryFilePart) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TemporaryFilePart)));
         }
 
@@ -967,7 +967,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (_file == null)
                 throw new ApiException(400, "Missing required parameter '_file' when calling TemporaryFilesApi->TemporaryFilesUpsertTemporaryFilePart");
 
-            var localVarPath = "/{dataViewName}/TemporaryFiles/{id}/{partNumber}";
+            var localVarPath = "./{dataViewName}/TemporaryFiles/{id}/{partNumber}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1016,7 +1016,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TemporaryFilePart>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TemporaryFilePart) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TemporaryFilePart)));
         }
 

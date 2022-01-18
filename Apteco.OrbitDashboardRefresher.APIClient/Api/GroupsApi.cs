@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -34,8 +34,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the group to be associated with. (optional)</param>
         /// <param name="groupDetails">The details for the group to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>GroupSummary</returns>
-        GroupSummary GroupsCreateGroup (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null);
+        GroupSummary GroupsCreateGroup (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null, string scope = null);
 
         /// <summary>
         /// Requires OrbitAdmin: Creates a new group.
@@ -47,8 +48,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the group to be associated with. (optional)</param>
         /// <param name="groupDetails">The details for the group to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of GroupSummary</returns>
-        ApiResponse<GroupSummary> GroupsCreateGroupWithHttpInfo (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null);
+        ApiResponse<GroupSummary> GroupsCreateGroupWithHttpInfo (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null, string scope = null);
         /// <summary>
         /// Requires OrbitAdmin: Deletes the specified group
         /// </summary>
@@ -108,12 +110,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="systemName">If specified, whether to limit to only groups attached to the system name (optional)</param>
         /// <param name="includeMembership">If specified, whether to include membership details for the groups (optional)</param>
         /// <param name="includeEveryoneGroup">If specified, whether to include the everyone group (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>PagedResultsGroupSummary</returns>
-        PagedResultsGroupSummary GroupsGetGroups (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        PagedResultsGroupSummary GroupsGetGroups (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
 
         /// <summary>
         /// Returns all groups in the DataView.
@@ -126,12 +129,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="systemName">If specified, whether to limit to only groups attached to the system name (optional)</param>
         /// <param name="includeMembership">If specified, whether to include membership details for the groups (optional)</param>
         /// <param name="includeEveryoneGroup">If specified, whether to include the everyone group (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>ApiResponse of PagedResultsGroupSummary</returns>
-        ApiResponse<PagedResultsGroupSummary> GroupsGetGroupsWithHttpInfo (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        ApiResponse<PagedResultsGroupSummary> GroupsGetGroupsWithHttpInfo (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
         /// <summary>
         /// Returns all users in the given group.
         /// </summary>
@@ -205,9 +209,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The system name associated with the group (optional)</param>
         /// <param name="groupDetails">The group to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>GroupSummary</returns>
-        GroupSummary GroupsModifyGroup (string dataViewName, int? groupId, UpdateGroupDetails groupDetails = null);
+        GroupSummary GroupsModifyGroup (string dataViewName, int? groupId, string systemName = null, UpdateGroupDetails groupDetails = null, string scope = null);
 
         /// <summary>
         /// Requires OrbitAdmin: Modify the specified group
@@ -218,9 +224,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The system name associated with the group (optional)</param>
         /// <param name="groupDetails">The group to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of GroupSummary</returns>
-        ApiResponse<GroupSummary> GroupsModifyGroupWithHttpInfo (string dataViewName, int? groupId, UpdateGroupDetails groupDetails = null);
+        ApiResponse<GroupSummary> GroupsModifyGroupWithHttpInfo (string dataViewName, int? groupId, string systemName = null, UpdateGroupDetails groupDetails = null, string scope = null);
         /// <summary>
         /// Requires OrbitAdmin: Modify the specified group membership
         /// </summary>
@@ -232,8 +240,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="groupId">The id of the group</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyGroupMembership">The group memberships to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>GroupSummary</returns>
-        GroupSummary GroupsModifyGroupMembership (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null);
+        GroupSummary GroupsModifyGroupMembership (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null, string scope = null);
 
         /// <summary>
         /// Requires OrbitAdmin: Modify the specified group membership
@@ -246,8 +255,38 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="groupId">The id of the group</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyGroupMembership">The group memberships to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of GroupSummary</returns>
-        ApiResponse<GroupSummary> GroupsModifyGroupMembershipWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null);
+        ApiResponse<GroupSummary> GroupsModifyGroupMembershipWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null, string scope = null);
+        /// <summary>
+        /// Requires OrbitAdmin: Modify the specified group&#39;s systems
+        /// </summary>
+        /// <remarks>
+        /// This endpoint is only available for users with the OrbitAdmin role
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyGroupSystems">The group&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>GroupSummary</returns>
+        GroupSummary GroupsModifyGroupSystems (string dataViewName, int? groupId, string systemName = null, ModifyGroupSystems modifyGroupSystems = null, string scope = null);
+
+        /// <summary>
+        /// Requires OrbitAdmin: Modify the specified group&#39;s systems
+        /// </summary>
+        /// <remarks>
+        /// This endpoint is only available for users with the OrbitAdmin role
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyGroupSystems">The group&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>ApiResponse of GroupSummary</returns>
+        ApiResponse<GroupSummary> GroupsModifyGroupSystemsWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupSystems modifyGroupSystems = null, string scope = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -260,8 +299,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the group to be associated with. (optional)</param>
         /// <param name="groupDetails">The details for the group to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of GroupSummary</returns>
-        System.Threading.Tasks.Task<GroupSummary> GroupsCreateGroupAsync (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null);
+        System.Threading.Tasks.Task<GroupSummary> GroupsCreateGroupAsync (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null, string scope = null);
 
         /// <summary>
         /// Requires OrbitAdmin: Creates a new group.
@@ -273,8 +313,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the group to be associated with. (optional)</param>
         /// <param name="groupDetails">The details for the group to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (GroupSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsCreateGroupAsyncWithHttpInfo (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null);
+        System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsCreateGroupAsyncWithHttpInfo (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null, string scope = null);
         /// <summary>
         /// Requires OrbitAdmin: Deletes the specified group
         /// </summary>
@@ -334,12 +375,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="systemName">If specified, whether to limit to only groups attached to the system name (optional)</param>
         /// <param name="includeMembership">If specified, whether to include membership details for the groups (optional)</param>
         /// <param name="includeEveryoneGroup">If specified, whether to include the everyone group (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of PagedResultsGroupSummary</returns>
-        System.Threading.Tasks.Task<PagedResultsGroupSummary> GroupsGetGroupsAsync (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        System.Threading.Tasks.Task<PagedResultsGroupSummary> GroupsGetGroupsAsync (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
 
         /// <summary>
         /// Returns all groups in the DataView.
@@ -352,12 +394,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="systemName">If specified, whether to limit to only groups attached to the system name (optional)</param>
         /// <param name="includeMembership">If specified, whether to include membership details for the groups (optional)</param>
         /// <param name="includeEveryoneGroup">If specified, whether to include the everyone group (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of ApiResponse (PagedResultsGroupSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResultsGroupSummary>> GroupsGetGroupsAsyncWithHttpInfo (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        System.Threading.Tasks.Task<ApiResponse<PagedResultsGroupSummary>> GroupsGetGroupsAsyncWithHttpInfo (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
         /// <summary>
         /// Returns all users in the given group.
         /// </summary>
@@ -431,9 +474,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The system name associated with the group (optional)</param>
         /// <param name="groupDetails">The group to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of GroupSummary</returns>
-        System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupAsync (string dataViewName, int? groupId, UpdateGroupDetails groupDetails = null);
+        System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupAsync (string dataViewName, int? groupId, string systemName = null, UpdateGroupDetails groupDetails = null, string scope = null);
 
         /// <summary>
         /// Requires OrbitAdmin: Modify the specified group
@@ -444,9 +489,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The system name associated with the group (optional)</param>
         /// <param name="groupDetails">The group to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (GroupSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupAsyncWithHttpInfo (string dataViewName, int? groupId, UpdateGroupDetails groupDetails = null);
+        System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupAsyncWithHttpInfo (string dataViewName, int? groupId, string systemName = null, UpdateGroupDetails groupDetails = null, string scope = null);
         /// <summary>
         /// Requires OrbitAdmin: Modify the specified group membership
         /// </summary>
@@ -458,8 +505,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="groupId">The id of the group</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyGroupMembership">The group memberships to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of GroupSummary</returns>
-        System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupMembershipAsync (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null);
+        System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupMembershipAsync (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null, string scope = null);
 
         /// <summary>
         /// Requires OrbitAdmin: Modify the specified group membership
@@ -472,8 +520,38 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="groupId">The id of the group</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyGroupMembership">The group memberships to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (GroupSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupMembershipAsyncWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null);
+        System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupMembershipAsyncWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null, string scope = null);
+        /// <summary>
+        /// Requires OrbitAdmin: Modify the specified group&#39;s systems
+        /// </summary>
+        /// <remarks>
+        /// This endpoint is only available for users with the OrbitAdmin role
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyGroupSystems">The group&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>Task of GroupSummary</returns>
+        System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupSystemsAsync (string dataViewName, int? groupId, string systemName = null, ModifyGroupSystems modifyGroupSystems = null, string scope = null);
+
+        /// <summary>
+        /// Requires OrbitAdmin: Modify the specified group&#39;s systems
+        /// </summary>
+        /// <remarks>
+        /// This endpoint is only available for users with the OrbitAdmin role
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyGroupSystems">The group&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>Task of ApiResponse (GroupSummary)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupSystemsAsyncWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupSystems modifyGroupSystems = null, string scope = null);
         #endregion Asynchronous Operations
     }
 
@@ -581,10 +659,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the group to be associated with. (optional)</param>
         /// <param name="groupDetails">The details for the group to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>GroupSummary</returns>
-        public GroupSummary GroupsCreateGroup (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null)
+        public GroupSummary GroupsCreateGroup (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null, string scope = null)
         {
-             ApiResponse<GroupSummary> localVarResponse = GroupsCreateGroupWithHttpInfo(dataViewName, systemName, groupDetails);
+             ApiResponse<GroupSummary> localVarResponse = GroupsCreateGroupWithHttpInfo(dataViewName, systemName, groupDetails, scope);
              return localVarResponse.Data;
         }
 
@@ -595,14 +674,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the group to be associated with. (optional)</param>
         /// <param name="groupDetails">The details for the group to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of GroupSummary</returns>
-        public ApiResponse< GroupSummary > GroupsCreateGroupWithHttpInfo (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null)
+        public ApiResponse< GroupSummary > GroupsCreateGroupWithHttpInfo (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling GroupsApi->GroupsCreateGroup");
 
-            var localVarPath = "/{dataViewName}/Groups";
+            var localVarPath = "./{dataViewName}/Groups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -630,6 +710,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (groupDetails != null && groupDetails.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(groupDetails); // http body (model) parameter
@@ -659,7 +740,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<GroupSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupSummary)));
         }
 
@@ -670,10 +751,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the group to be associated with. (optional)</param>
         /// <param name="groupDetails">The details for the group to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of GroupSummary</returns>
-        public async System.Threading.Tasks.Task<GroupSummary> GroupsCreateGroupAsync (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null)
+        public async System.Threading.Tasks.Task<GroupSummary> GroupsCreateGroupAsync (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null, string scope = null)
         {
-             ApiResponse<GroupSummary> localVarResponse = await GroupsCreateGroupAsyncWithHttpInfo(dataViewName, systemName, groupDetails);
+             ApiResponse<GroupSummary> localVarResponse = await GroupsCreateGroupAsyncWithHttpInfo(dataViewName, systemName, groupDetails, scope);
              return localVarResponse.Data;
 
         }
@@ -685,14 +767,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the group to be associated with. (optional)</param>
         /// <param name="groupDetails">The details for the group to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (GroupSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsCreateGroupAsyncWithHttpInfo (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsCreateGroupAsyncWithHttpInfo (string dataViewName, string systemName = null, CreateGroupDetails groupDetails = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling GroupsApi->GroupsCreateGroup");
 
-            var localVarPath = "/{dataViewName}/Groups";
+            var localVarPath = "./{dataViewName}/Groups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -720,6 +803,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (groupDetails != null && groupDetails.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(groupDetails); // http body (model) parameter
@@ -749,7 +833,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<GroupSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupSummary)));
         }
 
@@ -781,7 +865,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsDeleteGroup");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -824,7 +908,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -857,7 +941,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsDeleteGroup");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -900,7 +984,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -935,7 +1019,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsGetGroupDetails");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -981,7 +1065,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<GroupDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GroupDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupDetail)));
         }
 
@@ -1017,7 +1101,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsGetGroupDetails");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1063,7 +1147,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<GroupDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GroupDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupDetail)));
         }
 
@@ -1075,14 +1159,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="systemName">If specified, whether to limit to only groups attached to the system name (optional)</param>
         /// <param name="includeMembership">If specified, whether to include membership details for the groups (optional)</param>
         /// <param name="includeEveryoneGroup">If specified, whether to include the everyone group (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>PagedResultsGroupSummary</returns>
-        public PagedResultsGroupSummary GroupsGetGroups (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public PagedResultsGroupSummary GroupsGetGroups (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
-             ApiResponse<PagedResultsGroupSummary> localVarResponse = GroupsGetGroupsWithHttpInfo(dataViewName, systemName, includeMembership, includeEveryoneGroup, filter, orderBy, offset, count);
+             ApiResponse<PagedResultsGroupSummary> localVarResponse = GroupsGetGroupsWithHttpInfo(dataViewName, systemName, includeMembership, includeEveryoneGroup, scope, filter, orderBy, offset, count);
              return localVarResponse.Data;
         }
 
@@ -1094,18 +1179,19 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="systemName">If specified, whether to limit to only groups attached to the system name (optional)</param>
         /// <param name="includeMembership">If specified, whether to include membership details for the groups (optional)</param>
         /// <param name="includeEveryoneGroup">If specified, whether to include the everyone group (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>ApiResponse of PagedResultsGroupSummary</returns>
-        public ApiResponse< PagedResultsGroupSummary > GroupsGetGroupsWithHttpInfo (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public ApiResponse< PagedResultsGroupSummary > GroupsGetGroupsWithHttpInfo (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling GroupsApi->GroupsGetGroups");
 
-            var localVarPath = "/{dataViewName}/Groups";
+            var localVarPath = "./{dataViewName}/Groups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1131,6 +1217,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
             if (includeMembership != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeMembership", includeMembership)); // query parameter
             if (includeEveryoneGroup != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeEveryoneGroup", includeEveryoneGroup)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
@@ -1156,7 +1243,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsGroupSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsGroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsGroupSummary)));
         }
 
@@ -1168,14 +1255,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="systemName">If specified, whether to limit to only groups attached to the system name (optional)</param>
         /// <param name="includeMembership">If specified, whether to include membership details for the groups (optional)</param>
         /// <param name="includeEveryoneGroup">If specified, whether to include the everyone group (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of PagedResultsGroupSummary</returns>
-        public async System.Threading.Tasks.Task<PagedResultsGroupSummary> GroupsGetGroupsAsync (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public async System.Threading.Tasks.Task<PagedResultsGroupSummary> GroupsGetGroupsAsync (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
-             ApiResponse<PagedResultsGroupSummary> localVarResponse = await GroupsGetGroupsAsyncWithHttpInfo(dataViewName, systemName, includeMembership, includeEveryoneGroup, filter, orderBy, offset, count);
+             ApiResponse<PagedResultsGroupSummary> localVarResponse = await GroupsGetGroupsAsyncWithHttpInfo(dataViewName, systemName, includeMembership, includeEveryoneGroup, scope, filter, orderBy, offset, count);
              return localVarResponse.Data;
 
         }
@@ -1188,18 +1276,19 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="systemName">If specified, whether to limit to only groups attached to the system name (optional)</param>
         /// <param name="includeMembership">If specified, whether to include membership details for the groups (optional)</param>
         /// <param name="includeEveryoneGroup">If specified, whether to include the everyone group (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Name, UserMembershipCount. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of ApiResponse (PagedResultsGroupSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PagedResultsGroupSummary>> GroupsGetGroupsAsyncWithHttpInfo (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PagedResultsGroupSummary>> GroupsGetGroupsAsyncWithHttpInfo (string dataViewName, string systemName = null, bool? includeMembership = null, bool? includeEveryoneGroup = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling GroupsApi->GroupsGetGroups");
 
-            var localVarPath = "/{dataViewName}/Groups";
+            var localVarPath = "./{dataViewName}/Groups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1225,6 +1314,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
             if (includeMembership != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeMembership", includeMembership)); // query parameter
             if (includeEveryoneGroup != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeEveryoneGroup", includeEveryoneGroup)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
@@ -1250,7 +1340,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsGroupSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsGroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsGroupSummary)));
         }
 
@@ -1293,7 +1383,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsGetUserDetailsForGroup");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}/Users";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1343,7 +1433,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserSummary)));
         }
 
@@ -1387,7 +1477,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsGetUserDetailsForGroup");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}/Users";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1437,7 +1527,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserSummary)));
         }
 
@@ -1475,7 +1565,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling GroupsApi->GroupsGetUserDetailsForUnallocatedGroup");
 
-            var localVarPath = "/{dataViewName}/Groups/Unallocated/Users";
+            var localVarPath = "./{dataViewName}/Groups/Unallocated/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1524,7 +1614,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserSummary)));
         }
 
@@ -1563,7 +1653,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling GroupsApi->GroupsGetUserDetailsForUnallocatedGroup");
 
-            var localVarPath = "/{dataViewName}/Groups/Unallocated/Users";
+            var localVarPath = "./{dataViewName}/Groups/Unallocated/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1612,7 +1702,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserSummary)));
         }
 
@@ -1622,11 +1712,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The system name associated with the group (optional)</param>
         /// <param name="groupDetails">The group to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>GroupSummary</returns>
-        public GroupSummary GroupsModifyGroup (string dataViewName, int? groupId, UpdateGroupDetails groupDetails = null)
+        public GroupSummary GroupsModifyGroup (string dataViewName, int? groupId, string systemName = null, UpdateGroupDetails groupDetails = null, string scope = null)
         {
-             ApiResponse<GroupSummary> localVarResponse = GroupsModifyGroupWithHttpInfo(dataViewName, groupId, groupDetails);
+             ApiResponse<GroupSummary> localVarResponse = GroupsModifyGroupWithHttpInfo(dataViewName, groupId, systemName, groupDetails, scope);
              return localVarResponse.Data;
         }
 
@@ -1636,9 +1728,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The system name associated with the group (optional)</param>
         /// <param name="groupDetails">The group to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of GroupSummary</returns>
-        public ApiResponse< GroupSummary > GroupsModifyGroupWithHttpInfo (string dataViewName, int? groupId, UpdateGroupDetails groupDetails = null)
+        public ApiResponse< GroupSummary > GroupsModifyGroupWithHttpInfo (string dataViewName, int? groupId, string systemName = null, UpdateGroupDetails groupDetails = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -1647,7 +1741,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsModifyGroup");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1675,6 +1769,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (groupId != null) localVarPathParams.Add("groupId", this.Configuration.ApiClient.ParameterToString(groupId)); // path parameter
+            if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (groupDetails != null && groupDetails.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(groupDetails); // http body (model) parameter
@@ -1704,7 +1800,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<GroupSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupSummary)));
         }
 
@@ -1714,11 +1810,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The system name associated with the group (optional)</param>
         /// <param name="groupDetails">The group to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of GroupSummary</returns>
-        public async System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupAsync (string dataViewName, int? groupId, UpdateGroupDetails groupDetails = null)
+        public async System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupAsync (string dataViewName, int? groupId, string systemName = null, UpdateGroupDetails groupDetails = null, string scope = null)
         {
-             ApiResponse<GroupSummary> localVarResponse = await GroupsModifyGroupAsyncWithHttpInfo(dataViewName, groupId, groupDetails);
+             ApiResponse<GroupSummary> localVarResponse = await GroupsModifyGroupAsyncWithHttpInfo(dataViewName, groupId, systemName, groupDetails, scope);
              return localVarResponse.Data;
 
         }
@@ -1729,9 +1827,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The system name associated with the group (optional)</param>
         /// <param name="groupDetails">The group to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (GroupSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupAsyncWithHttpInfo (string dataViewName, int? groupId, UpdateGroupDetails groupDetails = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupAsyncWithHttpInfo (string dataViewName, int? groupId, string systemName = null, UpdateGroupDetails groupDetails = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -1740,7 +1840,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsModifyGroup");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1768,6 +1868,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (groupId != null) localVarPathParams.Add("groupId", this.Configuration.ApiClient.ParameterToString(groupId)); // path parameter
+            if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (groupDetails != null && groupDetails.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(groupDetails); // http body (model) parameter
@@ -1797,7 +1899,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<GroupSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupSummary)));
         }
 
@@ -1809,10 +1911,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="groupId">The id of the group</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyGroupMembership">The group memberships to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>GroupSummary</returns>
-        public GroupSummary GroupsModifyGroupMembership (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null)
+        public GroupSummary GroupsModifyGroupMembership (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null, string scope = null)
         {
-             ApiResponse<GroupSummary> localVarResponse = GroupsModifyGroupMembershipWithHttpInfo(dataViewName, groupId, systemName, modifyGroupMembership);
+             ApiResponse<GroupSummary> localVarResponse = GroupsModifyGroupMembershipWithHttpInfo(dataViewName, groupId, systemName, modifyGroupMembership, scope);
              return localVarResponse.Data;
         }
 
@@ -1824,8 +1927,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="groupId">The id of the group</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyGroupMembership">The group memberships to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of GroupSummary</returns>
-        public ApiResponse< GroupSummary > GroupsModifyGroupMembershipWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null)
+        public ApiResponse< GroupSummary > GroupsModifyGroupMembershipWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -1834,7 +1938,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsModifyGroupMembership");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}/Users";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1863,6 +1967,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (groupId != null) localVarPathParams.Add("groupId", this.Configuration.ApiClient.ParameterToString(groupId)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (modifyGroupMembership != null && modifyGroupMembership.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(modifyGroupMembership); // http body (model) parameter
@@ -1892,7 +1997,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<GroupSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupSummary)));
         }
 
@@ -1904,10 +2009,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="groupId">The id of the group</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyGroupMembership">The group memberships to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of GroupSummary</returns>
-        public async System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupMembershipAsync (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null)
+        public async System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupMembershipAsync (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null, string scope = null)
         {
-             ApiResponse<GroupSummary> localVarResponse = await GroupsModifyGroupMembershipAsyncWithHttpInfo(dataViewName, groupId, systemName, modifyGroupMembership);
+             ApiResponse<GroupSummary> localVarResponse = await GroupsModifyGroupMembershipAsyncWithHttpInfo(dataViewName, groupId, systemName, modifyGroupMembership, scope);
              return localVarResponse.Data;
 
         }
@@ -1920,8 +2026,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="groupId">The id of the group</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyGroupMembership">The group memberships to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (GroupSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupMembershipAsyncWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupMembershipAsyncWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupMembership modifyGroupMembership = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -1930,7 +2037,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsModifyGroupMembership");
 
-            var localVarPath = "/{dataViewName}/Groups/{groupId}/Users";
+            var localVarPath = "./{dataViewName}/Groups/{groupId}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1959,6 +2066,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (groupId != null) localVarPathParams.Add("groupId", this.Configuration.ApiClient.ParameterToString(groupId)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (modifyGroupMembership != null && modifyGroupMembership.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(modifyGroupMembership); // http body (model) parameter
@@ -1988,7 +2096,204 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<GroupSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (GroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupSummary)));
+        }
+
+        /// <summary>
+        /// Requires OrbitAdmin: Modify the specified group&#39;s systems This endpoint is only available for users with the OrbitAdmin role
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyGroupSystems">The group&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>GroupSummary</returns>
+        public GroupSummary GroupsModifyGroupSystems (string dataViewName, int? groupId, string systemName = null, ModifyGroupSystems modifyGroupSystems = null, string scope = null)
+        {
+             ApiResponse<GroupSummary> localVarResponse = GroupsModifyGroupSystemsWithHttpInfo(dataViewName, groupId, systemName, modifyGroupSystems, scope);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Requires OrbitAdmin: Modify the specified group&#39;s systems This endpoint is only available for users with the OrbitAdmin role
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyGroupSystems">The group&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>ApiResponse of GroupSummary</returns>
+        public ApiResponse< GroupSummary > GroupsModifyGroupSystemsWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupSystems modifyGroupSystems = null, string scope = null)
+        {
+            // verify the required parameter 'dataViewName' is set
+            if (dataViewName == null)
+                throw new ApiException(400, "Missing required parameter 'dataViewName' when calling GroupsApi->GroupsModifyGroupSystems");
+            // verify the required parameter 'groupId' is set
+            if (groupId == null)
+                throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsModifyGroupSystems");
+
+            var localVarPath = "./{dataViewName}/Groups/{groupId}/Systems";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
+            if (groupId != null) localVarPathParams.Add("groupId", this.Configuration.ApiClient.ParameterToString(groupId)); // path parameter
+            if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (modifyGroupSystems != null && modifyGroupSystems.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(modifyGroupSystems); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = modifyGroupSystems; // byte array
+            }
+
+            // authentication (faststats_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GroupsModifyGroupSystems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GroupSummary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (GroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupSummary)));
+        }
+
+        /// <summary>
+        /// Requires OrbitAdmin: Modify the specified group&#39;s systems This endpoint is only available for users with the OrbitAdmin role
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyGroupSystems">The group&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>Task of GroupSummary</returns>
+        public async System.Threading.Tasks.Task<GroupSummary> GroupsModifyGroupSystemsAsync (string dataViewName, int? groupId, string systemName = null, ModifyGroupSystems modifyGroupSystems = null, string scope = null)
+        {
+             ApiResponse<GroupSummary> localVarResponse = await GroupsModifyGroupSystemsAsyncWithHttpInfo(dataViewName, groupId, systemName, modifyGroupSystems, scope);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Requires OrbitAdmin: Modify the specified group&#39;s systems This endpoint is only available for users with the OrbitAdmin role
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="groupId">The id of the group</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyGroupSystems">The group&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>Task of ApiResponse (GroupSummary)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GroupSummary>> GroupsModifyGroupSystemsAsyncWithHttpInfo (string dataViewName, int? groupId, string systemName = null, ModifyGroupSystems modifyGroupSystems = null, string scope = null)
+        {
+            // verify the required parameter 'dataViewName' is set
+            if (dataViewName == null)
+                throw new ApiException(400, "Missing required parameter 'dataViewName' when calling GroupsApi->GroupsModifyGroupSystems");
+            // verify the required parameter 'groupId' is set
+            if (groupId == null)
+                throw new ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GroupsModifyGroupSystems");
+
+            var localVarPath = "./{dataViewName}/Groups/{groupId}/Systems";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
+            if (groupId != null) localVarPathParams.Add("groupId", this.Configuration.ApiClient.ParameterToString(groupId)); // path parameter
+            if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (modifyGroupSystems != null && modifyGroupSystems.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(modifyGroupSystems); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = modifyGroupSystems; // byte array
+            }
+
+            // authentication (faststats_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GroupsModifyGroupSystems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GroupSummary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (GroupSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(GroupSummary)));
         }
 

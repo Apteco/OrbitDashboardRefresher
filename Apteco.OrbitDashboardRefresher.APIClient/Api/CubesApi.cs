@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -219,7 +219,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling CubesApi->CubesCalculateCubeSynchronously");
 
-            var localVarPath = "/{dataViewName}/Cubes/{systemName}/CalculateSync";
+            var localVarPath = "./{dataViewName}/Cubes/{systemName}/CalculateSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -278,7 +278,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CubeResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CubeResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CubeResult)));
         }
 
@@ -318,7 +318,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling CubesApi->CubesCalculateCubeSynchronously");
 
-            var localVarPath = "/{dataViewName}/Cubes/{systemName}/CalculateSync";
+            var localVarPath = "./{dataViewName}/Cubes/{systemName}/CalculateSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -377,7 +377,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CubeResult>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CubeResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CubeResult)));
         }
 

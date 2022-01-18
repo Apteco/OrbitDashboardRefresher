@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -766,7 +766,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SharesApi->SharesCreateShare");
 
-            var localVarPath = "/{dataViewName}/Shares";
+            var localVarPath = "./{dataViewName}/Shares";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -822,7 +822,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ShareDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ShareDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShareDetail)));
         }
 
@@ -853,7 +853,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SharesApi->SharesCreateShare");
 
-            var localVarPath = "/{dataViewName}/Shares";
+            var localVarPath = "./{dataViewName}/Shares";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -909,7 +909,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ShareDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ShareDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShareDetail)));
         }
 
@@ -944,7 +944,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesCreateShareUpdate");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1001,7 +1001,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CreatedShareUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CreatedShareUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatedShareUpdateDetail)));
         }
 
@@ -1037,7 +1037,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesCreateShareUpdate");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1094,7 +1094,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CreatedShareUpdateDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CreatedShareUpdateDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatedShareUpdateDetail)));
         }
 
@@ -1126,7 +1126,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesDeleteShare");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1169,7 +1169,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1202,7 +1202,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesDeleteShare");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1245,7 +1245,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1278,7 +1278,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesGetShare");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1323,7 +1323,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ShareDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ShareDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShareDetail)));
         }
 
@@ -1357,7 +1357,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesGetShare");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1402,7 +1402,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ShareDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ShareDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShareDetail)));
         }
 
@@ -1443,7 +1443,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesGetShareGroups");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Groups";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Groups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1492,7 +1492,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsGroupDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsGroupDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsGroupDetail)));
         }
 
@@ -1534,7 +1534,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesGetShareGroups");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Groups";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Groups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1583,7 +1583,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsGroupDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsGroupDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsGroupDetail)));
         }
 
@@ -1621,7 +1621,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'shareUpdateId' when calling SharesApi->SharesGetShareUpdate");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1667,7 +1667,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ShareUpdate>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ShareUpdate) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShareUpdate)));
         }
 
@@ -1706,7 +1706,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'shareUpdateId' when calling SharesApi->SharesGetShareUpdate");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1752,7 +1752,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ShareUpdate>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ShareUpdate) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShareUpdate)));
         }
 
@@ -1798,7 +1798,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'shareUpdateId' when calling SharesApi->SharesGetShareUpdateAddedUsers");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}/AddedUsers";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}/AddedUsers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1848,7 +1848,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserDisplayDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserDisplayDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserDisplayDetails)));
         }
 
@@ -1895,7 +1895,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'shareUpdateId' when calling SharesApi->SharesGetShareUpdateAddedUsers");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}/AddedUsers";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}/AddedUsers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1945,7 +1945,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserDisplayDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserDisplayDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserDisplayDetails)));
         }
 
@@ -1991,7 +1991,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'shareUpdateId' when calling SharesApi->SharesGetShareUpdateRemovedUsers");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}/RemovedUsers";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}/RemovedUsers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2041,7 +2041,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserDisplayDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserDisplayDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserDisplayDetails)));
         }
 
@@ -2088,7 +2088,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareUpdateId == null)
                 throw new ApiException(400, "Missing required parameter 'shareUpdateId' when calling SharesApi->SharesGetShareUpdateRemovedUsers");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}/RemovedUsers";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates/{shareUpdateId}/RemovedUsers";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2138,7 +2138,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserDisplayDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserDisplayDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserDisplayDetails)));
         }
 
@@ -2179,7 +2179,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesGetShareUpdates");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2228,7 +2228,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsShareUpdate>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsShareUpdate) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsShareUpdate)));
         }
 
@@ -2270,7 +2270,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesGetShareUpdates");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Updates";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2319,7 +2319,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsShareUpdate>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsShareUpdate) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsShareUpdate)));
         }
 
@@ -2360,7 +2360,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesGetShareUsers");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Users";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2409,7 +2409,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserDisplayDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserDisplayDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserDisplayDetails)));
         }
 
@@ -2451,7 +2451,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (shareId == null)
                 throw new ApiException(400, "Missing required parameter 'shareId' when calling SharesApi->SharesGetShareUsers");
 
-            var localVarPath = "/{dataViewName}/Shares/{shareId}/Users";
+            var localVarPath = "./{dataViewName}/Shares/{shareId}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2500,7 +2500,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserDisplayDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserDisplayDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserDisplayDetails)));
         }
 
@@ -2536,7 +2536,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SharesApi->SharesGetShares");
 
-            var localVarPath = "/{dataViewName}/Shares";
+            var localVarPath = "./{dataViewName}/Shares";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2584,7 +2584,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsShareSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsShareSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsShareSummary)));
         }
 
@@ -2621,7 +2621,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling SharesApi->SharesGetShares");
 
-            var localVarPath = "/{dataViewName}/Shares";
+            var localVarPath = "./{dataViewName}/Shares";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2669,7 +2669,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsShareSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsShareSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsShareSummary)));
         }
 

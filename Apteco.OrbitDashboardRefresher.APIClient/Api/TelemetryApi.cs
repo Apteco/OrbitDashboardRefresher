@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -508,7 +508,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling TelemetryApi->TelemetryCreateTelemetrySession");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -566,7 +566,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetrySession>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetrySession) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetrySession)));
         }
 
@@ -607,7 +607,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling TelemetryApi->TelemetryCreateTelemetrySession");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -665,7 +665,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetrySession>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetrySession) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetrySession)));
         }
 
@@ -695,7 +695,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling TelemetryApi->TelemetryCreateTelemetryState");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States";
+            var localVarPath = "./{dataViewName}/Telemetry/States";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -751,7 +751,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetryState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetryState) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetryState)));
         }
 
@@ -782,7 +782,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling TelemetryApi->TelemetryCreateTelemetryState");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States";
+            var localVarPath = "./{dataViewName}/Telemetry/States";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -838,7 +838,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetryState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetryState) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetryState)));
         }
 
@@ -876,7 +876,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling TelemetryApi->TelemetryGetTelemetrySession");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -922,7 +922,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetrySession>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetrySession) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetrySession)));
         }
 
@@ -961,7 +961,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling TelemetryApi->TelemetryGetTelemetrySession");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1007,7 +1007,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetrySession>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetrySession) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetrySession)));
         }
 
@@ -1040,7 +1040,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (stateId == null)
                 throw new ApiException(400, "Missing required parameter 'stateId' when calling TelemetryApi->TelemetryGetTelemetryState");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1085,7 +1085,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetryState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetryState) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetryState)));
         }
 
@@ -1119,7 +1119,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (stateId == null)
                 throw new ApiException(400, "Missing required parameter 'stateId' when calling TelemetryApi->TelemetryGetTelemetryState");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1164,7 +1164,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetryState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetryState) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetryState)));
         }
 
@@ -1197,7 +1197,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling TelemetryApi->TelemetryGetTelemetryStateForUser");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/ForUser/{username}";
+            var localVarPath = "./{dataViewName}/Telemetry/States/ForUser/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1242,7 +1242,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetryState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetryState) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetryState)));
         }
 
@@ -1276,7 +1276,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling TelemetryApi->TelemetryGetTelemetryStateForUser");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/ForUser/{username}";
+            var localVarPath = "./{dataViewName}/Telemetry/States/ForUser/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1321,7 +1321,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetryState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetryState) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetryState)));
         }
 
@@ -1361,7 +1361,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling TelemetryApi->TelemetryUpdateTelemetrySession");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}/Update";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}/Update";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1419,7 +1419,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetrySession>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetrySession) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetrySession)));
         }
 
@@ -1460,7 +1460,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (sessionId == null)
                 throw new ApiException(400, "Missing required parameter 'sessionId' when calling TelemetryApi->TelemetryUpdateTelemetrySession");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}/Update";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}/Sessions/{sessionId}/Update";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1518,7 +1518,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetrySession>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetrySession) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetrySession)));
         }
 
@@ -1553,7 +1553,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (stateId == null)
                 throw new ApiException(400, "Missing required parameter 'stateId' when calling TelemetryApi->TelemetryUpdateTelemetryState");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}/Update";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}/Update";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1610,7 +1610,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetryState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetryState) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetryState)));
         }
 
@@ -1646,7 +1646,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (stateId == null)
                 throw new ApiException(400, "Missing required parameter 'stateId' when calling TelemetryApi->TelemetryUpdateTelemetryState");
 
-            var localVarPath = "/{dataViewName}/Telemetry/States/{stateId}/Update";
+            var localVarPath = "./{dataViewName}/Telemetry/States/{stateId}/Update";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1703,7 +1703,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<TelemetryState>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (TelemetryState) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TelemetryState)));
         }
 

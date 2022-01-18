@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -424,7 +424,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling ThemesApi->ThemesCreateTheme");
 
-            var localVarPath = "/{dataViewName}/Themes";
+            var localVarPath = "./{dataViewName}/Themes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -480,7 +480,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Theme>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Theme) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Theme)));
         }
 
@@ -511,7 +511,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling ThemesApi->ThemesCreateTheme");
 
-            var localVarPath = "/{dataViewName}/Themes";
+            var localVarPath = "./{dataViewName}/Themes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -567,7 +567,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Theme>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Theme) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Theme)));
         }
 
@@ -599,7 +599,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (themeId == null)
                 throw new ApiException(400, "Missing required parameter 'themeId' when calling ThemesApi->ThemesDeleteTheme");
 
-            var localVarPath = "/{dataViewName}/Themes/{themeId}";
+            var localVarPath = "./{dataViewName}/Themes/{themeId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -642,7 +642,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -675,7 +675,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (themeId == null)
                 throw new ApiException(400, "Missing required parameter 'themeId' when calling ThemesApi->ThemesDeleteTheme");
 
-            var localVarPath = "/{dataViewName}/Themes/{themeId}";
+            var localVarPath = "./{dataViewName}/Themes/{themeId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -718,7 +718,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -751,7 +751,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (themeId == null)
                 throw new ApiException(400, "Missing required parameter 'themeId' when calling ThemesApi->ThemesGetTheme");
 
-            var localVarPath = "/{dataViewName}/Themes/{themeId}";
+            var localVarPath = "./{dataViewName}/Themes/{themeId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -796,7 +796,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Theme>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Theme) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Theme)));
         }
 
@@ -830,7 +830,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (themeId == null)
                 throw new ApiException(400, "Missing required parameter 'themeId' when calling ThemesApi->ThemesGetTheme");
 
-            var localVarPath = "/{dataViewName}/Themes/{themeId}";
+            var localVarPath = "./{dataViewName}/Themes/{themeId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -875,7 +875,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Theme>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Theme) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Theme)));
         }
 
@@ -903,7 +903,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling ThemesApi->ThemesGetThemes");
 
-            var localVarPath = "/{dataViewName}/Themes";
+            var localVarPath = "./{dataViewName}/Themes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -947,7 +947,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<Theme>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<Theme>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Theme>)));
         }
 
@@ -976,7 +976,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling ThemesApi->ThemesGetThemes");
 
-            var localVarPath = "/{dataViewName}/Themes";
+            var localVarPath = "./{dataViewName}/Themes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1020,7 +1020,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<Theme>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<Theme>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Theme>)));
         }
 
@@ -1048,7 +1048,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling ThemesApi->ThemesGetUsage");
 
-            var localVarPath = "/{dataViewName}/Themes/Usage";
+            var localVarPath = "./{dataViewName}/Themes/Usage";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1092,7 +1092,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ThemeUsage>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ThemeUsage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ThemeUsage)));
         }
 
@@ -1121,7 +1121,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling ThemesApi->ThemesGetUsage");
 
-            var localVarPath = "/{dataViewName}/Themes/Usage";
+            var localVarPath = "./{dataViewName}/Themes/Usage";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1165,7 +1165,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ThemeUsage>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ThemeUsage) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ThemeUsage)));
         }
 
@@ -1200,7 +1200,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (themeId == null)
                 throw new ApiException(400, "Missing required parameter 'themeId' when calling ThemesApi->ThemesUpdateTheme");
 
-            var localVarPath = "/{dataViewName}/Themes/{themeId}/Updates";
+            var localVarPath = "./{dataViewName}/Themes/{themeId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1257,7 +1257,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Theme>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Theme) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Theme)));
         }
 
@@ -1293,7 +1293,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (themeId == null)
                 throw new ApiException(400, "Missing required parameter 'themeId' when calling ThemesApi->ThemesUpdateTheme");
 
-            var localVarPath = "/{dataViewName}/Themes/{themeId}/Updates";
+            var localVarPath = "./{dataViewName}/Themes/{themeId}/Updates";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1350,7 +1350,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Theme>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Theme) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Theme)));
         }
 

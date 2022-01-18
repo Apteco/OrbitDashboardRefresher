@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Details used to modify an existing dashboard for a given user
     /// </summary>
     [DataContract]
-    public partial class ModifyUserDashboardDetail :  IEquatable<ModifyUserDashboardDetail>, IValidatableObject
+    public partial class ModifyUserDashboardDetail :  IEquatable<ModifyUserDashboardDetail>
     {
         /// <summary>
         /// The status of the dashboard
@@ -84,9 +82,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="themeId">The dashboard theme id.</param>
         /// <param name="logoId">The dashboard logo id.</param>
         /// <param name="baseQuery">The base query for the dashboard.</param>
+        /// <param name="predefinedUserFilters">The predefined user filters for the dashboard.</param>
         /// <param name="dashboardItems">The items that are contained within the dashboard.</param>
         /// <param name="systemName">The connected system of the dashboard.</param>
-        public ModifyUserDashboardDetail(StatusEnum? status = default(StatusEnum?), int? id = default(int?), string title = default(string), string description = default(string), int? themeId = default(int?), int? logoId = default(int?), Query baseQuery = default(Query), List<DashboardContentItem> dashboardItems = default(List<DashboardContentItem>), string systemName = default(string))
+        public ModifyUserDashboardDetail(StatusEnum? status = default(StatusEnum?), int? id = default(int?), string title = default(string), string description = default(string), int? themeId = default(int?), int? logoId = default(int?), Query baseQuery = default(Query), FilterDefinition predefinedUserFilters = default(FilterDefinition), List<DashboardContentItem> dashboardItems = default(List<DashboardContentItem>), string systemName = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -111,6 +110,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             this.ThemeId = themeId;
             this.LogoId = logoId;
             this.BaseQuery = baseQuery;
+            this.PredefinedUserFilters = predefinedUserFilters;
             this.DashboardItems = dashboardItems;
             this.SystemName = systemName;
         }
@@ -159,6 +159,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         public Query BaseQuery { get; set; }
 
         /// <summary>
+        /// The predefined user filters for the dashboard
+        /// </summary>
+        /// <value>The predefined user filters for the dashboard</value>
+        [DataMember(Name="predefinedUserFilters", EmitDefaultValue=false)]
+        public FilterDefinition PredefinedUserFilters { get; set; }
+
+        /// <summary>
         /// The items that are contained within the dashboard
         /// </summary>
         /// <value>The items that are contained within the dashboard</value>
@@ -187,6 +194,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  ThemeId: ").Append(ThemeId).Append("\n");
             sb.Append("  LogoId: ").Append(LogoId).Append("\n");
             sb.Append("  BaseQuery: ").Append(BaseQuery).Append("\n");
+            sb.Append("  PredefinedUserFilters: ").Append(PredefinedUserFilters).Append("\n");
             sb.Append("  DashboardItems: ").Append(DashboardItems).Append("\n");
             sb.Append("  SystemName: ").Append(SystemName).Append("\n");
             sb.Append("}\n");
@@ -259,6 +267,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.BaseQuery.Equals(input.BaseQuery))
                 ) && 
                 (
+                    this.PredefinedUserFilters == input.PredefinedUserFilters ||
+                    (this.PredefinedUserFilters != null &&
+                    this.PredefinedUserFilters.Equals(input.PredefinedUserFilters))
+                ) && 
+                (
                     this.DashboardItems == input.DashboardItems ||
                     this.DashboardItems != null &&
                     this.DashboardItems.SequenceEqual(input.DashboardItems)
@@ -293,22 +306,14 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.LogoId.GetHashCode();
                 if (this.BaseQuery != null)
                     hashCode = hashCode * 59 + this.BaseQuery.GetHashCode();
+                if (this.PredefinedUserFilters != null)
+                    hashCode = hashCode * 59 + this.PredefinedUserFilters.GetHashCode();
                 if (this.DashboardItems != null)
                     hashCode = hashCode * 59 + this.DashboardItems.GetHashCode();
                 if (this.SystemName != null)
                     hashCode = hashCode * 59 + this.SystemName.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

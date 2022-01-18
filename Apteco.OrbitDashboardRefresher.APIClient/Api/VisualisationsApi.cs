@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -447,7 +447,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (refreshRequestId == null)
                 throw new ApiException(400, "Missing required parameter 'refreshRequestId' when calling VisualisationsApi->VisualisationsCancelVisualisationRenderDataRefreshJob");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs/{refreshRequestId}";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs/{refreshRequestId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -491,7 +491,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -529,7 +529,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (refreshRequestId == null)
                 throw new ApiException(400, "Missing required parameter 'refreshRequestId' when calling VisualisationsApi->VisualisationsCancelVisualisationRenderDataRefreshJob");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs/{refreshRequestId}";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs/{refreshRequestId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -573,7 +573,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -606,7 +606,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (visualisationId == null)
                 throw new ApiException(400, "Missing required parameter 'visualisationId' when calling VisualisationsApi->VisualisationsCreateVisualisationRenderDataRefreshJob");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -651,7 +651,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<RenderDataRefreshJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (RenderDataRefreshJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RenderDataRefreshJobDetail)));
         }
 
@@ -685,7 +685,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (visualisationId == null)
                 throw new ApiException(400, "Missing required parameter 'visualisationId' when calling VisualisationsApi->VisualisationsCreateVisualisationRenderDataRefreshJob");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -730,7 +730,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<RenderDataRefreshJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (RenderDataRefreshJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RenderDataRefreshJobDetail)));
         }
 
@@ -763,7 +763,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (visualisationId == null)
                 throw new ApiException(400, "Missing required parameter 'visualisationId' when calling VisualisationsApi->VisualisationsGetVisualisation");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -808,7 +808,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<VisualisationDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (VisualisationDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VisualisationDetail)));
         }
 
@@ -842,7 +842,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (visualisationId == null)
                 throw new ApiException(400, "Missing required parameter 'visualisationId' when calling VisualisationsApi->VisualisationsGetVisualisation");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -887,7 +887,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<VisualisationDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (VisualisationDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VisualisationDetail)));
         }
 
@@ -920,7 +920,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (visualisationId == null)
                 throw new ApiException(400, "Missing required parameter 'visualisationId' when calling VisualisationsApi->VisualisationsGetVisualisationRenderData");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -965,7 +965,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AbstractRenderSpec>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AbstractRenderSpec) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AbstractRenderSpec)));
         }
 
@@ -999,7 +999,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (visualisationId == null)
                 throw new ApiException(400, "Missing required parameter 'visualisationId' when calling VisualisationsApi->VisualisationsGetVisualisationRenderData");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1044,7 +1044,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AbstractRenderSpec>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AbstractRenderSpec) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AbstractRenderSpec)));
         }
 
@@ -1082,7 +1082,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (refreshRequestId == null)
                 throw new ApiException(400, "Missing required parameter 'refreshRequestId' when calling VisualisationsApi->VisualisationsGetVisualisationRenderDataRefreshJob");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs/{refreshRequestId}";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs/{refreshRequestId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1128,7 +1128,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<RenderDataRefreshJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (RenderDataRefreshJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RenderDataRefreshJobDetail)));
         }
 
@@ -1167,7 +1167,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (refreshRequestId == null)
                 throw new ApiException(400, "Missing required parameter 'refreshRequestId' when calling VisualisationsApi->VisualisationsGetVisualisationRenderDataRefreshJob");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs/{refreshRequestId}";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshJobs/{refreshRequestId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1213,7 +1213,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<RenderDataRefreshJobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (RenderDataRefreshJobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RenderDataRefreshJobDetail)));
         }
 
@@ -1248,7 +1248,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (visualisationId == null)
                 throw new ApiException(400, "Missing required parameter 'visualisationId' when calling VisualisationsApi->VisualisationsPerformVisualisationRenderDataRefreshSynchronously");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshSync";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1294,7 +1294,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AbstractRenderSpec>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AbstractRenderSpec) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AbstractRenderSpec)));
         }
 
@@ -1330,7 +1330,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (visualisationId == null)
                 throw new ApiException(400, "Missing required parameter 'visualisationId' when calling VisualisationsApi->VisualisationsPerformVisualisationRenderDataRefreshSynchronously");
 
-            var localVarPath = "/{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshSync";
+            var localVarPath = "./{dataViewName}/Visualisations/{visualisationId}/RenderData/RefreshSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1376,7 +1376,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AbstractRenderSpec>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AbstractRenderSpec) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AbstractRenderSpec)));
         }
 

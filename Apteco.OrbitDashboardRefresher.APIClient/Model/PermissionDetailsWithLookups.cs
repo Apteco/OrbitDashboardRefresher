@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// PermissionDetailsWithLookups
     /// </summary>
     [DataContract]
-    public partial class PermissionDetailsWithLookups :  IEquatable<PermissionDetailsWithLookups>, IValidatableObject
+    public partial class PermissionDetailsWithLookups :  IEquatable<PermissionDetailsWithLookups>
     {
         /// <summary>
         /// Defines ResourceType
@@ -113,7 +111,31 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             /// Enum UserElement for value: UserElement
             /// </summary>
             [EnumMember(Value = "UserElement")]
-            UserElement = 13
+            UserElement = 13,
+            
+            /// <summary>
+            /// Enum FtpSite for value: FtpSite
+            /// </summary>
+            [EnumMember(Value = "FtpSite")]
+            FtpSite = 14,
+            
+            /// <summary>
+            /// Enum StorageQuota for value: StorageQuota
+            /// </summary>
+            [EnumMember(Value = "StorageQuota")]
+            StorageQuota = 15,
+            
+            /// <summary>
+            /// Enum Velocity for value: Velocity
+            /// </summary>
+            [EnumMember(Value = "Velocity")]
+            Velocity = 16,
+            
+            /// <summary>
+            /// Enum RowFilter for value: RowFilter
+            /// </summary>
+            [EnumMember(Value = "RowFilter")]
+            RowFilter = 17
         }
 
         /// <summary>
@@ -359,16 +381,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Details.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

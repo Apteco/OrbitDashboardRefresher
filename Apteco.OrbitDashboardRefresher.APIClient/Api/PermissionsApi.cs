@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -1660,7 +1660,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling PermissionsApi->PermissionsCreatePermissionForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1718,7 +1718,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -1759,7 +1759,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling PermissionsApi->PermissionsCreatePermissionForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1817,7 +1817,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -1852,7 +1852,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsCreatePermissionForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1909,7 +1909,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -1945,7 +1945,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsCreatePermissionForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2002,7 +2002,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -2042,7 +2042,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling PermissionsApi->PermissionsCreatePermissionForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2100,7 +2100,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -2141,7 +2141,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling PermissionsApi->PermissionsCreatePermissionForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2199,7 +2199,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -2234,7 +2234,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsCreateTag");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Tags";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Tags";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2291,7 +2291,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Tag>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Tag) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tag)));
         }
 
@@ -2327,7 +2327,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsCreateTag");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Tags";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Tags";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2384,7 +2384,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Tag>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Tag) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Tag)));
         }
 
@@ -2421,7 +2421,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (permissionId == null)
                 throw new ApiException(400, "Missing required parameter 'permissionId' when calling PermissionsApi->PermissionsDeletePermission");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/{permissionId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/{permissionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2465,7 +2465,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2503,7 +2503,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (permissionId == null)
                 throw new ApiException(400, "Missing required parameter 'permissionId' when calling PermissionsApi->PermissionsDeletePermission");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/{permissionId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/{permissionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2547,7 +2547,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2600,7 +2600,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsDeletePermissionsForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2649,7 +2649,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -2703,7 +2703,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsDeletePermissionsForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2752,7 +2752,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -2800,7 +2800,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsDeletePermissionsForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2848,7 +2848,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -2897,7 +2897,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsDeletePermissionsForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2945,7 +2945,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -2998,7 +2998,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsDeletePermissionsForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3047,7 +3047,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -3101,7 +3101,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsDeletePermissionsForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3150,7 +3150,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -3187,7 +3187,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (tagId == null)
                 throw new ApiException(400, "Missing required parameter 'tagId' when calling PermissionsApi->PermissionsDeleteTag");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Tags/{tagId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Tags/{tagId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3231,7 +3231,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3269,7 +3269,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (tagId == null)
                 throw new ApiException(400, "Missing required parameter 'tagId' when calling PermissionsApi->PermissionsDeleteTag");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Tags/{tagId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Tags/{tagId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3313,7 +3313,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -3366,7 +3366,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsGetPermissionDetailsForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}/Detail/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}/Detail/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3415,7 +3415,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PermissionDetailsWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PermissionDetailsWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PermissionDetailsWithLookups)));
         }
 
@@ -3469,7 +3469,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsGetPermissionDetailsForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}/Detail/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}/Detail/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3518,7 +3518,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PermissionDetailsWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PermissionDetailsWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PermissionDetailsWithLookups)));
         }
 
@@ -3566,7 +3566,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsGetPermissionDetailsForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System/Detail/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System/Detail/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3614,7 +3614,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PermissionDetailsWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PermissionDetailsWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PermissionDetailsWithLookups)));
         }
 
@@ -3663,7 +3663,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsGetPermissionDetailsForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System/Detail/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System/Detail/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3711,7 +3711,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PermissionDetailsWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PermissionDetailsWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PermissionDetailsWithLookups)));
         }
 
@@ -3764,7 +3764,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsGetPermissionDetailsForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}/Detail/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}/Detail/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3813,7 +3813,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PermissionDetailsWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PermissionDetailsWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PermissionDetailsWithLookups)));
         }
 
@@ -3867,7 +3867,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsGetPermissionDetailsForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}/Detail/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}/Detail/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3916,7 +3916,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PermissionDetailsWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PermissionDetailsWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PermissionDetailsWithLookups)));
         }
 
@@ -3962,7 +3962,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling PermissionsApi->PermissionsGetPermissionSummariesForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}/Summary";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}/Summary";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4012,7 +4012,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResolvedPermissionSummaryWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResolvedPermissionSummaryWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResolvedPermissionSummaryWithLookups)));
         }
 
@@ -4059,7 +4059,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling PermissionsApi->PermissionsGetPermissionSummariesForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}/Summary";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}/Summary";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4109,7 +4109,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResolvedPermissionSummaryWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResolvedPermissionSummaryWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResolvedPermissionSummaryWithLookups)));
         }
 
@@ -4150,7 +4150,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsGetPermissionSummariesForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System/Summary";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System/Summary";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4199,7 +4199,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResolvedPermissionSummaryWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResolvedPermissionSummaryWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResolvedPermissionSummaryWithLookups)));
         }
 
@@ -4241,7 +4241,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsGetPermissionSummariesForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System/Summary";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System/Summary";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4290,7 +4290,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResolvedPermissionSummaryWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResolvedPermissionSummaryWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResolvedPermissionSummaryWithLookups)));
         }
 
@@ -4336,7 +4336,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling PermissionsApi->PermissionsGetPermissionSummariesForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}/Summary";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}/Summary";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4386,7 +4386,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResolvedPermissionSummaryWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResolvedPermissionSummaryWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResolvedPermissionSummaryWithLookups)));
         }
 
@@ -4433,7 +4433,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling PermissionsApi->PermissionsGetPermissionSummariesForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}/Summary";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}/Summary";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4483,7 +4483,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsResolvedPermissionSummaryWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsResolvedPermissionSummaryWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsResolvedPermissionSummaryWithLookups)));
         }
 
@@ -4529,7 +4529,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling PermissionsApi->PermissionsGetPermissionsForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4579,7 +4579,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAuthorisedPermissionWithLookups)));
         }
 
@@ -4626,7 +4626,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (groupId == null)
                 throw new ApiException(400, "Missing required parameter 'groupId' when calling PermissionsApi->PermissionsGetPermissionsForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4676,7 +4676,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAuthorisedPermissionWithLookups)));
         }
 
@@ -4722,7 +4722,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (permissionSetId == null)
                 throw new ApiException(400, "Missing required parameter 'permissionSetId' when calling PermissionsApi->PermissionsGetPermissionsForPermissionSet");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/PermissionSet/{permissionSetId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/PermissionSet/{permissionSetId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4772,7 +4772,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAuthorisedPermissionWithLookups)));
         }
 
@@ -4819,7 +4819,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (permissionSetId == null)
                 throw new ApiException(400, "Missing required parameter 'permissionSetId' when calling PermissionsApi->PermissionsGetPermissionsForPermissionSet");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/PermissionSet/{permissionSetId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/PermissionSet/{permissionSetId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4869,7 +4869,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAuthorisedPermissionWithLookups)));
         }
 
@@ -4910,7 +4910,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsGetPermissionsForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4959,7 +4959,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAuthorisedPermissionWithLookups)));
         }
 
@@ -5001,7 +5001,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsGetPermissionsForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5050,7 +5050,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAuthorisedPermissionWithLookups)));
         }
 
@@ -5096,7 +5096,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling PermissionsApi->PermissionsGetPermissionsForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5146,7 +5146,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAuthorisedPermissionWithLookups)));
         }
 
@@ -5193,7 +5193,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (userId == null)
                 throw new ApiException(400, "Missing required parameter 'userId' when calling PermissionsApi->PermissionsGetPermissionsForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5243,7 +5243,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsAuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsAuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsAuthorisedPermissionWithLookups)));
         }
 
@@ -5284,7 +5284,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsGetTags");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Tags";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Tags";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5333,7 +5333,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsTag>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsTag) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsTag)));
         }
 
@@ -5375,7 +5375,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling PermissionsApi->PermissionsGetTags");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Tags";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Tags";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5424,7 +5424,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsTag>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsTag) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsTag)));
         }
 
@@ -5477,7 +5477,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsIsAuthorised");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/{permissionType}/{permission}/{resourceType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/{permissionType}/{permission}/{resourceType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5526,7 +5526,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -5580,7 +5580,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsIsAuthorised");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/{permissionType}/{permission}/{resourceType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/{permissionType}/{permission}/{resourceType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5629,7 +5629,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -5669,7 +5669,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (permissionId == null)
                 throw new ApiException(400, "Missing required parameter 'permissionId' when calling PermissionsApi->PermissionsModifyPermission");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/{permissionId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/{permissionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5727,7 +5727,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -5768,7 +5768,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (permissionId == null)
                 throw new ApiException(400, "Missing required parameter 'permissionId' when calling PermissionsApi->PermissionsModifyPermission");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/{permissionId}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/{permissionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5826,7 +5826,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -5881,7 +5881,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsSetPermissionsForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5942,7 +5942,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -5998,7 +5998,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsSetPermissionsForGroup");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/Group/{groupId}/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/Group/{groupId}/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6059,7 +6059,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -6109,7 +6109,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsSetPermissionsForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6169,7 +6169,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -6220,7 +6220,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsSetPermissionsForSystem");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/System/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/System/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6280,7 +6280,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -6335,7 +6335,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsSetPermissionsForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6396,7 +6396,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 
@@ -6452,7 +6452,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (resource == null)
                 throw new ApiException(400, "Missing required parameter 'resource' when calling PermissionsApi->PermissionsSetPermissionsForUser");
 
-            var localVarPath = "/{dataViewName}/Permissions/{systemName}/User/{userId}/{resourceType}/{permissionType}/{resource}";
+            var localVarPath = "./{dataViewName}/Permissions/{systemName}/User/{userId}/{resourceType}/{permissionType}/{resource}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6513,7 +6513,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<bool?>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (bool?) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(bool?)));
         }
 

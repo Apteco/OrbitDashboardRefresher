@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// ResolvedPermissionSummaryWithLookups
     /// </summary>
     [DataContract]
-    public partial class ResolvedPermissionSummaryWithLookups :  IEquatable<ResolvedPermissionSummaryWithLookups>, IValidatableObject
+    public partial class ResolvedPermissionSummaryWithLookups :  IEquatable<ResolvedPermissionSummaryWithLookups>
     {
         /// <summary>
         /// Defines PermissionType
@@ -150,7 +148,31 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             /// Enum UserElement for value: UserElement
             /// </summary>
             [EnumMember(Value = "UserElement")]
-            UserElement = 13
+            UserElement = 13,
+            
+            /// <summary>
+            /// Enum FtpSite for value: FtpSite
+            /// </summary>
+            [EnumMember(Value = "FtpSite")]
+            FtpSite = 14,
+            
+            /// <summary>
+            /// Enum StorageQuota for value: StorageQuota
+            /// </summary>
+            [EnumMember(Value = "StorageQuota")]
+            StorageQuota = 15,
+            
+            /// <summary>
+            /// Enum Velocity for value: Velocity
+            /// </summary>
+            [EnumMember(Value = "Velocity")]
+            Velocity = 16,
+            
+            /// <summary>
+            /// Enum RowFilter for value: RowFilter
+            /// </summary>
+            [EnumMember(Value = "RowFilter")]
+            RowFilter = 17
         }
 
         /// <summary>
@@ -167,13 +189,14 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// Initializes a new instance of the <see cref="ResolvedPermissionSummaryWithLookups" /> class.
         /// </summary>
         /// <param name="resource">resource (required).</param>
+        /// <param name="resourceExists">resourceExists (required).</param>
         /// <param name="permissionType">permissionType (required).</param>
         /// <param name="resourceType">resourceType (required).</param>
         /// <param name="permissionPieces">permissionPieces (required).</param>
         /// <param name="permissionsCount">permissionsCount (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="lookups">lookups (required).</param>
-        public ResolvedPermissionSummaryWithLookups(string resource = default(string), PermissionTypeEnum permissionType = default(PermissionTypeEnum), ResourceTypeEnum resourceType = default(ResourceTypeEnum), List<PermissionPiece> permissionPieces = default(List<PermissionPiece>), int? permissionsCount = default(int?), Id id = default(Id), Lookups lookups = default(Lookups))
+        public ResolvedPermissionSummaryWithLookups(string resource = default(string), bool? resourceExists = default(bool?), PermissionTypeEnum permissionType = default(PermissionTypeEnum), ResourceTypeEnum resourceType = default(ResourceTypeEnum), List<PermissionPiece> permissionPieces = default(List<PermissionPiece>), int? permissionsCount = default(int?), Id id = default(Id), Lookups lookups = default(Lookups))
         {
             // to ensure "resource" is required (not null)
             if (resource == null)
@@ -183,6 +206,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             else
             {
                 this.Resource = resource;
+            }
+            // to ensure "resourceExists" is required (not null)
+            if (resourceExists == null)
+            {
+                throw new InvalidDataException("resourceExists is a required property for ResolvedPermissionSummaryWithLookups and cannot be null");
+            }
+            else
+            {
+                this.ResourceExists = resourceExists;
             }
             // to ensure "permissionType" is required (not null)
             if (permissionType == null)
@@ -246,6 +278,12 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         [DataMember(Name="resource", EmitDefaultValue=false)]
         public string Resource { get; set; }
 
+        /// <summary>
+        /// Gets or Sets ResourceExists
+        /// </summary>
+        [DataMember(Name="resourceExists", EmitDefaultValue=false)]
+        public bool? ResourceExists { get; set; }
+
 
 
         /// <summary>
@@ -281,6 +319,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             var sb = new StringBuilder();
             sb.Append("class ResolvedPermissionSummaryWithLookups {\n");
             sb.Append("  Resource: ").Append(Resource).Append("\n");
+            sb.Append("  ResourceExists: ").Append(ResourceExists).Append("\n");
             sb.Append("  PermissionType: ").Append(PermissionType).Append("\n");
             sb.Append("  ResourceType: ").Append(ResourceType).Append("\n");
             sb.Append("  PermissionPieces: ").Append(PermissionPieces).Append("\n");
@@ -327,6 +366,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.Resource.Equals(input.Resource))
                 ) && 
                 (
+                    this.ResourceExists == input.ResourceExists ||
+                    (this.ResourceExists != null &&
+                    this.ResourceExists.Equals(input.ResourceExists))
+                ) && 
+                (
                     this.PermissionType == input.PermissionType ||
                     (this.PermissionType != null &&
                     this.PermissionType.Equals(input.PermissionType))
@@ -369,6 +413,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                 int hashCode = 41;
                 if (this.Resource != null)
                     hashCode = hashCode * 59 + this.Resource.GetHashCode();
+                if (this.ResourceExists != null)
+                    hashCode = hashCode * 59 + this.ResourceExists.GetHashCode();
                 if (this.PermissionType != null)
                     hashCode = hashCode * 59 + this.PermissionType.GetHashCode();
                 if (this.ResourceType != null)
@@ -383,16 +429,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Lookups.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -480,7 +480,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling AudienceCompositionsApi->AudienceCompositionsCreateAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -537,7 +537,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -572,7 +572,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling AudienceCompositionsApi->AudienceCompositionsCreateAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -629,7 +629,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -666,7 +666,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceCompositionId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceCompositionId' when calling AudienceCompositionsApi->AudienceCompositionsDeleteAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -710,7 +710,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -748,7 +748,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceCompositionId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceCompositionId' when calling AudienceCompositionsApi->AudienceCompositionsDeleteAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -792,7 +792,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -830,7 +830,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceCompositionId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceCompositionId' when calling AudienceCompositionsApi->AudienceCompositionsGetAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -876,7 +876,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CompositionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CompositionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CompositionDetail)));
         }
 
@@ -915,7 +915,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceCompositionId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceCompositionId' when calling AudienceCompositionsApi->AudienceCompositionsGetAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -961,7 +961,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<CompositionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CompositionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CompositionDetail)));
         }
 
@@ -997,7 +997,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling AudienceCompositionsApi->AudienceCompositionsGetAudienceCompositions");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions";
+            var localVarPath = "./{dataViewName}/AudienceCompositions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1045,7 +1045,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCompositionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCompositionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCompositionSummary)));
         }
 
@@ -1082,7 +1082,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling AudienceCompositionsApi->AudienceCompositionsGetAudienceCompositions");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions";
+            var localVarPath = "./{dataViewName}/AudienceCompositions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1130,7 +1130,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCompositionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCompositionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCompositionSummary)));
         }
 
@@ -1171,7 +1171,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling AudienceCompositionsApi->AudienceCompositionsGetAudienceCompositionsForSystem");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1220,7 +1220,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCompositionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCompositionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCompositionSummary)));
         }
 
@@ -1262,7 +1262,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling AudienceCompositionsApi->AudienceCompositionsGetAudienceCompositionsForSystem");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1311,7 +1311,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsCompositionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsCompositionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsCompositionSummary)));
         }
 
@@ -1350,7 +1350,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceCompositionId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceCompositionId' when calling AudienceCompositionsApi->AudienceCompositionsUpdateAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1408,7 +1408,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1448,7 +1448,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceCompositionId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceCompositionId' when calling AudienceCompositionsApi->AudienceCompositionsUpdateAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
+            var localVarPath = "./{dataViewName}/AudienceCompositions/{systemName}/{audienceCompositionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1506,7 +1506,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 

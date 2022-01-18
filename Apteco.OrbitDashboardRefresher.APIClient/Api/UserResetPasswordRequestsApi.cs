@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -356,7 +356,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (token == null)
                 throw new ApiException(400, "Missing required parameter 'token' when calling UserResetPasswordRequestsApi->UserResetPasswordRequestsConfirmResetPasswordRequest");
 
-            var localVarPath = "/{dataViewName}/UserResetPasswordRequests/{token}";
+            var localVarPath = "./{dataViewName}/UserResetPasswordRequests/{token}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -406,7 +406,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -441,7 +441,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (token == null)
                 throw new ApiException(400, "Missing required parameter 'token' when calling UserResetPasswordRequestsApi->UserResetPasswordRequestsConfirmResetPasswordRequest");
 
-            var localVarPath = "/{dataViewName}/UserResetPasswordRequests/{token}";
+            var localVarPath = "./{dataViewName}/UserResetPasswordRequests/{token}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -491,7 +491,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -521,7 +521,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UserResetPasswordRequestsApi->UserResetPasswordRequestsCreateResetPasswordRequest");
 
-            var localVarPath = "/{dataViewName}/UserResetPasswordRequests";
+            var localVarPath = "./{dataViewName}/UserResetPasswordRequests";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -572,7 +572,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResetPasswordRequestDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResetPasswordRequestDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResetPasswordRequestDetail)));
         }
 
@@ -603,7 +603,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UserResetPasswordRequestsApi->UserResetPasswordRequestsCreateResetPasswordRequest");
 
-            var localVarPath = "/{dataViewName}/UserResetPasswordRequests";
+            var localVarPath = "./{dataViewName}/UserResetPasswordRequests";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -654,7 +654,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResetPasswordRequestDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResetPasswordRequestDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResetPasswordRequestDetail)));
         }
 
@@ -687,7 +687,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (token == null)
                 throw new ApiException(400, "Missing required parameter 'token' when calling UserResetPasswordRequestsApi->UserResetPasswordRequestsGetResetPasswordRequest");
 
-            var localVarPath = "/{dataViewName}/UserResetPasswordRequests/{token}";
+            var localVarPath = "./{dataViewName}/UserResetPasswordRequests/{token}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -732,7 +732,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResetPasswordRequestDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResetPasswordRequestDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResetPasswordRequestDetail)));
         }
 
@@ -766,7 +766,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (token == null)
                 throw new ApiException(400, "Missing required parameter 'token' when calling UserResetPasswordRequestsApi->UserResetPasswordRequestsGetResetPasswordRequest");
 
-            var localVarPath = "/{dataViewName}/UserResetPasswordRequests/{token}";
+            var localVarPath = "./{dataViewName}/UserResetPasswordRequests/{token}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -811,7 +811,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ResetPasswordRequestDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ResetPasswordRequestDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ResetPasswordRequestDetail)));
         }
 
@@ -847,7 +847,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UserResetPasswordRequestsApi->UserResetPasswordRequestsGetResetPasswordRequests");
 
-            var localVarPath = "/{dataViewName}/UserResetPasswordRequests";
+            var localVarPath = "./{dataViewName}/UserResetPasswordRequests";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -895,7 +895,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserRegistrationRequestSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserRegistrationRequestSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserRegistrationRequestSummary)));
         }
 
@@ -932,7 +932,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UserResetPasswordRequestsApi->UserResetPasswordRequestsGetResetPasswordRequests");
 
-            var localVarPath = "/{dataViewName}/UserResetPasswordRequests";
+            var localVarPath = "./{dataViewName}/UserResetPasswordRequests";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -980,7 +980,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserRegistrationRequestSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserRegistrationRequestSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserRegistrationRequestSummary)));
         }
 

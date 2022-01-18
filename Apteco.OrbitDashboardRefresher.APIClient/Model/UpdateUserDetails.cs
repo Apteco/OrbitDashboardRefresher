@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Details to update a user with
     /// </summary>
     [DataContract]
-    public partial class UpdateUserDetails :  IEquatable<UpdateUserDetails>, IValidatableObject
+    public partial class UpdateUserDetails :  IEquatable<UpdateUserDetails>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateUserDetails" /> class.
@@ -37,15 +35,17 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="surname">When specified, the new surname for the user.</param>
         /// <param name="emailAddress">When specified, the new email address for the user.</param>
         /// <param name="userDisabledDate">When specified, the new disabled date for the user.</param>
+        /// <param name="userLockedOutDate">When specified, the locked out date for the user.</param>
         /// <param name="passwordManuallyExpired">When specified, the new manual expired value the user.</param>
         /// <param name="passwordNeverExpires">When specified, the new never expires value for the user.</param>
         /// <param name="password">When specified, the new password.</param>
-        public UpdateUserDetails(string firstname = default(string), string surname = default(string), string emailAddress = default(string), DateTime? userDisabledDate = default(DateTime?), bool? passwordManuallyExpired = default(bool?), bool? passwordNeverExpires = default(bool?), string password = default(string))
+        public UpdateUserDetails(string firstname = default(string), string surname = default(string), string emailAddress = default(string), DateTime? userDisabledDate = default(DateTime?), DateTime? userLockedOutDate = default(DateTime?), bool? passwordManuallyExpired = default(bool?), bool? passwordNeverExpires = default(bool?), string password = default(string))
         {
             this.Firstname = firstname;
             this.Surname = surname;
             this.EmailAddress = emailAddress;
             this.UserDisabledDate = userDisabledDate;
+            this.UserLockedOutDate = userLockedOutDate;
             this.PasswordManuallyExpired = passwordManuallyExpired;
             this.PasswordNeverExpires = passwordNeverExpires;
             this.Password = password;
@@ -80,6 +80,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         public DateTime? UserDisabledDate { get; set; }
 
         /// <summary>
+        /// When specified, the locked out date for the user
+        /// </summary>
+        /// <value>When specified, the locked out date for the user</value>
+        [DataMember(Name="userLockedOutDate", EmitDefaultValue=false)]
+        public DateTime? UserLockedOutDate { get; set; }
+
+        /// <summary>
         /// When specified, the new manual expired value the user
         /// </summary>
         /// <value>When specified, the new manual expired value the user</value>
@@ -112,6 +119,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  Surname: ").Append(Surname).Append("\n");
             sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
             sb.Append("  UserDisabledDate: ").Append(UserDisabledDate).Append("\n");
+            sb.Append("  UserLockedOutDate: ").Append(UserLockedOutDate).Append("\n");
             sb.Append("  PasswordManuallyExpired: ").Append(PasswordManuallyExpired).Append("\n");
             sb.Append("  PasswordNeverExpires: ").Append(PasswordNeverExpires).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
@@ -170,6 +178,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.UserDisabledDate.Equals(input.UserDisabledDate))
                 ) && 
                 (
+                    this.UserLockedOutDate == input.UserLockedOutDate ||
+                    (this.UserLockedOutDate != null &&
+                    this.UserLockedOutDate.Equals(input.UserLockedOutDate))
+                ) && 
+                (
                     this.PasswordManuallyExpired == input.PasswordManuallyExpired ||
                     (this.PasswordManuallyExpired != null &&
                     this.PasswordManuallyExpired.Equals(input.PasswordManuallyExpired))
@@ -203,6 +216,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.EmailAddress.GetHashCode();
                 if (this.UserDisabledDate != null)
                     hashCode = hashCode * 59 + this.UserDisabledDate.GetHashCode();
+                if (this.UserLockedOutDate != null)
+                    hashCode = hashCode * 59 + this.UserLockedOutDate.GetHashCode();
                 if (this.PasswordManuallyExpired != null)
                     hashCode = hashCode * 59 + this.PasswordManuallyExpired.GetHashCode();
                 if (this.PasswordNeverExpires != null)
@@ -211,16 +226,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.Password.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

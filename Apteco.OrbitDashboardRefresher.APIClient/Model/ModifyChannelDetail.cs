@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// ModifyChannelDetail
     /// </summary>
     [DataContract]
-    public partial class ModifyChannelDetail :  IEquatable<ModifyChannelDetail>, IValidatableObject
+    public partial class ModifyChannelDetail :  IEquatable<ModifyChannelDetail>
     {
         /// <summary>
         /// The channel&#39;s type
@@ -120,7 +118,31 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             /// Enum Composite for value: Composite
             /// </summary>
             [EnumMember(Value = "Composite")]
-            Composite = 14
+            Composite = 14,
+            
+            /// <summary>
+            /// Enum Email for value: Email
+            /// </summary>
+            [EnumMember(Value = "Email")]
+            Email = 15,
+            
+            /// <summary>
+            /// Enum Sms for value: Sms
+            /// </summary>
+            [EnumMember(Value = "Sms")]
+            Sms = 16,
+            
+            /// <summary>
+            /// Enum Waba for value: Waba
+            /// </summary>
+            [EnumMember(Value = "Waba")]
+            Waba = 17,
+            
+            /// <summary>
+            /// Enum Mock for value: Mock
+            /// </summary>
+            [EnumMember(Value = "Mock")]
+            Mock = 18
         }
 
         /// <summary>
@@ -308,16 +330,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.SystemLookup.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

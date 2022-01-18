@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Details for an dashboard viewable by a given user
     /// </summary>
     [DataContract]
-    public partial class UserDashboardDetail :  IEquatable<UserDashboardDetail>, IValidatableObject
+    public partial class UserDashboardDetail :  IEquatable<UserDashboardDetail>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserDashboardDetail" /> class.
@@ -42,6 +40,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="sharedToMe">Whether this dashboard has been shared to the given user by someone else (required).</param>
         /// <param name="sharedByMe">Whether this dashboard has been shared to others by the given user (required).</param>
         /// <param name="baseQuery">The base query for the dashboard.</param>
+        /// <param name="predefinedUserFilters">The predefined user filters for the dashboard.</param>
         /// <param name="dashboardItems">The items that are contained within the dashboard.</param>
         /// <param name="baseQueryLookup">A set of description lookups for variables used in the exclude, include and body queries.</param>
         /// <param name="themeId">The themeId of the dashboard.</param>
@@ -60,7 +59,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="shareId">The id of the share associated with this dashboard, or null if the  dashboard has not yet been shared.</param>
         /// <param name="numberOfHits">The number of hits associated with this dashboard (required).</param>
         /// <param name="deletedOn">The date the dashboard was deleted, or null if it has not been deleted.</param>
-        public UserDashboardDetail(string viewingUsername = default(string), bool? sharedToMe = default(bool?), bool? sharedByMe = default(bool?), Query baseQuery = default(Query), List<DashboardContentItem> dashboardItems = default(List<DashboardContentItem>), SystemLookup baseQueryLookup = default(SystemLookup), int? themeId = default(int?), int? logoId = default(int?), int? id = default(int?), string title = default(string), string description = default(string), string systemName = default(string), DateTime? createdOn = default(DateTime?), UserDisplayDetails owner = default(UserDisplayDetails), DateTime? lastUpdatedOn = default(DateTime?), UserDisplayDetails lastUpdatedBy = default(UserDisplayDetails), int? lastUpdateId = default(int?), int? numberOfUsersSharedWith = default(int?), bool? sharedToAll = default(bool?), int? shareId = default(int?), int? numberOfHits = default(int?), DateTime? deletedOn = default(DateTime?))
+        public UserDashboardDetail(string viewingUsername = default(string), bool? sharedToMe = default(bool?), bool? sharedByMe = default(bool?), Query baseQuery = default(Query), FilterDefinition predefinedUserFilters = default(FilterDefinition), List<DashboardContentItem> dashboardItems = default(List<DashboardContentItem>), SystemLookup baseQueryLookup = default(SystemLookup), int? themeId = default(int?), int? logoId = default(int?), int? id = default(int?), string title = default(string), string description = default(string), string systemName = default(string), DateTime? createdOn = default(DateTime?), UserDisplayDetails owner = default(UserDisplayDetails), DateTime? lastUpdatedOn = default(DateTime?), UserDisplayDetails lastUpdatedBy = default(UserDisplayDetails), int? lastUpdateId = default(int?), int? numberOfUsersSharedWith = default(int?), bool? sharedToAll = default(bool?), int? shareId = default(int?), int? numberOfHits = default(int?), DateTime? deletedOn = default(DateTime?))
         {
             // to ensure "viewingUsername" is required (not null)
             if (viewingUsername == null)
@@ -162,6 +161,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                 this.NumberOfHits = numberOfHits;
             }
             this.BaseQuery = baseQuery;
+            this.PredefinedUserFilters = predefinedUserFilters;
             this.DashboardItems = dashboardItems;
             this.BaseQueryLookup = baseQueryLookup;
             this.ThemeId = themeId;
@@ -201,6 +201,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <value>The base query for the dashboard</value>
         [DataMember(Name="baseQuery", EmitDefaultValue=false)]
         public Query BaseQuery { get; set; }
+
+        /// <summary>
+        /// The predefined user filters for the dashboard
+        /// </summary>
+        /// <value>The predefined user filters for the dashboard</value>
+        [DataMember(Name="predefinedUserFilters", EmitDefaultValue=false)]
+        public FilterDefinition PredefinedUserFilters { get; set; }
 
         /// <summary>
         /// The items that are contained within the dashboard
@@ -340,6 +347,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  SharedToMe: ").Append(SharedToMe).Append("\n");
             sb.Append("  SharedByMe: ").Append(SharedByMe).Append("\n");
             sb.Append("  BaseQuery: ").Append(BaseQuery).Append("\n");
+            sb.Append("  PredefinedUserFilters: ").Append(PredefinedUserFilters).Append("\n");
             sb.Append("  DashboardItems: ").Append(DashboardItems).Append("\n");
             sb.Append("  BaseQueryLookup: ").Append(BaseQueryLookup).Append("\n");
             sb.Append("  ThemeId: ").Append(ThemeId).Append("\n");
@@ -411,6 +419,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.BaseQuery == input.BaseQuery ||
                     (this.BaseQuery != null &&
                     this.BaseQuery.Equals(input.BaseQuery))
+                ) && 
+                (
+                    this.PredefinedUserFilters == input.PredefinedUserFilters ||
+                    (this.PredefinedUserFilters != null &&
+                    this.PredefinedUserFilters.Equals(input.PredefinedUserFilters))
                 ) && 
                 (
                     this.DashboardItems == input.DashboardItems ||
@@ -521,6 +534,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.SharedByMe.GetHashCode();
                 if (this.BaseQuery != null)
                     hashCode = hashCode * 59 + this.BaseQuery.GetHashCode();
+                if (this.PredefinedUserFilters != null)
+                    hashCode = hashCode * 59 + this.PredefinedUserFilters.GetHashCode();
                 if (this.DashboardItems != null)
                     hashCode = hashCode * 59 + this.DashboardItems.GetHashCode();
                 if (this.BaseQueryLookup != null)
@@ -559,16 +574,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.DeletedOn.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

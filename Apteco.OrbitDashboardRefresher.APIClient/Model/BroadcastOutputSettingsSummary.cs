@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// Summary information for a Broadcast Channel&#39;s BroadcastOutputSettings
     /// </summary>
     [DataContract]
-    public partial class BroadcastOutputSettingsSummary :  IEquatable<BroadcastOutputSettingsSummary>, IValidatableObject
+    public partial class BroadcastOutputSettingsSummary :  IEquatable<BroadcastOutputSettingsSummary>
     {
         /// <summary>
         /// The type of broadcaster that the channel uses (e.g. Pure360)
@@ -309,34 +307,40 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             StrongMail = 45,
             
             /// <summary>
+            /// Enum Syniverse for value: Syniverse
+            /// </summary>
+            [EnumMember(Value = "Syniverse")]
+            Syniverse = 46,
+            
+            /// <summary>
             /// Enum Taguchi for value: Taguchi
             /// </summary>
             [EnumMember(Value = "Taguchi")]
-            Taguchi = 46,
+            Taguchi = 47,
             
             /// <summary>
             /// Enum Teradata for value: Teradata
             /// </summary>
             [EnumMember(Value = "Teradata")]
-            Teradata = 47,
+            Teradata = 48,
             
             /// <summary>
             /// Enum Traction for value: Traction
             /// </summary>
             [EnumMember(Value = "Traction")]
-            Traction = 48,
+            Traction = 49,
             
             /// <summary>
             /// Enum TrustPilot for value: TrustPilot
             /// </summary>
             [EnumMember(Value = "TrustPilot")]
-            TrustPilot = 49,
+            TrustPilot = 50,
             
             /// <summary>
             /// Enum Yesmail for value: Yesmail
             /// </summary>
             [EnumMember(Value = "Yesmail")]
-            Yesmail = 50
+            Yesmail = 51
         }
 
         /// <summary>
@@ -664,16 +668,6 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.AllowTransactionalOutput.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

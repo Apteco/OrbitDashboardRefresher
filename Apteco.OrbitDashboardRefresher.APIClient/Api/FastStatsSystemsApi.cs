@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -849,7 +849,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetAllFastStatsSystemItems");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/All";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/All";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -899,7 +899,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFastStatsSystemItem>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFastStatsSystemItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFastStatsSystemItem)));
         }
 
@@ -943,7 +943,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetAllFastStatsSystemItems");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/All";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/All";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -993,7 +993,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFastStatsSystemItem>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFastStatsSystemItem) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFastStatsSystemItem)));
         }
 
@@ -1039,7 +1039,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (path == null)
                 throw new ApiException(400, "Missing required parameter 'path' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsFolder");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Folders/{path}";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Folders/{path}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1089,7 +1089,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Folder>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Folder) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Folder)));
         }
 
@@ -1136,7 +1136,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (path == null)
                 throw new ApiException(400, "Missing required parameter 'path' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsFolder");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Folders/{path}";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Folders/{path}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1186,7 +1186,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Folder>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Folder) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Folder)));
         }
 
@@ -1227,7 +1227,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsRootFolder");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Folders";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Folders";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1276,7 +1276,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFolderStructureNode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFolderStructureNode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFolderStructureNode)));
         }
 
@@ -1318,7 +1318,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsRootFolder");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Folders";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Folders";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1367,7 +1367,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFolderStructureNode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFolderStructureNode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFolderStructureNode)));
         }
 
@@ -1400,7 +1400,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsSystem");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1445,7 +1445,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<FastStatsSystemDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (FastStatsSystemDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FastStatsSystemDetail)));
         }
 
@@ -1479,7 +1479,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsSystem");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1524,7 +1524,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<FastStatsSystemDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (FastStatsSystemDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FastStatsSystemDetail)));
         }
 
@@ -1560,7 +1560,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsSystems");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems";
+            var localVarPath = "./{dataViewName}/FastStatsSystems";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1608,7 +1608,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFastStatsSystemSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFastStatsSystemSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFastStatsSystemSummary)));
         }
 
@@ -1645,7 +1645,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsSystems");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems";
+            var localVarPath = "./{dataViewName}/FastStatsSystems";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1693,7 +1693,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFastStatsSystemSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFastStatsSystemSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFastStatsSystemSummary)));
         }
 
@@ -1731,7 +1731,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (tableName == null)
                 throw new ApiException(400, "Missing required parameter 'tableName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsTable");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Tables/{tableName}";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Tables/{tableName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1777,7 +1777,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Table>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Table) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Table)));
         }
 
@@ -1816,7 +1816,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (tableName == null)
                 throw new ApiException(400, "Missing required parameter 'tableName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsTable");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Tables/{tableName}";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Tables/{tableName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1862,7 +1862,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Table>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Table) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Table)));
         }
 
@@ -1903,7 +1903,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsTables");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Tables";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Tables";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1952,7 +1952,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsTable>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsTable) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsTable)));
         }
 
@@ -1994,7 +1994,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsTables");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Tables";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Tables";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2043,7 +2043,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsTable>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsTable) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsTable)));
         }
 
@@ -2081,7 +2081,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (variableName == null)
                 throw new ApiException(400, "Missing required parameter 'variableName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsVariable");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2127,7 +2127,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Variable>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Variable) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Variable)));
         }
 
@@ -2166,7 +2166,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (variableName == null)
                 throw new ApiException(400, "Missing required parameter 'variableName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsVariable");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2212,7 +2212,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Variable>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Variable) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Variable)));
         }
 
@@ -2258,7 +2258,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (variableName == null)
                 throw new ApiException(400, "Missing required parameter 'variableName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsVariableCodes");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}/Codes";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}/Codes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2308,7 +2308,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsVarCode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsVarCode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsVarCode)));
         }
 
@@ -2355,7 +2355,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (variableName == null)
                 throw new ApiException(400, "Missing required parameter 'variableName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsVariableCodes");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}/Codes";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}/Codes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2405,7 +2405,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsVarCode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsVarCode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsVarCode)));
         }
 
@@ -2446,7 +2446,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsVariables");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Variables";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Variables";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2495,7 +2495,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsVariable>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsVariable) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsVariable)));
         }
 
@@ -2537,7 +2537,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsGetFastStatsVariables");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Variables";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Variables";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2586,7 +2586,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsVariable>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsVariable) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsVariable)));
         }
 
@@ -2624,7 +2624,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (variableName == null)
                 throw new ApiException(400, "Missing required parameter 'variableName' when calling FastStatsSystemsApi->FastStatsSystemsRefreshFastStatsVariableCodesSync");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}/Codes";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}/Codes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2670,7 +2670,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsVarCode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsVarCode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsVarCode)));
         }
 
@@ -2709,7 +2709,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (variableName == null)
                 throw new ApiException(400, "Missing required parameter 'variableName' when calling FastStatsSystemsApi->FastStatsSystemsRefreshFastStatsVariableCodesSync");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}/Codes";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/Variables/{variableName}/Codes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2755,7 +2755,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsVarCode>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsVarCode) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsVarCode)));
         }
 
@@ -2787,7 +2787,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsRefreshSystemInformationSync");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/RefreshInformationSync";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/RefreshInformationSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2830,7 +2830,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2863,7 +2863,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsSystemsApi->FastStatsSystemsRefreshSystemInformationSync");
 
-            var localVarPath = "/{dataViewName}/FastStatsSystems/{systemName}/RefreshInformationSync";
+            var localVarPath = "./{dataViewName}/FastStatsSystems/{systemName}/RefreshInformationSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2906,7 +2906,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 

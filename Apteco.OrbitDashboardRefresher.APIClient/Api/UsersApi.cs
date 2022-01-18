@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -59,8 +59,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the user to be associated with. (optional)</param>
         /// <param name="createUserDetails">The details for the user to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>UserSummary</returns>
-        UserSummary UsersCreateUser (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null);
+        UserSummary UsersCreateUser (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null, string scope = null);
 
         /// <summary>
         /// Requires OrbitAdmin: Creates a new user.
@@ -72,8 +73,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the user to be associated with. (optional)</param>
         /// <param name="createUserDetails">The details for the user to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of UserSummary</returns>
-        ApiResponse<UserSummary> UsersCreateUserWithHttpInfo (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null);
+        ApiResponse<UserSummary> UsersCreateUserWithHttpInfo (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null, string scope = null);
         /// <summary>
         /// Requires OrbitAdmin: Deletes the specified user
         /// </summary>
@@ -539,12 +541,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">If specified, whether to limit to only users attached to the system name (optional)</param>
         /// <param name="includeDisabled">If specified, whether to include disabled users, not disabled users or both.  Defaults to not disabled only (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>PagedResultsUserSummary</returns>
-        PagedResultsUserSummary UsersGetUserDetailsList (string dataViewName, string systemName = null, string includeDisabled = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        PagedResultsUserSummary UsersGetUserDetailsList (string dataViewName, string systemName = null, string includeDisabled = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
 
         /// <summary>
         /// Returns all users in the system.
@@ -556,12 +559,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">If specified, whether to limit to only users attached to the system name (optional)</param>
         /// <param name="includeDisabled">If specified, whether to include disabled users, not disabled users or both.  Defaults to not disabled only (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>ApiResponse of PagedResultsUserSummary</returns>
-        ApiResponse<PagedResultsUserSummary> UsersGetUserDetailsListWithHttpInfo (string dataViewName, string systemName = null, string includeDisabled = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        ApiResponse<PagedResultsUserSummary> UsersGetUserDetailsListWithHttpInfo (string dataViewName, string systemName = null, string includeDisabled = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
         /// <summary>
         /// Returns the list of workspaces associated with the given user containing the given PeopleStage element
         /// </summary>
@@ -772,9 +776,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The system name associated with the user (optional)</param>
         /// <param name="updateUserDetails">The details to update the user with (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>UserSummary</returns>
-        UserSummary UsersUpdateUserDetails (string dataViewName, string username, UpdateUserDetails updateUserDetails = null);
+        UserSummary UsersUpdateUserDetails (string dataViewName, string username, string systemName = null, UpdateUserDetails updateUserDetails = null, string scope = null);
 
         /// <summary>
         /// Updates user details for the given username
@@ -785,9 +791,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The system name associated with the user (optional)</param>
         /// <param name="updateUserDetails">The details to update the user with (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of UserSummary</returns>
-        ApiResponse<UserSummary> UsersUpdateUserDetailsWithHttpInfo (string dataViewName, string username, UpdateUserDetails updateUserDetails = null);
+        ApiResponse<UserSummary> UsersUpdateUserDetailsWithHttpInfo (string dataViewName, string username, string systemName = null, UpdateUserDetails updateUserDetails = null, string scope = null);
         /// <summary>
         /// Modify the specified user groups
         /// </summary>
@@ -799,8 +807,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="username">The username of the user to update</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyUserGroups">The user&#39;s groups to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>UserSummary</returns>
-        UserSummary UsersUpdateUserGroups (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null);
+        UserSummary UsersUpdateUserGroups (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null, string scope = null);
 
         /// <summary>
         /// Modify the specified user groups
@@ -813,8 +822,38 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="username">The username of the user to update</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyUserGroups">The user&#39;s groups to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of UserSummary</returns>
-        ApiResponse<UserSummary> UsersUpdateUserGroupsWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null);
+        ApiResponse<UserSummary> UsersUpdateUserGroupsWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null, string scope = null);
+        /// <summary>
+        /// Modify the specified user&#39;s systems
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyUserSystems">The user&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>UserSummary</returns>
+        UserSummary UsersUpdateUserSystems (string dataViewName, string username, string systemName = null, ModifyUserSystems modifyUserSystems = null, string scope = null);
+
+        /// <summary>
+        /// Modify the specified user&#39;s systems
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyUserSystems">The user&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>ApiResponse of UserSummary</returns>
+        ApiResponse<UserSummary> UsersUpdateUserSystemsWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserSystems modifyUserSystems = null, string scope = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -852,8 +891,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the user to be associated with. (optional)</param>
         /// <param name="createUserDetails">The details for the user to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of UserSummary</returns>
-        System.Threading.Tasks.Task<UserSummary> UsersCreateUserAsync (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null);
+        System.Threading.Tasks.Task<UserSummary> UsersCreateUserAsync (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null, string scope = null);
 
         /// <summary>
         /// Requires OrbitAdmin: Creates a new user.
@@ -865,8 +905,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the user to be associated with. (optional)</param>
         /// <param name="createUserDetails">The details for the user to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (UserSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersCreateUserAsyncWithHttpInfo (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null);
+        System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersCreateUserAsyncWithHttpInfo (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null, string scope = null);
         /// <summary>
         /// Requires OrbitAdmin: Deletes the specified user
         /// </summary>
@@ -1332,12 +1373,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">If specified, whether to limit to only users attached to the system name (optional)</param>
         /// <param name="includeDisabled">If specified, whether to include disabled users, not disabled users or both.  Defaults to not disabled only (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of PagedResultsUserSummary</returns>
-        System.Threading.Tasks.Task<PagedResultsUserSummary> UsersGetUserDetailsListAsync (string dataViewName, string systemName = null, string includeDisabled = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        System.Threading.Tasks.Task<PagedResultsUserSummary> UsersGetUserDetailsListAsync (string dataViewName, string systemName = null, string includeDisabled = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
 
         /// <summary>
         /// Returns all users in the system.
@@ -1349,12 +1391,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">If specified, whether to limit to only users attached to the system name (optional)</param>
         /// <param name="includeDisabled">If specified, whether to include disabled users, not disabled users or both.  Defaults to not disabled only (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of ApiResponse (PagedResultsUserSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResultsUserSummary>> UsersGetUserDetailsListAsyncWithHttpInfo (string dataViewName, string systemName = null, string includeDisabled = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
+        System.Threading.Tasks.Task<ApiResponse<PagedResultsUserSummary>> UsersGetUserDetailsListAsyncWithHttpInfo (string dataViewName, string systemName = null, string includeDisabled = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null);
         /// <summary>
         /// Returns the list of workspaces associated with the given user containing the given PeopleStage element
         /// </summary>
@@ -1565,9 +1608,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The system name associated with the user (optional)</param>
         /// <param name="updateUserDetails">The details to update the user with (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of UserSummary</returns>
-        System.Threading.Tasks.Task<UserSummary> UsersUpdateUserDetailsAsync (string dataViewName, string username, UpdateUserDetails updateUserDetails = null);
+        System.Threading.Tasks.Task<UserSummary> UsersUpdateUserDetailsAsync (string dataViewName, string username, string systemName = null, UpdateUserDetails updateUserDetails = null, string scope = null);
 
         /// <summary>
         /// Updates user details for the given username
@@ -1578,9 +1623,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The system name associated with the user (optional)</param>
         /// <param name="updateUserDetails">The details to update the user with (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (UserSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserDetailsAsyncWithHttpInfo (string dataViewName, string username, UpdateUserDetails updateUserDetails = null);
+        System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserDetailsAsyncWithHttpInfo (string dataViewName, string username, string systemName = null, UpdateUserDetails updateUserDetails = null, string scope = null);
         /// <summary>
         /// Modify the specified user groups
         /// </summary>
@@ -1592,8 +1639,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="username">The username of the user to update</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyUserGroups">The user&#39;s groups to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of UserSummary</returns>
-        System.Threading.Tasks.Task<UserSummary> UsersUpdateUserGroupsAsync (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null);
+        System.Threading.Tasks.Task<UserSummary> UsersUpdateUserGroupsAsync (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null, string scope = null);
 
         /// <summary>
         /// Modify the specified user groups
@@ -1606,8 +1654,38 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="username">The username of the user to update</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyUserGroups">The user&#39;s groups to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (UserSummary)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserGroupsAsyncWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null);
+        System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserGroupsAsyncWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null, string scope = null);
+        /// <summary>
+        /// Modify the specified user&#39;s systems
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyUserSystems">The user&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>Task of UserSummary</returns>
+        System.Threading.Tasks.Task<UserSummary> UsersUpdateUserSystemsAsync (string dataViewName, string username, string systemName = null, ModifyUserSystems modifyUserSystems = null, string scope = null);
+
+        /// <summary>
+        /// Modify the specified user&#39;s systems
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyUserSystems">The user&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>Task of ApiResponse (UserSummary)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserSystemsAsyncWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserSystems modifyUserSystems = null, string scope = null);
         #endregion Asynchronous Operations
     }
 
@@ -1738,7 +1816,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersChangeUserPassword");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/ChangePassword";
+            var localVarPath = "./{dataViewName}/Users/{username}/ChangePassword";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1793,7 +1871,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1828,7 +1906,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersChangeUserPassword");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/ChangePassword";
+            var localVarPath = "./{dataViewName}/Users/{username}/ChangePassword";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1883,7 +1961,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1894,10 +1972,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the user to be associated with. (optional)</param>
         /// <param name="createUserDetails">The details for the user to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>UserSummary</returns>
-        public UserSummary UsersCreateUser (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null)
+        public UserSummary UsersCreateUser (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null, string scope = null)
         {
-             ApiResponse<UserSummary> localVarResponse = UsersCreateUserWithHttpInfo(dataViewName, systemName, createUserDetails);
+             ApiResponse<UserSummary> localVarResponse = UsersCreateUserWithHttpInfo(dataViewName, systemName, createUserDetails, scope);
              return localVarResponse.Data;
         }
 
@@ -1908,14 +1987,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the user to be associated with. (optional)</param>
         /// <param name="createUserDetails">The details for the user to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of UserSummary</returns>
-        public ApiResponse< UserSummary > UsersCreateUserWithHttpInfo (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null)
+        public ApiResponse< UserSummary > UsersCreateUserWithHttpInfo (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UsersApi->UsersCreateUser");
 
-            var localVarPath = "/{dataViewName}/Users";
+            var localVarPath = "./{dataViewName}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1943,6 +2023,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (createUserDetails != null && createUserDetails.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(createUserDetails); // http body (model) parameter
@@ -1972,7 +2053,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSummary)));
         }
 
@@ -1983,10 +2064,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the user to be associated with. (optional)</param>
         /// <param name="createUserDetails">The details for the user to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of UserSummary</returns>
-        public async System.Threading.Tasks.Task<UserSummary> UsersCreateUserAsync (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null)
+        public async System.Threading.Tasks.Task<UserSummary> UsersCreateUserAsync (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null, string scope = null)
         {
-             ApiResponse<UserSummary> localVarResponse = await UsersCreateUserAsyncWithHttpInfo(dataViewName, systemName, createUserDetails);
+             ApiResponse<UserSummary> localVarResponse = await UsersCreateUserAsyncWithHttpInfo(dataViewName, systemName, createUserDetails, scope);
              return localVarResponse.Data;
 
         }
@@ -1998,14 +2080,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">The system name for the user to be associated with. (optional)</param>
         /// <param name="createUserDetails">The details for the user to create. (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (UserSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersCreateUserAsyncWithHttpInfo (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null)
+        public async System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersCreateUserAsyncWithHttpInfo (string dataViewName, string systemName = null, CreateUserDetails createUserDetails = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UsersApi->UsersCreateUser");
 
-            var localVarPath = "/{dataViewName}/Users";
+            var localVarPath = "./{dataViewName}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2033,6 +2116,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (createUserDetails != null && createUserDetails.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(createUserDetails); // http body (model) parameter
@@ -2062,7 +2146,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSummary)));
         }
 
@@ -2096,7 +2180,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersDeleteUser");
 
-            var localVarPath = "/{dataViewName}/Users/{username}";
+            var localVarPath = "./{dataViewName}/Users/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2140,7 +2224,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2175,7 +2259,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersDeleteUser");
 
-            var localVarPath = "/{dataViewName}/Users/{username}";
+            var localVarPath = "./{dataViewName}/Users/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2219,7 +2303,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -2260,7 +2344,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetPreviousLoginHistory");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/LoginHistory";
+            var localVarPath = "./{dataViewName}/Users/{username}/LoginHistory";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2309,7 +2393,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserLogin>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserLogin) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserLogin)));
         }
 
@@ -2351,7 +2435,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetPreviousLoginHistory");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/LoginHistory";
+            var localVarPath = "./{dataViewName}/Users/{username}/LoginHistory";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2400,7 +2484,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserLogin>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserLogin) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserLogin)));
         }
 
@@ -2442,7 +2526,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling UsersApi->UsersGetUserAudience");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Audiences/{audienceId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/Audiences/{audienceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2490,7 +2574,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserAudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserAudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserAudienceDetail)));
         }
 
@@ -2533,7 +2617,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling UsersApi->UsersGetUserAudience");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Audiences/{audienceId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/Audiences/{audienceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2581,7 +2665,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserAudienceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserAudienceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserAudienceDetail)));
         }
 
@@ -2619,7 +2703,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (compositionId == null)
                 throw new ApiException(400, "Missing required parameter 'compositionId' when calling UsersApi->UsersGetUserAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/AudienceCompositions/{compositionId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/AudienceCompositions/{compositionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2665,7 +2749,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserAudienceCompositionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserAudienceCompositionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserAudienceCompositionDetail)));
         }
 
@@ -2704,7 +2788,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (compositionId == null)
                 throw new ApiException(400, "Missing required parameter 'compositionId' when calling UsersApi->UsersGetUserAudienceComposition");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/AudienceCompositions/{compositionId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/AudienceCompositions/{compositionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2750,7 +2834,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserAudienceCompositionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserAudienceCompositionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserAudienceCompositionDetail)));
         }
 
@@ -2791,7 +2875,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserAudienceCompositions");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/AudienceCompositions";
+            var localVarPath = "./{dataViewName}/Users/{username}/AudienceCompositions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2840,7 +2924,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserAudienceCompositionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserAudienceCompositionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserAudienceCompositionSummary)));
         }
 
@@ -2882,7 +2966,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserAudienceCompositions");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/AudienceCompositions";
+            var localVarPath = "./{dataViewName}/Users/{username}/AudienceCompositions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2931,7 +3015,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserAudienceCompositionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserAudienceCompositionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserAudienceCompositionSummary)));
         }
 
@@ -2981,7 +3065,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling UsersApi->UsersGetUserAudienceWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Audiences/{audienceId}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/Audiences/{audienceId}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3033,7 +3117,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -3084,7 +3168,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (audienceId == null)
                 throw new ApiException(400, "Missing required parameter 'audienceId' when calling UsersApi->UsersGetUserAudienceWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Audiences/{audienceId}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/Audiences/{audienceId}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3136,7 +3220,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -3183,7 +3267,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserAudiences");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Audiences";
+            var localVarPath = "./{dataViewName}/Users/{username}/Audiences";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3235,7 +3319,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserAudienceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserAudienceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserAudienceSummary)));
         }
 
@@ -3283,7 +3367,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserAudiences");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Audiences";
+            var localVarPath = "./{dataViewName}/Users/{username}/Audiences";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3335,7 +3419,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserAudienceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserAudienceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserAudienceSummary)));
         }
 
@@ -3373,7 +3457,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling UsersApi->UsersGetUserCollection");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Collections/{collectionId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/Collections/{collectionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3419,7 +3503,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserCollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserCollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserCollectionDetail)));
         }
 
@@ -3458,7 +3542,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling UsersApi->UsersGetUserCollection");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Collections/{collectionId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/Collections/{collectionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3504,7 +3588,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserCollectionDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserCollectionDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserCollectionDetail)));
         }
 
@@ -3554,7 +3638,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling UsersApi->UsersGetUserCollectionWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Collections/{collectionId}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/Collections/{collectionId}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3606,7 +3690,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -3657,7 +3741,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (collectionId == null)
                 throw new ApiException(400, "Missing required parameter 'collectionId' when calling UsersApi->UsersGetUserCollectionWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Collections/{collectionId}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/Collections/{collectionId}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3709,7 +3793,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -3754,7 +3838,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserCollections");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Collections";
+            var localVarPath = "./{dataViewName}/Users/{username}/Collections";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3805,7 +3889,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserCollectionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserCollectionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserCollectionSummary)));
         }
 
@@ -3851,7 +3935,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserCollections");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Collections";
+            var localVarPath = "./{dataViewName}/Users/{username}/Collections";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3902,7 +3986,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserCollectionSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserCollectionSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserCollectionSummary)));
         }
 
@@ -3930,7 +4014,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UsersApi->UsersGetUserConfiguration");
 
-            var localVarPath = "/{dataViewName}/Users/Configuration";
+            var localVarPath = "./{dataViewName}/Users/Configuration";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -3969,7 +4053,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserConfigurationDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserConfigurationDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserConfigurationDetails)));
         }
 
@@ -3998,7 +4082,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UsersApi->UsersGetUserConfiguration");
 
-            var localVarPath = "/{dataViewName}/Users/Configuration";
+            var localVarPath = "./{dataViewName}/Users/Configuration";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4037,7 +4121,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserConfigurationDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserConfigurationDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserConfigurationDetails)));
         }
 
@@ -4075,7 +4159,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling UsersApi->UsersGetUserDashboard");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Dashboards/{dashboardId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/Dashboards/{dashboardId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4121,7 +4205,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserDashboardDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserDashboardDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserDashboardDetail)));
         }
 
@@ -4160,7 +4244,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling UsersApi->UsersGetUserDashboard");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Dashboards/{dashboardId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/Dashboards/{dashboardId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4206,7 +4290,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserDashboardDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserDashboardDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserDashboardDetail)));
         }
 
@@ -4256,7 +4340,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling UsersApi->UsersGetUserDashboardWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Dashboards/{dashboardId}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/Dashboards/{dashboardId}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4308,7 +4392,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -4359,7 +4443,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dashboardId == null)
                 throw new ApiException(400, "Missing required parameter 'dashboardId' when calling UsersApi->UsersGetUserDashboardWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Dashboards/{dashboardId}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/Dashboards/{dashboardId}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4411,7 +4495,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -4458,7 +4542,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserDashboards");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Dashboards";
+            var localVarPath = "./{dataViewName}/Users/{username}/Dashboards";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4510,7 +4594,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserDashboardSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserDashboardSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserDashboardSummary)));
         }
 
@@ -4558,7 +4642,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserDashboards");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Dashboards";
+            var localVarPath = "./{dataViewName}/Users/{username}/Dashboards";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4610,7 +4694,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserDashboardSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserDashboardSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserDashboardSummary)));
         }
 
@@ -4643,7 +4727,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserDetails");
 
-            var localVarPath = "/{dataViewName}/Users/{username}";
+            var localVarPath = "./{dataViewName}/Users/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4688,7 +4772,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserDetail)));
         }
 
@@ -4722,7 +4806,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserDetails");
 
-            var localVarPath = "/{dataViewName}/Users/{username}";
+            var localVarPath = "./{dataViewName}/Users/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4767,7 +4851,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserDetail)));
         }
 
@@ -4778,14 +4862,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">If specified, whether to limit to only users attached to the system name (optional)</param>
         /// <param name="includeDisabled">If specified, whether to include disabled users, not disabled users or both.  Defaults to not disabled only (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>PagedResultsUserSummary</returns>
-        public PagedResultsUserSummary UsersGetUserDetailsList (string dataViewName, string systemName = null, string includeDisabled = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public PagedResultsUserSummary UsersGetUserDetailsList (string dataViewName, string systemName = null, string includeDisabled = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
-             ApiResponse<PagedResultsUserSummary> localVarResponse = UsersGetUserDetailsListWithHttpInfo(dataViewName, systemName, includeDisabled, filter, orderBy, offset, count);
+             ApiResponse<PagedResultsUserSummary> localVarResponse = UsersGetUserDetailsListWithHttpInfo(dataViewName, systemName, includeDisabled, scope, filter, orderBy, offset, count);
              return localVarResponse.Data;
         }
 
@@ -4796,18 +4881,19 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">If specified, whether to limit to only users attached to the system name (optional)</param>
         /// <param name="includeDisabled">If specified, whether to include disabled users, not disabled users or both.  Defaults to not disabled only (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>ApiResponse of PagedResultsUserSummary</returns>
-        public ApiResponse< PagedResultsUserSummary > UsersGetUserDetailsListWithHttpInfo (string dataViewName, string systemName = null, string includeDisabled = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public ApiResponse< PagedResultsUserSummary > UsersGetUserDetailsListWithHttpInfo (string dataViewName, string systemName = null, string includeDisabled = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UsersApi->UsersGetUserDetailsList");
 
-            var localVarPath = "/{dataViewName}/Users";
+            var localVarPath = "./{dataViewName}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4832,6 +4918,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
             if (includeDisabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDisabled", includeDisabled)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
@@ -4857,7 +4944,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserSummary)));
         }
 
@@ -4868,14 +4955,15 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">If specified, whether to limit to only users attached to the system name (optional)</param>
         /// <param name="includeDisabled">If specified, whether to include disabled users, not disabled users or both.  Defaults to not disabled only (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of PagedResultsUserSummary</returns>
-        public async System.Threading.Tasks.Task<PagedResultsUserSummary> UsersGetUserDetailsListAsync (string dataViewName, string systemName = null, string includeDisabled = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public async System.Threading.Tasks.Task<PagedResultsUserSummary> UsersGetUserDetailsListAsync (string dataViewName, string systemName = null, string includeDisabled = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
-             ApiResponse<PagedResultsUserSummary> localVarResponse = await UsersGetUserDetailsListAsyncWithHttpInfo(dataViewName, systemName, includeDisabled, filter, orderBy, offset, count);
+             ApiResponse<PagedResultsUserSummary> localVarResponse = await UsersGetUserDetailsListAsyncWithHttpInfo(dataViewName, systemName, includeDisabled, scope, filter, orderBy, offset, count);
              return localVarResponse.Data;
 
         }
@@ -4887,18 +4975,19 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="systemName">If specified, whether to limit to only users attached to the system name (optional)</param>
         /// <param name="includeDisabled">If specified, whether to include disabled users, not disabled users or both.  Defaults to not disabled only (optional)</param>
+        /// <param name="scope">If specified, whether to return all users, users attached to the DataView only, or users attached to the system only (optional)</param>
         /// <param name="filter">Filter the list of items using a simple expression language.  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="orderBy">Order the items by a given field (in ascending order unless the field is preceeded by a \&quot;-\&quot; character).  The available list of fields are Username, EmailAddress, Firstname, Surname, UserDisabledDate, LastAccessDate, UserLockedOutDate, LoginFailures, TimePasswordSet, PasswordManuallyExpired, PasswordNeverExpires. (optional)</param>
         /// <param name="offset">The number of items to skip in the (potentially filtered) result set before returning subsequent items. (optional)</param>
         /// <param name="count">The maximum number of items to show from the (potentially filtered) result set. (optional)</param>
         /// <returns>Task of ApiResponse (PagedResultsUserSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PagedResultsUserSummary>> UsersGetUserDetailsListAsyncWithHttpInfo (string dataViewName, string systemName = null, string includeDisabled = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PagedResultsUserSummary>> UsersGetUserDetailsListAsyncWithHttpInfo (string dataViewName, string systemName = null, string includeDisabled = null, string scope = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UsersApi->UsersGetUserDetailsList");
 
-            var localVarPath = "/{dataViewName}/Users";
+            var localVarPath = "./{dataViewName}/Users";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -4923,6 +5012,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
             if (includeDisabled != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeDisabled", includeDisabled)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (orderBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "orderBy", orderBy)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
@@ -4948,7 +5038,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserSummary)));
         }
 
@@ -4998,7 +5088,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling UsersApi->UsersGetUserPeopleStageElementWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/PeopleStageElements/{elementId}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/PeopleStageElements/{elementId}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5050,7 +5140,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -5101,7 +5191,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (elementId == null)
                 throw new ApiException(400, "Missing required parameter 'elementId' when calling UsersApi->UsersGetUserPeopleStageElementWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/PeopleStageElements/{elementId}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/PeopleStageElements/{elementId}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5153,7 +5243,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -5191,7 +5281,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling UsersApi->UsersGetUserWorkspace");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Workspaces/{workspaceId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/Workspaces/{workspaceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5237,7 +5327,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserWorkspaceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserWorkspaceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserWorkspaceDetail)));
         }
 
@@ -5276,7 +5366,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (workspaceId == null)
                 throw new ApiException(400, "Missing required parameter 'workspaceId' when calling UsersApi->UsersGetUserWorkspace");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Workspaces/{workspaceId}";
+            var localVarPath = "./{dataViewName}/Users/{username}/Workspaces/{workspaceId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5322,7 +5412,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserWorkspaceDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserWorkspaceDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserWorkspaceDetail)));
         }
 
@@ -5367,7 +5457,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5418,7 +5508,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -5464,7 +5554,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersGetUserWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Workspaces";
+            var localVarPath = "./{dataViewName}/Users/{username}/Workspaces";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5515,7 +5605,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsUserWorkspaceSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsUserWorkspaceSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsUserWorkspaceSummary)));
         }
 
@@ -5554,7 +5644,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersModifyUserAudiences");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Audiences/Modify";
+            var localVarPath = "./{dataViewName}/Users/{username}/Audiences/Modify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5613,7 +5703,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyUserAudienceDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyUserAudienceDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyUserAudienceDetailResults)));
         }
 
@@ -5653,7 +5743,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersModifyUserAudiences");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Audiences/Modify";
+            var localVarPath = "./{dataViewName}/Users/{username}/Audiences/Modify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5712,7 +5802,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyUserAudienceDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyUserAudienceDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyUserAudienceDetailResults)));
         }
 
@@ -5747,7 +5837,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersModifyUserCollections");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Collections/Modify";
+            var localVarPath = "./{dataViewName}/Users/{username}/Collections/Modify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5804,7 +5894,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyUserCollectionDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyUserCollectionDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyUserCollectionDetailResults)));
         }
 
@@ -5840,7 +5930,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersModifyUserCollections");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Collections/Modify";
+            var localVarPath = "./{dataViewName}/Users/{username}/Collections/Modify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5897,7 +5987,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyUserCollectionDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyUserCollectionDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyUserCollectionDetailResults)));
         }
 
@@ -5932,7 +6022,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersModifyUserDashboards");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Dashboards/Modify";
+            var localVarPath = "./{dataViewName}/Users/{username}/Dashboards/Modify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -5989,7 +6079,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyUserDashboardDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyUserDashboardDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyUserDashboardDetailResults)));
         }
 
@@ -6025,7 +6115,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersModifyUserDashboards");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Dashboards/Modify";
+            var localVarPath = "./{dataViewName}/Users/{username}/Dashboards/Modify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6082,7 +6172,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyUserDashboardDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyUserDashboardDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyUserDashboardDetailResults)));
         }
 
@@ -6117,7 +6207,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersModifyUserWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Workspaces/Modify";
+            var localVarPath = "./{dataViewName}/Users/{username}/Workspaces/Modify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6174,7 +6264,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyUserWorkspaceDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyUserWorkspaceDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyUserWorkspaceDetailResults)));
         }
 
@@ -6210,7 +6300,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersModifyUserWorkspaces");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Workspaces/Modify";
+            var localVarPath = "./{dataViewName}/Users/{username}/Workspaces/Modify";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6267,7 +6357,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsModifyUserWorkspaceDetailResults>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsModifyUserWorkspaceDetailResults) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsModifyUserWorkspaceDetailResults)));
         }
 
@@ -6277,11 +6367,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The system name associated with the user (optional)</param>
         /// <param name="updateUserDetails">The details to update the user with (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>UserSummary</returns>
-        public UserSummary UsersUpdateUserDetails (string dataViewName, string username, UpdateUserDetails updateUserDetails = null)
+        public UserSummary UsersUpdateUserDetails (string dataViewName, string username, string systemName = null, UpdateUserDetails updateUserDetails = null, string scope = null)
         {
-             ApiResponse<UserSummary> localVarResponse = UsersUpdateUserDetailsWithHttpInfo(dataViewName, username, updateUserDetails);
+             ApiResponse<UserSummary> localVarResponse = UsersUpdateUserDetailsWithHttpInfo(dataViewName, username, systemName, updateUserDetails, scope);
              return localVarResponse.Data;
         }
 
@@ -6291,9 +6383,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The system name associated with the user (optional)</param>
         /// <param name="updateUserDetails">The details to update the user with (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of UserSummary</returns>
-        public ApiResponse< UserSummary > UsersUpdateUserDetailsWithHttpInfo (string dataViewName, string username, UpdateUserDetails updateUserDetails = null)
+        public ApiResponse< UserSummary > UsersUpdateUserDetailsWithHttpInfo (string dataViewName, string username, string systemName = null, UpdateUserDetails updateUserDetails = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -6302,7 +6396,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersUpdateUserDetails");
 
-            var localVarPath = "/{dataViewName}/Users/{username}";
+            var localVarPath = "./{dataViewName}/Users/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6330,6 +6424,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (updateUserDetails != null && updateUserDetails.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(updateUserDetails); // http body (model) parameter
@@ -6359,7 +6455,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSummary)));
         }
 
@@ -6369,11 +6465,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The system name associated with the user (optional)</param>
         /// <param name="updateUserDetails">The details to update the user with (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of UserSummary</returns>
-        public async System.Threading.Tasks.Task<UserSummary> UsersUpdateUserDetailsAsync (string dataViewName, string username, UpdateUserDetails updateUserDetails = null)
+        public async System.Threading.Tasks.Task<UserSummary> UsersUpdateUserDetailsAsync (string dataViewName, string username, string systemName = null, UpdateUserDetails updateUserDetails = null, string scope = null)
         {
-             ApiResponse<UserSummary> localVarResponse = await UsersUpdateUserDetailsAsyncWithHttpInfo(dataViewName, username, updateUserDetails);
+             ApiResponse<UserSummary> localVarResponse = await UsersUpdateUserDetailsAsyncWithHttpInfo(dataViewName, username, systemName, updateUserDetails, scope);
              return localVarResponse.Data;
 
         }
@@ -6384,9 +6482,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataViewName">The name of the DataView to act on</param>
         /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The system name associated with the user (optional)</param>
         /// <param name="updateUserDetails">The details to update the user with (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (UserSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserDetailsAsyncWithHttpInfo (string dataViewName, string username, UpdateUserDetails updateUserDetails = null)
+        public async System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserDetailsAsyncWithHttpInfo (string dataViewName, string username, string systemName = null, UpdateUserDetails updateUserDetails = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -6395,7 +6495,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersUpdateUserDetails");
 
-            var localVarPath = "/{dataViewName}/Users/{username}";
+            var localVarPath = "./{dataViewName}/Users/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6423,6 +6523,8 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
 
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (updateUserDetails != null && updateUserDetails.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(updateUserDetails); // http body (model) parameter
@@ -6452,7 +6554,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSummary)));
         }
 
@@ -6464,10 +6566,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="username">The username of the user to update</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyUserGroups">The user&#39;s groups to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>UserSummary</returns>
-        public UserSummary UsersUpdateUserGroups (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null)
+        public UserSummary UsersUpdateUserGroups (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null, string scope = null)
         {
-             ApiResponse<UserSummary> localVarResponse = UsersUpdateUserGroupsWithHttpInfo(dataViewName, username, systemName, modifyUserGroups);
+             ApiResponse<UserSummary> localVarResponse = UsersUpdateUserGroupsWithHttpInfo(dataViewName, username, systemName, modifyUserGroups, scope);
              return localVarResponse.Data;
         }
 
@@ -6479,8 +6582,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="username">The username of the user to update</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyUserGroups">The user&#39;s groups to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>ApiResponse of UserSummary</returns>
-        public ApiResponse< UserSummary > UsersUpdateUserGroupsWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null)
+        public ApiResponse< UserSummary > UsersUpdateUserGroupsWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -6489,7 +6593,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersUpdateUserGroups");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Groups";
+            var localVarPath = "./{dataViewName}/Users/{username}/Groups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6518,6 +6622,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (modifyUserGroups != null && modifyUserGroups.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(modifyUserGroups); // http body (model) parameter
@@ -6547,7 +6652,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSummary)));
         }
 
@@ -6559,10 +6664,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="username">The username of the user to update</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyUserGroups">The user&#39;s groups to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of UserSummary</returns>
-        public async System.Threading.Tasks.Task<UserSummary> UsersUpdateUserGroupsAsync (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null)
+        public async System.Threading.Tasks.Task<UserSummary> UsersUpdateUserGroupsAsync (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null, string scope = null)
         {
-             ApiResponse<UserSummary> localVarResponse = await UsersUpdateUserGroupsAsyncWithHttpInfo(dataViewName, username, systemName, modifyUserGroups);
+             ApiResponse<UserSummary> localVarResponse = await UsersUpdateUserGroupsAsyncWithHttpInfo(dataViewName, username, systemName, modifyUserGroups, scope);
              return localVarResponse.Data;
 
         }
@@ -6575,8 +6681,9 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         /// <param name="username">The username of the user to update</param>
         /// <param name="systemName">The name of the system (optional)</param>
         /// <param name="modifyUserGroups">The user&#39;s groups to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
         /// <returns>Task of ApiResponse (UserSummary)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserGroupsAsyncWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null)
+        public async System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserGroupsAsyncWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserGroups modifyUserGroups = null, string scope = null)
         {
             // verify the required parameter 'dataViewName' is set
             if (dataViewName == null)
@@ -6585,7 +6692,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersUpdateUserGroups");
 
-            var localVarPath = "/{dataViewName}/Users/{username}/Groups";
+            var localVarPath = "./{dataViewName}/Users/{username}/Groups";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -6614,6 +6721,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
             if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
             if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
             if (modifyUserGroups != null && modifyUserGroups.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(modifyUserGroups); // http body (model) parameter
@@ -6643,7 +6751,204 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<UserSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (UserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSummary)));
+        }
+
+        /// <summary>
+        /// Modify the specified user&#39;s systems 
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyUserSystems">The user&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>UserSummary</returns>
+        public UserSummary UsersUpdateUserSystems (string dataViewName, string username, string systemName = null, ModifyUserSystems modifyUserSystems = null, string scope = null)
+        {
+             ApiResponse<UserSummary> localVarResponse = UsersUpdateUserSystemsWithHttpInfo(dataViewName, username, systemName, modifyUserSystems, scope);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Modify the specified user&#39;s systems 
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyUserSystems">The user&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>ApiResponse of UserSummary</returns>
+        public ApiResponse< UserSummary > UsersUpdateUserSystemsWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserSystems modifyUserSystems = null, string scope = null)
+        {
+            // verify the required parameter 'dataViewName' is set
+            if (dataViewName == null)
+                throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UsersApi->UsersUpdateUserSystems");
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersUpdateUserSystems");
+
+            var localVarPath = "./{dataViewName}/Users/{username}/Systems";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
+            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (modifyUserSystems != null && modifyUserSystems.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(modifyUserSystems); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = modifyUserSystems; // byte array
+            }
+
+            // authentication (faststats_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UsersUpdateUserSystems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserSummary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (UserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSummary)));
+        }
+
+        /// <summary>
+        /// Modify the specified user&#39;s systems 
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyUserSystems">The user&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>Task of UserSummary</returns>
+        public async System.Threading.Tasks.Task<UserSummary> UsersUpdateUserSystemsAsync (string dataViewName, string username, string systemName = null, ModifyUserSystems modifyUserSystems = null, string scope = null)
+        {
+             ApiResponse<UserSummary> localVarResponse = await UsersUpdateUserSystemsAsyncWithHttpInfo(dataViewName, username, systemName, modifyUserSystems, scope);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Modify the specified user&#39;s systems 
+        /// </summary>
+        /// <exception cref="Apteco.OrbitDashboardRefresher.APIClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="dataViewName">The name of the DataView to act on</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="systemName">The name of the system (optional)</param>
+        /// <param name="modifyUserSystems">The user&#39;s systems to modify (optional)</param>
+        /// <param name="scope">If specified, whether to return information for all systems, systems in the DataView only, or this system only (optional)</param>
+        /// <returns>Task of ApiResponse (UserSummary)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UserSummary>> UsersUpdateUserSystemsAsyncWithHttpInfo (string dataViewName, string username, string systemName = null, ModifyUserSystems modifyUserSystems = null, string scope = null)
+        {
+            // verify the required parameter 'dataViewName' is set
+            if (dataViewName == null)
+                throw new ApiException(400, "Missing required parameter 'dataViewName' when calling UsersApi->UsersUpdateUserSystems");
+            // verify the required parameter 'username' is set
+            if (username == null)
+                throw new ApiException(400, "Missing required parameter 'username' when calling UsersApi->UsersUpdateUserSystems");
+
+            var localVarPath = "./{dataViewName}/Users/{username}/Systems";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/_*+json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (dataViewName != null) localVarPathParams.Add("dataViewName", this.Configuration.ApiClient.ParameterToString(dataViewName)); // path parameter
+            if (username != null) localVarPathParams.Add("username", this.Configuration.ApiClient.ParameterToString(username)); // path parameter
+            if (systemName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "systemName", systemName)); // query parameter
+            if (scope != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "scope", scope)); // query parameter
+            if (modifyUserSystems != null && modifyUserSystems.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(modifyUserSystems); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = modifyUserSystems; // byte array
+            }
+
+            // authentication (faststats_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UsersUpdateUserSystems", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UserSummary>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (UserSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(UserSummary)));
         }
 

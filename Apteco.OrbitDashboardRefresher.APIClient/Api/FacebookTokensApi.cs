@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -257,7 +257,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling FacebookTokensApi->FacebookTokensGetFacebookEntities");
 
-            var localVarPath = "/{dataViewName}/FacebookTokens/{username}";
+            var localVarPath = "./{dataViewName}/FacebookTokens/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -303,7 +303,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<FacebookEntity>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<FacebookEntity>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<FacebookEntity>)));
         }
 
@@ -339,7 +339,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling FacebookTokensApi->FacebookTokensGetFacebookEntities");
 
-            var localVarPath = "/{dataViewName}/FacebookTokens/{username}";
+            var localVarPath = "./{dataViewName}/FacebookTokens/{username}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -385,7 +385,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<List<FacebookEntity>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (List<FacebookEntity>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<FacebookEntity>)));
         }
 
@@ -420,7 +420,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling FacebookTokensApi->FacebookTokensValidateAndStoreFacebookTokens");
 
-            var localVarPath = "/{dataViewName}/FacebookTokens/{username}/ValidateAndStore";
+            var localVarPath = "./{dataViewName}/FacebookTokens/{username}/ValidateAndStore";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -477,7 +477,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 
@@ -513,7 +513,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (username == null)
                 throw new ApiException(400, "Missing required parameter 'username' when calling FacebookTokensApi->FacebookTokensValidateAndStoreFacebookTokens");
 
-            var localVarPath = "/{dataViewName}/FacebookTokens/{username}/ValidateAndStore";
+            var localVarPath = "./{dataViewName}/FacebookTokens/{username}/ValidateAndStore";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -570,7 +570,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<AuthorisedPermissionWithLookups>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (AuthorisedPermissionWithLookups) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AuthorisedPermissionWithLookups)));
         }
 

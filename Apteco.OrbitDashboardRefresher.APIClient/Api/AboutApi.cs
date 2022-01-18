@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -803,7 +803,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< Message > AboutExampleExperimentalResourceWithHttpInfo ()
         {
 
-            var localVarPath = "/About/ExampleExperimentalResource";
+            var localVarPath = "./About/ExampleExperimentalResource";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -841,7 +841,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Message>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Message) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Message)));
         }
 
@@ -865,7 +865,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<Message>> AboutExampleExperimentalResourceAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/ExampleExperimentalResource";
+            var localVarPath = "./About/ExampleExperimentalResource";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -903,7 +903,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Message>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Message) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Message)));
         }
 
@@ -926,7 +926,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< Message > AboutExampleUnderDevelopmentResourceWithHttpInfo ()
         {
 
-            var localVarPath = "/About/ExampleUnderDevelopmentResource";
+            var localVarPath = "./About/ExampleUnderDevelopmentResource";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -964,7 +964,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Message>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Message) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Message)));
         }
 
@@ -988,7 +988,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<Message>> AboutExampleUnderDevelopmentResourceAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/ExampleUnderDevelopmentResource";
+            var localVarPath = "./About/ExampleUnderDevelopmentResource";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1026,7 +1026,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Message>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Message) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Message)));
         }
 
@@ -1048,7 +1048,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse<Object> AboutForceExceptionWithHttpInfo ()
         {
 
-            var localVarPath = "/About/ForceException";
+            var localVarPath = "./About/ForceException";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1089,7 +1089,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1112,7 +1112,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<Object>> AboutForceExceptionAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/ForceException";
+            var localVarPath = "./About/ForceException";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1153,7 +1153,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1175,7 +1175,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse<Object> AboutForceInternalServerErrorWithHttpInfo ()
         {
 
-            var localVarPath = "/About/ForceInternalServerError";
+            var localVarPath = "./About/ForceInternalServerError";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1216,7 +1216,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1239,7 +1239,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<Object>> AboutForceInternalServerErrorAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/ForceInternalServerError";
+            var localVarPath = "./About/ForceInternalServerError";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1280,7 +1280,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -1303,7 +1303,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< ProcessDetails > AboutForceProcessGarbageCollectionWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Process/ForceGarbageCollection";
+            var localVarPath = "./About/Process/ForceGarbageCollection";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1346,7 +1346,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ProcessDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ProcessDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessDetails)));
         }
 
@@ -1370,7 +1370,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<ProcessDetails>> AboutForceProcessGarbageCollectionAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Process/ForceGarbageCollection";
+            var localVarPath = "./About/Process/ForceGarbageCollection";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1413,7 +1413,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ProcessDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ProcessDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessDetails)));
         }
 
@@ -1441,7 +1441,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling AboutApi->AboutGetDataView");
 
-            var localVarPath = "/About/DataViews/{dataViewName}";
+            var localVarPath = "./About/DataViews/{dataViewName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1485,7 +1485,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DataViewDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DataViewDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataViewDetails)));
         }
 
@@ -1514,7 +1514,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling AboutApi->AboutGetDataView");
 
-            var localVarPath = "/About/DataViews/{dataViewName}";
+            var localVarPath = "./About/DataViews/{dataViewName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1558,7 +1558,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<DataViewDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (DataViewDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DataViewDetails)));
         }
 
@@ -1589,7 +1589,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< PagedResultsDataViewSummary > AboutGetDataViewsWithHttpInfo (string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
 
-            var localVarPath = "/About/DataViews";
+            var localVarPath = "./About/DataViews";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1631,7 +1631,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDataViewSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDataViewSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDataViewSummary)));
         }
 
@@ -1663,7 +1663,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<PagedResultsDataViewSummary>> AboutGetDataViewsAsyncWithHttpInfo (string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
 
-            var localVarPath = "/About/DataViews";
+            var localVarPath = "./About/DataViews";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1705,7 +1705,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDataViewSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDataViewSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDataViewSummary)));
         }
 
@@ -1741,7 +1741,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (domain == null)
                 throw new ApiException(400, "Missing required parameter 'domain' when calling AboutApi->AboutGetDataViewsForDomain");
 
-            var localVarPath = "/About/DataViews/Domains/{domain}";
+            var localVarPath = "./About/DataViews/Domains/{domain}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1784,7 +1784,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDataViewSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDataViewSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDataViewSummary)));
         }
 
@@ -1821,7 +1821,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (domain == null)
                 throw new ApiException(400, "Missing required parameter 'domain' when calling AboutApi->AboutGetDataViewsForDomain");
 
-            var localVarPath = "/About/DataViews/Domains/{domain}";
+            var localVarPath = "./About/DataViews/Domains/{domain}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1864,7 +1864,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDataViewSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDataViewSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDataViewSummary)));
         }
 
@@ -1900,7 +1900,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling AboutApi->AboutGetDataViewsForSystemName");
 
-            var localVarPath = "/About/DataViews/Systems/{systemName}";
+            var localVarPath = "./About/DataViews/Systems/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1943,7 +1943,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDataViewSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDataViewSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDataViewSummary)));
         }
 
@@ -1980,7 +1980,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling AboutApi->AboutGetDataViewsForSystemName");
 
-            var localVarPath = "/About/DataViews/Systems/{systemName}";
+            var localVarPath = "./About/DataViews/Systems/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2023,7 +2023,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsDataViewSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsDataViewSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsDataViewSummary)));
         }
 
@@ -2058,7 +2058,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< PagedResultsEndpointDetails > AboutGetEndpointsWithHttpInfo (bool? excludeEndpointsWithNoLicenceRequirements = null, bool? excludeEndpointsWithNoRoleRequirements = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
 
-            var localVarPath = "/About/Endpoints";
+            var localVarPath = "./About/Endpoints";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2102,7 +2102,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsEndpointDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsEndpointDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsEndpointDetails)));
         }
 
@@ -2138,7 +2138,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<PagedResultsEndpointDetails>> AboutGetEndpointsAsyncWithHttpInfo (bool? excludeEndpointsWithNoLicenceRequirements = null, bool? excludeEndpointsWithNoRoleRequirements = null, string filter = null, string orderBy = null, int? offset = null, int? count = null)
         {
 
-            var localVarPath = "/About/Endpoints";
+            var localVarPath = "./About/Endpoints";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2182,7 +2182,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsEndpointDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsEndpointDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsEndpointDetails)));
         }
 
@@ -2205,7 +2205,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< LanguageDetails > AboutGetLanguageDetailsWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Language";
+            var localVarPath = "./About/Language";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2243,7 +2243,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LanguageDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LanguageDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LanguageDetails)));
         }
 
@@ -2267,7 +2267,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<LanguageDetails>> AboutGetLanguageDetailsAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Language";
+            var localVarPath = "./About/Language";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2305,7 +2305,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<LanguageDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (LanguageDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LanguageDetails)));
         }
 
@@ -2333,7 +2333,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (settingsPath == null)
                 throw new ApiException(400, "Missing required parameter 'settingsPath' when calling AboutApi->AboutGetOrbitSettings");
 
-            var localVarPath = "/About/Orbit/Settings/{settingsPath}";
+            var localVarPath = "./About/Orbit/Settings/{settingsPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2372,7 +2372,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -2401,7 +2401,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (settingsPath == null)
                 throw new ApiException(400, "Missing required parameter 'settingsPath' when calling AboutApi->AboutGetOrbitSettings");
 
-            var localVarPath = "/About/Orbit/Settings/{settingsPath}";
+            var localVarPath = "./About/Orbit/Settings/{settingsPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2440,7 +2440,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -2463,7 +2463,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< Object > AboutGetOrbitSettingsRootWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Orbit/Settings";
+            var localVarPath = "./About/Orbit/Settings";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2501,7 +2501,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -2525,7 +2525,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<Object>> AboutGetOrbitSettingsRootAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Orbit/Settings";
+            var localVarPath = "./About/Orbit/Settings";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2563,7 +2563,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
@@ -2586,7 +2586,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< ProcessDetails > AboutGetProcessDetailsWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Process";
+            var localVarPath = "./About/Process";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2629,7 +2629,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ProcessDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ProcessDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessDetails)));
         }
 
@@ -2653,7 +2653,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<ProcessDetails>> AboutGetProcessDetailsAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Process";
+            var localVarPath = "./About/Process";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2696,7 +2696,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ProcessDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ProcessDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessDetails)));
         }
 
@@ -2719,7 +2719,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse< VersionDetails > AboutGetVersionWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Version";
+            var localVarPath = "./About/Version";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2757,7 +2757,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<VersionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (VersionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VersionDetails)));
         }
 
@@ -2781,7 +2781,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<VersionDetails>> AboutGetVersionAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/About/Version";
+            var localVarPath = "./About/Version";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2819,7 +2819,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<VersionDetails>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (VersionDetails) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(VersionDetails)));
         }
 

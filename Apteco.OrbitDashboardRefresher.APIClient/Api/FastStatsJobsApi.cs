@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -477,7 +477,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsJobsApi->FastStatsJobsCalculateProcessingTimeStatsForSystemSync");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/{systemName}/CalculateProcessingTimeStatsSync";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/{systemName}/CalculateProcessingTimeStatsSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -534,7 +534,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ProcessingTimeStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ProcessingTimeStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessingTimeStatistics)));
         }
 
@@ -570,7 +570,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsJobsApi->FastStatsJobsCalculateProcessingTimeStatsForSystemSync");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/{systemName}/CalculateProcessingTimeStatsSync";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/{systemName}/CalculateProcessingTimeStatsSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -627,7 +627,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ProcessingTimeStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ProcessingTimeStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessingTimeStatistics)));
         }
 
@@ -657,7 +657,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling FastStatsJobsApi->FastStatsJobsCalculateProcessingTimeStatsSync");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/CalculateProcessingTimeStatsSync";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/CalculateProcessingTimeStatsSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -713,7 +713,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ProcessingTimeStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ProcessingTimeStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessingTimeStatistics)));
         }
 
@@ -744,7 +744,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling FastStatsJobsApi->FastStatsJobsCalculateProcessingTimeStatsSync");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/CalculateProcessingTimeStatsSync";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/CalculateProcessingTimeStatsSync";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -800,7 +800,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<ProcessingTimeStatistics>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ProcessingTimeStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProcessingTimeStatistics)));
         }
 
@@ -832,7 +832,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsJobsApi->FastStatsJobsClearCommandHash");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/{systemName}/ClearCommandHash";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/{systemName}/ClearCommandHash";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -875,7 +875,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -908,7 +908,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsJobsApi->FastStatsJobsClearCommandHash");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/{systemName}/ClearCommandHash";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/{systemName}/ClearCommandHash";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -951,7 +951,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -993,7 +993,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling FastStatsJobsApi->FastStatsJobsGetFastStatsJob");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/{systemName}/{jobId}";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/{systemName}/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1041,7 +1041,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<JobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (JobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(JobDetail)));
         }
 
@@ -1084,7 +1084,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (jobId == null)
                 throw new ApiException(400, "Missing required parameter 'jobId' when calling FastStatsJobsApi->FastStatsJobsGetFastStatsJob");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/{systemName}/{jobId}";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/{systemName}/{jobId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1132,7 +1132,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<JobDetail>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (JobDetail) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(JobDetail)));
         }
 
@@ -1168,7 +1168,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling FastStatsJobsApi->FastStatsJobsGetFastStatsJobs");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs";
+            var localVarPath = "./{dataViewName}/FastStatsJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1216,7 +1216,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsJobSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsJobSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsJobSummary)));
         }
 
@@ -1253,7 +1253,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling FastStatsJobsApi->FastStatsJobsGetFastStatsJobs");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs";
+            var localVarPath = "./{dataViewName}/FastStatsJobs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1301,7 +1301,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsJobSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsJobSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsJobSummary)));
         }
 
@@ -1342,7 +1342,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsJobsApi->FastStatsJobsGetFastStatsJobsForSystem");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/{systemName}";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1391,7 +1391,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsJobSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsJobSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsJobSummary)));
         }
 
@@ -1433,7 +1433,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling FastStatsJobsApi->FastStatsJobsGetFastStatsJobsForSystem");
 
-            var localVarPath = "/{dataViewName}/FastStatsJobs/{systemName}";
+            var localVarPath = "./{dataViewName}/FastStatsJobs/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1482,7 +1482,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsJobSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsJobSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsJobSummary)));
         }
 

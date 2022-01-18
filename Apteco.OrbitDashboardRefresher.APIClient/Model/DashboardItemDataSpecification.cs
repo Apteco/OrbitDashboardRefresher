@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Apteco.OrbitDashboardRefresher.APIClient.Client.SwaggerDateConverter;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Model
@@ -28,7 +26,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
     /// The details for any pre-defined dashboard items, that aren&#39;t specified using dimensions and measures
     /// </summary>
     [DataContract]
-    public partial class DashboardItemDataSpecification :  IEquatable<DashboardItemDataSpecification>, IValidatableObject
+    public partial class DashboardItemDataSpecification :  IEquatable<DashboardItemDataSpecification>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DashboardItemDataSpecification" /> class.
@@ -36,11 +34,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         /// <param name="cubeSpecification">The details needed to define a cube-based item.</param>
         /// <param name="paretoSpecification">The details needed to define a Pareto item.</param>
         /// <param name="vennSpecification">The details needed to define a Venn item.</param>
-        public DashboardItemDataSpecification(CubeSpecification cubeSpecification = default(CubeSpecification), ParetoSpecification paretoSpecification = default(ParetoSpecification), VennSpecification vennSpecification = default(VennSpecification))
+        /// <param name="segmentationSpecification">The details needed to define a Segmentation item.</param>
+        public DashboardItemDataSpecification(CubeSpecification cubeSpecification = default(CubeSpecification), ParetoSpecification paretoSpecification = default(ParetoSpecification), VennSpecification vennSpecification = default(VennSpecification), SegmentationSpecification segmentationSpecification = default(SegmentationSpecification))
         {
             this.CubeSpecification = cubeSpecification;
             this.ParetoSpecification = paretoSpecification;
             this.VennSpecification = vennSpecification;
+            this.SegmentationSpecification = segmentationSpecification;
         }
         
         /// <summary>
@@ -65,6 +65,13 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
         public VennSpecification VennSpecification { get; set; }
 
         /// <summary>
+        /// The details needed to define a Segmentation item
+        /// </summary>
+        /// <value>The details needed to define a Segmentation item</value>
+        [DataMember(Name="segmentationSpecification", EmitDefaultValue=false)]
+        public SegmentationSpecification SegmentationSpecification { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +82,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
             sb.Append("  CubeSpecification: ").Append(CubeSpecification).Append("\n");
             sb.Append("  ParetoSpecification: ").Append(ParetoSpecification).Append("\n");
             sb.Append("  VennSpecification: ").Append(VennSpecification).Append("\n");
+            sb.Append("  SegmentationSpecification: ").Append(SegmentationSpecification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +131,11 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     this.VennSpecification == input.VennSpecification ||
                     (this.VennSpecification != null &&
                     this.VennSpecification.Equals(input.VennSpecification))
+                ) && 
+                (
+                    this.SegmentationSpecification == input.SegmentationSpecification ||
+                    (this.SegmentationSpecification != null &&
+                    this.SegmentationSpecification.Equals(input.SegmentationSpecification))
                 );
         }
 
@@ -141,18 +154,10 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Model
                     hashCode = hashCode * 59 + this.ParetoSpecification.GetHashCode();
                 if (this.VennSpecification != null)
                     hashCode = hashCode * 59 + this.VennSpecification.GetHashCode();
+                if (this.SegmentationSpecification != null)
+                    hashCode = hashCode * 59 + this.SegmentationSpecification.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 
 namespace Apteco.OrbitDashboardRefresher.APIClient.Api
@@ -265,7 +265,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse<Object> ExternalLoginAssertionConsumerServiceWithHttpInfo ()
         {
 
-            var localVarPath = "/ExternalLogin/AssertionConsumerService";
+            var localVarPath = "./ExternalLogin/AssertionConsumerService";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -301,7 +301,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -324,7 +324,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<Object>> ExternalLoginAssertionConsumerServiceAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/ExternalLogin/AssertionConsumerService";
+            var localVarPath = "./ExternalLogin/AssertionConsumerService";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -360,7 +360,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -384,7 +384,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse<Object> ExternalLoginLoginWithHttpInfo (string returnUrl = null)
         {
 
-            var localVarPath = "/ExternalLogin/Login";
+            var localVarPath = "./ExternalLogin/Login";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -421,7 +421,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -446,7 +446,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<Object>> ExternalLoginLoginAsyncWithHttpInfo (string returnUrl = null)
         {
 
-            var localVarPath = "/ExternalLogin/Login";
+            var localVarPath = "./ExternalLogin/Login";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -483,7 +483,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -507,7 +507,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public ApiResponse<Object> ExternalLoginSingleLogoutServiceWithHttpInfo (string sAMLRequest = null)
         {
 
-            var localVarPath = "/ExternalLogin/SingleLogoutService";
+            var localVarPath = "./ExternalLogin/SingleLogoutService";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -544,7 +544,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -569,7 +569,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<Object>> ExternalLoginSingleLogoutServiceAsyncWithHttpInfo (string sAMLRequest = null)
         {
 
-            var localVarPath = "/ExternalLogin/SingleLogoutService";
+            var localVarPath = "./ExternalLogin/SingleLogoutService";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -606,7 +606,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 

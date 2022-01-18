@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Apteco.OrbitDashboardRefresher.APIClient.Client;
 using Apteco.OrbitDashboardRefresher.APIClient.Model;
 
@@ -475,7 +475,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (directoryPath == null)
                 throw new ApiException(400, "Missing required parameter 'directoryPath' when calling DirectoriesApi->DirectoriesDeleteDirectory");
 
-            var localVarPath = "/{dataViewName}/Directories/{systemName}/{directoryPath}";
+            var localVarPath = "./{dataViewName}/Directories/{systemName}/{directoryPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -520,7 +520,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -560,7 +560,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (directoryPath == null)
                 throw new ApiException(400, "Missing required parameter 'directoryPath' when calling DirectoriesApi->DirectoriesDeleteDirectory");
 
-            var localVarPath = "/{dataViewName}/Directories/{systemName}/{directoryPath}";
+            var localVarPath = "./{dataViewName}/Directories/{systemName}/{directoryPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -605,7 +605,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
@@ -659,7 +659,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (directoryPath == null)
                 throw new ApiException(400, "Missing required parameter 'directoryPath' when calling DirectoriesApi->DirectoriesGetFileEntries");
 
-            var localVarPath = "/{dataViewName}/Directories/{systemName}/{directoryPath}";
+            var localVarPath = "./{dataViewName}/Directories/{systemName}/{directoryPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -713,7 +713,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFileEntry>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFileEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFileEntry)));
         }
 
@@ -768,7 +768,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (directoryPath == null)
                 throw new ApiException(400, "Missing required parameter 'directoryPath' when calling DirectoriesApi->DirectoriesGetFileEntries");
 
-            var localVarPath = "/{dataViewName}/Directories/{systemName}/{directoryPath}";
+            var localVarPath = "./{dataViewName}/Directories/{systemName}/{directoryPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -822,7 +822,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFileEntry>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFileEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFileEntry)));
         }
 
@@ -858,7 +858,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling DirectoriesApi->DirectoriesGetFileSystems");
 
-            var localVarPath = "/{dataViewName}/Directories";
+            var localVarPath = "./{dataViewName}/Directories";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -906,7 +906,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFileSystemSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFileSystemSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFileSystemSummary)));
         }
 
@@ -943,7 +943,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (dataViewName == null)
                 throw new ApiException(400, "Missing required parameter 'dataViewName' when calling DirectoriesApi->DirectoriesGetFileSystems");
 
-            var localVarPath = "/{dataViewName}/Directories";
+            var localVarPath = "./{dataViewName}/Directories";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -991,7 +991,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFileSystemSummary>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFileSystemSummary) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFileSystemSummary)));
         }
 
@@ -1034,7 +1034,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DirectoriesApi->DirectoriesGetRootFileEntries");
 
-            var localVarPath = "/{dataViewName}/Directories/{systemName}";
+            var localVarPath = "./{dataViewName}/Directories/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1084,7 +1084,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFileEntry>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFileEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFileEntry)));
         }
 
@@ -1128,7 +1128,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (systemName == null)
                 throw new ApiException(400, "Missing required parameter 'systemName' when calling DirectoriesApi->DirectoriesGetRootFileEntries");
 
-            var localVarPath = "/{dataViewName}/Directories/{systemName}";
+            var localVarPath = "./{dataViewName}/Directories/{systemName}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1178,7 +1178,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<PagedResultsFileEntry>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (PagedResultsFileEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PagedResultsFileEntry)));
         }
 
@@ -1218,7 +1218,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (directoryPath == null)
                 throw new ApiException(400, "Missing required parameter 'directoryPath' when calling DirectoriesApi->DirectoriesUpsertDirectory");
 
-            var localVarPath = "/{dataViewName}/Directories/{systemName}/{directoryPath}";
+            var localVarPath = "./{dataViewName}/Directories/{systemName}/{directoryPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1265,7 +1265,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<FileEntry>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (FileEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileEntry)));
         }
 
@@ -1306,7 +1306,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             if (directoryPath == null)
                 throw new ApiException(400, "Missing required parameter 'directoryPath' when calling DirectoriesApi->DirectoriesUpsertDirectory");
 
-            var localVarPath = "/{dataViewName}/Directories/{systemName}/{directoryPath}";
+            var localVarPath = "./{dataViewName}/Directories/{systemName}/{directoryPath}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1353,7 +1353,7 @@ namespace Apteco.OrbitDashboardRefresher.APIClient.Api
             }
 
             return new ApiResponse<FileEntry>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (FileEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FileEntry)));
         }
 
