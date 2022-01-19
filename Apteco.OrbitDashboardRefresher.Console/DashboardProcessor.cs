@@ -14,20 +14,24 @@ namespace Apteco.OrbitDashboardRefresher.Console
   {
     private string apiUrl;
     private string dataViewName;
+    private string userIdentifier;
     private string username;
     private string password;
 
-    public DashboardProcessor(string apiUrl, string dataViewName, string username, string password)
+    public DashboardProcessor(string apiUrl, string dataViewName, string userIdentifier, string password)
     {
       this.apiUrl = apiUrl;
       this.dataViewName = dataViewName;
-      this.username = username;
+      this.userIdentifier = userIdentifier;
       this.password = password;
     }
     public async Task ProcessDashboards()
     {
       var loginSessionsApi = new SessionsApi(CreateConfiguration(null));
-      var sessionDetails = await loginSessionsApi.SessionsCreateSessionSimpleAsync(dataViewName, username, password);
+      var sessionDetails = await loginSessionsApi.SessionsCreateSessionSimpleAsync(dataViewName, userIdentifier, password);
+      username = sessionDetails?.User?.Username;
+      if (username == null)
+        throw new Exception($"Didn't get a username back when logging in to dataview {dataViewName} with username or password {userIdentifier}");
 
       var usersApi = new UsersApi(CreateConfiguration(sessionDetails));
       var dashboards = await usersApi.UsersGetUserDashboardsAsync(dataViewName, username, count: 1000);
