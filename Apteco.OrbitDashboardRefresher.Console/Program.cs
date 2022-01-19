@@ -15,7 +15,7 @@ namespace Apteco.OrbitDashboardRefresher.Console
       {
         System.Console.WriteLine($"OrbitDashboardRefresher version {typeof(DashboardProcessor).Assembly.GetName().Version}");
         System.Console.WriteLine();
-        System.Console.WriteLine("Usage: OrbitDashboardRefresher.exe <api URL> <data view name> <username> <password>");
+        System.Console.WriteLine("Usage: OrbitDashboardRefresher.exe <api URL> <data view name> <username or email address> <password>");
         return;
       }
 
